@@ -9,7 +9,11 @@
        url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
 }
+.focus-input {
+  -webkit-transform: translateY(-140%);
+  transform: translateY(-140%);
 
+}
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -392,7 +396,6 @@ nav.fixed.profile-nav {
   margin-left: 0;
 }
 .admin-form .row {
-  margin-left: -2em;
 }
 div.habbit.input-field label {
   margin-left: 3em;

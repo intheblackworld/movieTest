@@ -21,4 +21,7 @@ $().ready(function(){
 
       })
 
+  if (!$('input').val()) {
+    $('body').find('.default').addClass('focus-input');
+  }
 });
