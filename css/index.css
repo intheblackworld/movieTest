@@ -287,11 +287,28 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 .habbit {
   margin-top: 60px;
 }
+.waves-light {
+  border: none;
+}
 .input-field .waves-light {
   margin-left: 4rem;
   font-size: 20px;
+  border: none;
 }
-
+.button-tabs .join-tab {
+  display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+position: relative;
+overflow-x: auto;
+overflow-y: hidden;
+height: 48px;
+background-color: #fff;
+margin: 0 auto;
+width: 100%;
+white-space: nowrap;
+box-shadow: 0px 2px 5px gray;
+}
 
 form p {
   display: inline-block;
