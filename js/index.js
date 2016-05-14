@@ -1,12 +1,31 @@
-$('.profile-checkbox p').on("click",function(){
-  $(this).children('label').css({'color':'#26a69a'});
+function variable() {
+  var name = $('.name').value;
+  var nick_name = $('.nick_name').value;
+  var phone = $('.phone').value;
+  var hobby = $('#textarea1').value;
+}
+$(function(){
+     $('#save_value').click(function(){
+       var val = [];
+       $(':checkbox:checked').each(function(i){
+         val[i] = $(this).val();
+       });
+     });
+   });
+
+$('.profile-checkbox p input').on("click",function(){
+  if ($(this).siblings('label').hasClass('ischeck')) {
+
+      $(this).siblings('label').removeClass('ischeck');
+  }else{$(this).siblings('label').addClass('ischeck');}
+
 })
 
-function phone(e){
-var phone_num = document.querySelector('.test input').value;
-console.log(phone_num);
-alert(phone_num);
-return false;
+
+function phonetests(e){
+    alert(123);
+    var text =$('#phone_number').val();
+    console.log(text);
 }
 
 $().ready(function(){
@@ -18,4 +37,3 @@ $().ready(function(){
       })
 
 });
-

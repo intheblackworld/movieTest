@@ -899,8 +899,8 @@ nav .btn,
   top: 1px;
 }
 .nav-bar {
-  height: 55px;
-  max-height: 55px;
+  height: 65px;
+  max-height: 65px;
   line-height: 53px;
   border-bottom: 1px solid #ccc;
 }
@@ -914,7 +914,7 @@ nav .btn,
 }
 .logo {
   max-height: 65%;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 .logo-light {
   display: none;
@@ -1440,7 +1440,6 @@ nav .cart-overview a {
     top: 18px;
   }
   .mobile-toggle {
-    border-left: 1px solid #ccc !important;
     border-bottom: none !important;
   }
   .mobile-toggle i {
