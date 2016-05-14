@@ -108,6 +108,9 @@
   min-width: 20px;
   font-size: 18px;
 }
+.btn:hover, .btn:active,.btn:focus {
+  opacity: .9;
+}
 .pay-btn {
   border: 1px solid #AF4243;
   padding: 5px 40px;
