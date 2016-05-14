@@ -15,6 +15,15 @@
         <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
       <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+      <style type="text/css">
+
+        .content div {
+          display: none;
+        }
+        .content    .active {
+          display: block;
+        }
+      </style>
 </head>
 <body>
   <nav class="admin-nav">
@@ -37,13 +46,13 @@
         <div class="module-group left">
           <div class="module left">
             <ul class="menu sub-menu">
-              <li>
+              <li data-index="1">
                 <a href="#">會員資料</a>
               </li>
-              <li>
+              <li data-index="2">
                 <a href="#">約會資料</a>
               </li>
-              <li>
+              <li data-index="3">
                 <a href="#">更改會員權限</a>
               </li>
             </ul>
@@ -54,8 +63,17 @@
       </div>
     </nav>
 
-    <div style="position:absolute;top:100px;padding: 20px">
-      使用者：<h5 id="allusers"></h5>
+    <div style="position:absolute;top:100px;padding: 20px" class="content">
+      <div class="1">      
+        使用者：<h5 id="allusers"></h5>
+      </div>
+      <div class="2">
+          <h5 id="activity">test</h5>
+      </div> 
+      <div class="3">
+        root
+      </div>    
+
     </div>
 
       <script src="js/jquery.min.js"></script>

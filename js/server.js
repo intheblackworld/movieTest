@@ -5,7 +5,9 @@
 	var activitysRef = myFirebaseRef.child("activitys")
 
 
+
 		function register(){
+			variabes();
 			myFirebaseRef.authWithOAuthPopup("facebook", function(error, authData) {
 			  if (error) {
 			    console.log("Login Failed!", error);
