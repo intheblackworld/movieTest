@@ -3,6 +3,12 @@
 	var activitysRef = myFirebaseRef.child("activitys")
 
 	var allpeople = ""
+	inputText=prompt('請輸入密碼');
+	if (inputText != "k"){
+		   window.reload();
+        
+	}
+
 	usersRef.on("value",function(all){
 		
 		console.log(Object.keys(all.val())[0]);

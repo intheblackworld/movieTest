@@ -76,6 +76,42 @@
 
 			}
 
+			function update_user_information(){
+				console.log("finish");
+				 var name = $('.name').val();
+			  var nick_name = $('.nick_name').val();
+			  var phone = $('.phone').val();
+			  var hobby = $('#textarea1').val();
+			  $(function(){
+			     $('#save_value').click(function(){
+			       var val = [];
+			       $(':checkbox:checked').each(function(i){
+			         val[i] = $(this).val();
+			       });
+			     });
+			   });
+
+					myFirebaseRef.onAuth(function(authData){
+						if (authData){
+
+							var hopperRef = usersRef.child(authData.facebook.displayName);
+							hopperRef.update({
+										"full_name":name,
+										"nick_name":nick_name,
+							            // "age": age,
+							            "hobby": hobby,
+							            "phone":phone,
+							            "full_name": authData.facebook.displayName,
+							            "photo": authData.facebook.profileImageURL
+											}); 
+							};
+						});
+					console.log("finish");
+
+
+				}
+
+
 
 			function relogin(){
 
@@ -86,21 +122,31 @@
 				 	var age_show = "年齡";
 				 	var interests_show = "興趣";
 				    var hopperRef ="";
-
-					  x = document.getElementById("name");
+					  x = document.getElementById("user_name");
+					  x2 = document.getElementById("user_name2");
 					  x.innerHTML=authData.facebook.displayName;
-					  y = document.getElementById("img");
+					  x2.value=authData.facebook.displayName;
+					  y = document.getElementById("Pic_My");
 					  z = authData.facebook.profileImageURL;
 					  y.src = z
 
-					 hopperRef = usersRef.child(authData.uid);
 
-					 hopperRef.once("value",function(some){
-					    	 age_show = some.val().age;
-					    	 interests_show = some.val().interests;
-					    	  w = document.getElementById("interests_show");
-					  w.innerHTML = interests_show ;
-					  document.getElementById("age_show").innerHTML = age_show ; 
+
+					 hopperRef = usersRef.child(authData.facebook.displayName);
+
+					 hopperRef.on("value",function(some){
+					  //   	 age_show = some.val().age;
+					  //   	 interests_show = somethingme.val().interests;
+					  //   	  w = document.getElementById("interests_show");
+					  // w.innerHTML = interests_show ;
+					  // document.getElementById("age_show").innerHTML = age_show ; 
+
+
+					  $('.name').val(some.val().name);
+					  $('.nick_name').val(some.val().nick_name);
+					 $('.phone').val(some.val().phone);
+					 $('#textarea1').val(some.val().hobby);
+
 					    },function(errorObject){
 					    	console.log(errorObject);
 					    });
@@ -152,17 +198,17 @@
 			    return "";
 			}
 
-			// window.onload = function (){
+			window.onload = function (){
 				  
 
-			// 		aboutMe();
-			// 	    relogin();
-			// 	    how_many_join("2016_5_15");
-			// 	    how_many_join("2016_5_31");
-			// 	    how_many_join("2016_6_15");
-			// 	    how_many_join("2016_6_30");
+					// aboutMe();
+				    relogin();
+				    // how_many_join("2016_5_15");
+				    // how_many_join("2016_5_31");
+				    // how_many_join("2016_6_15");
+				    // how_many_join("2016_6_30");
 				
-			// }
+			}
 
 			function getName(authData) {
 			  switch(authData.provider) {

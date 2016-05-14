@@ -16,6 +16,8 @@
   <link href="css/font-georgia.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
 
 </head>
 
@@ -90,20 +92,22 @@
         <div class="row">
           <div class="col-sm-12" style="padding-left: 0px ; padding-right: 0px">
             <div class="image-tile outer-title text-center">
-              <img alt="Pic" src="img/test.jpg">
+              <img alt="Pic" src="img/test.jpg" id="Pic_My">
               <div class="title mb16">
-                <h5 class="uppercase mb0">Sally Marsh</h5>
+                <h5 class="uppercase mb0" id="user_name">Sally Marsh</h5>
                 <span>Creative Director</span>
               </div>
             </div>
             <div class="tabbed-content nopadding box-shadow admin-tab">
               <h4 class="uppercase">個人資料</h4>
               <div class="row">
-                <form class="col s12 admin-form">
+                <div class="col s12 admin-form">
                   <div class="row">
                     <div class="input-field col s12 m7">
                       <i class="material-icons prefix">account_circle</i>
-                      <input id="icon_prefix" type="text" class="validate name" value="1231sdf">
+
+                      <input id="user_name2" type="text" class="validate name">
+
                       <label for="icon_prefix">姓名</label>
                       <div class="form-comment">此資料僅顯示予與您確認身份用，不會透露給其他用戶。</div>
                     </div>
@@ -222,7 +226,7 @@
                       <label for="textarea1">你的興趣是？</label>
                     </div>
                     <div class="input-field col s12 m7">
-                      <button class="btn waves-effect waves-light" type="submit" name="action">確認修改
+                      <button class="btn waves-effect waves-light" type="submit" name="action" onclick="update_user_information()">確認修改
 
                       </button>
                     </div>
@@ -234,7 +238,7 @@
 
 
                   </div>
-                </form>
+                </div>
               </div>
             </div>
 
@@ -262,7 +266,9 @@
   <script src="js/scripts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   <script src="js/index.js"></script>
-
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+  <script src="js/server.js"></script>
+  
 </body>
 
 </html>
