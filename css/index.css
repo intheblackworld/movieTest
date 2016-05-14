@@ -191,7 +191,7 @@
   margin-bottom: 20px;
 }
 .pricing-table ul li {
-  font-size: 16px;
+  font-size: 14px;
 }
 .emphasis .people-count {
   color: white;
@@ -309,13 +309,25 @@ position: relative;
 overflow-x: auto;
 overflow-y: hidden;
 height: 48px;
-background-color: #fff;
+background-color: #F5F5F5;
 margin: 0 auto;
-width: 100%;
+width: 70% !important;
 white-space: nowrap;
 box-shadow: 0px 2px 5px gray;
 }
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
+.content.admin-content {
+  margin-top: 20px;
+
+}
+.btn.btn-white {
+  background-color: white;
+  color: #AF4243;
+}
 form p {
   display: inline-block;
   margin-left: 20px;
@@ -339,6 +351,9 @@ label span {
   border-left: none;
 }
 @media all and (max-width: 767px) {
+.pricing-table .lead {
+  font-size: 20px;
+}
 .cover .align-bottom  {
   bottom: 20px
 }
@@ -355,6 +370,7 @@ nav.fixed.profile-nav {
   width: 50%;
 
 }
+
 .admin-content, .admin-tab {
   width: 100%;
   float: right;
@@ -381,6 +397,12 @@ nav.fixed.profile-nav {
 div.habbit.input-field label {
   margin-left: 3em;
 }
-
+.button-tabs .join-tab {
+  width: 100% !important;
+  height: 150px;
+  display: block;
+  background-color: #F5F5F5;
+  margin-top: 40px;
+}
 
 }
