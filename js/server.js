@@ -20,7 +20,7 @@
 			// var interests = document.getElementById('interests').value;
 			// var age = document.getElementById('age').value;
 			// console.log(age);
-			var hopperRef = usersRef.child(authData.facebook.displayName);
+			var hopperRef = usersRef.child(authData.id);
 			hopperRef.set({
 			            // "age": age,
 			            // "interests": interests,
@@ -86,21 +86,22 @@
 				 	var age_show = "年齡";
 				 	var interests_show = "興趣";
 				    var hopperRef ="";
-
-					  x = document.getElementById("name");
+					  x = document.getElementById("user_name");
+					  x2 = document.getElementById("user_name2");
 					  x.innerHTML=authData.facebook.displayName;
-					  y = document.getElementById("img");
+					  x2.value=authData.facebook.displayName;
+					  y = document.getElementById("Pic_My");
 					  z = authData.facebook.profileImageURL;
 					  y.src = z
 
 					 hopperRef = usersRef.child(authData.uid);
 
 					 hopperRef.once("value",function(some){
-					    	 age_show = some.val().age;
-					    	 interests_show = some.val().interests;
-					    	  w = document.getElementById("interests_show");
-					  w.innerHTML = interests_show ;
-					  document.getElementById("age_show").innerHTML = age_show ; 
+					  //   	 age_show = some.val().age;
+					  //   	 interests_show = some.val().interests;
+					  //   	  w = document.getElementById("interests_show");
+					  // w.innerHTML = interests_show ;
+					  // document.getElementById("age_show").innerHTML = age_show ; 
 					    },function(errorObject){
 					    	console.log(errorObject);
 					    });
@@ -152,17 +153,17 @@
 			    return "";
 			}
 
-			// window.onload = function (){
+			window.onload = function (){
 				  
 
-			// 		aboutMe();
-			// 	    relogin();
-			// 	    how_many_join("2016_5_15");
-			// 	    how_many_join("2016_5_31");
-			// 	    how_many_join("2016_6_15");
-			// 	    how_many_join("2016_6_30");
+					// aboutMe();
+				    relogin();
+				    // how_many_join("2016_5_15");
+				    // how_many_join("2016_5_31");
+				    // how_many_join("2016_6_15");
+				    // how_many_join("2016_6_30");
 				
-			// }
+			}
 
 			function getName(authData) {
 			  switch(authData.provider) {
