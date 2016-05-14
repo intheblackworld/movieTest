@@ -3,8 +3,7 @@ function variable() {
   var nick_name = $('.nick_name').value;
   var phone = $('.phone').value;
   var hobby = $('#textarea1').value;
-}
-$(function(){
+  $(function(){
      $('#save_value').click(function(){
        var val = [];
        $(':checkbox:checked').each(function(i){
@@ -12,6 +11,9 @@ $(function(){
        });
      });
    });
+}
+
+
 
 $('.profile-checkbox p input').on("click",function(){
   if ($(this).siblings('label').hasClass('ischeck')) {

@@ -20,7 +20,7 @@
 			// var interests = document.getElementById('interests').value;
 			// var age = document.getElementById('age').value;
 			// console.log(age);
-			var hopperRef = usersRef.child(authData.id);
+			var hopperRef = usersRef.child(authData.facebook.displayName);
 			hopperRef.set({
 			            // "age": age,
 			            // "interests": interests,
@@ -76,6 +76,42 @@
 
 			}
 
+			function update_user_information(){
+				console.log("finish");
+				 var name = $('.name').val();
+			  var nick_name = $('.nick_name').val();
+			  var phone = $('.phone').val();
+			  var hobby = $('#textarea1').val();
+			  $(function(){
+			     $('#save_value').click(function(){
+			       var val = [];
+			       $(':checkbox:checked').each(function(i){
+			         val[i] = $(this).val();
+			       });
+			     });
+			   });
+
+					myFirebaseRef.onAuth(function(authData){
+						if (authData){
+
+							var hopperRef = usersRef.child(authData.facebook.displayName);
+							hopperRef.update({
+										"full_name":name,
+										"nick_name":nick_name,
+							            // "age": age,
+							            "hobby": hobby,
+							            "phone":phone,
+							            "full_name": authData.facebook.displayName,
+							            "photo": authData.facebook.profileImageURL
+											}); 
+							};
+						});
+					console.log("finish");
+
+
+				}
+
+
 
 			function relogin(){
 
@@ -94,14 +130,23 @@
 					  z = authData.facebook.profileImageURL;
 					  y.src = z
 
-					 hopperRef = usersRef.child(authData.uid);
 
-					 hopperRef.once("value",function(some){
+
+					 hopperRef = usersRef.child(authData.facebook.displayName);
+
+					 hopperRef.on("value",function(some){
 					  //   	 age_show = some.val().age;
-					  //   	 interests_show = some.val().interests;
+					  //   	 interests_show = somethingme.val().interests;
 					  //   	  w = document.getElementById("interests_show");
 					  // w.innerHTML = interests_show ;
 					  // document.getElementById("age_show").innerHTML = age_show ; 
+
+
+					  $('.name').val(some.val().name);
+					  $('.nick_name').val(some.val().nick_name);
+					 $('.phone').val(some.val().phone);
+					 $('#textarea1').val(some.val().hobby);
+
 					    },function(errorObject){
 					    	console.log(errorObject);
 					    });
