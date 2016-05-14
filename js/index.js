@@ -15,3 +15,14 @@ function phonetests(e){
     var text =$('#phone_number').val();
     console.log(text);
 }
+
+$().ready(function(){
+	$('.menu li').on('click',function(){
+        var index = $(this).data('index');
+        $('.'+index).addClass('active');
+        $('.'+index).siblings().removeClass('active');
+
+      })
+
+});
+
