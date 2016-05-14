@@ -15,8 +15,12 @@
         <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+                <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
     </head>
     <body>
+
+
       <div class="col-sm-4 text-center">
                             <div class="modal-container">
                                 <a class="btn btn-lg btn-modal" href="#" modal-link="2"><i class="ti-layout-menu-v"></i> Signup Form</a>
@@ -26,8 +30,9 @@
                                         Stay in the loop with our awesome newsletter. We'll send you monthly<br> updates of our latest and greatest tools and resources.
                                     </p>
                                     <form class="test" >
-                                        <input type="tel" name="usrtel" value= "0922022532">
-                                        <button onclick="phone()" class="">Keep Me Informed</button>
+                                        <input type="tel" name="usrtel" id="phone_number">
+                                        <button onclick="return phone()" class="">Keep Me Informed</button>
+                                        <button onclick="return register();">fb登入完成註冊</button>
                                     </form>
                                 </div>
                             </div><!--end modal-->
@@ -299,5 +304,8 @@
         <script src="dist/sweetalert.min.js"></script>
         <script src="js/scripts.js"></script>
         <script src="js/index.js"></script>
+        <script src="js/server.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
     </body>
 </html>

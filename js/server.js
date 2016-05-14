@@ -1,3 +1,4 @@
+
 	
 	var myFirebaseRef = new Firebase("https://letusmovie.firebaseio.com/");
 	var usersRef = myFirebaseRef.child("users");
@@ -12,18 +13,23 @@
 			    console.log("Authenticated successfully with payload:", authData);
 			  }
 
-			var interests = document.getElementById('interests').value;
-			var age = document.getElementById('age').value;
-			console.log(age);
+			var phone_number = document.getElementById('phone_number').value;
+
+			// var interests = document.getElementById('interests').value;
+			// var age = document.getElementById('age').value;
+			// console.log(age);
 			var hopperRef = usersRef.child(authData.facebook.displayName);
 			hopperRef.set({
-			            "age": age,
-			            "interests": interests,
+			            // "age": age,
+			            // "interests": interests,
+			            "phone_number":phone_number,
 			            "full_name": authData.facebook.displayName,
 			            "photo": authData.facebook.profileImageURL
 							}); 
 			});
+			return false;
 		}
+
 
 		
 
@@ -144,17 +150,17 @@
 			    return "";
 			}
 
-			window.onload = function (){
+			// window.onload = function (){
 				  
 
-					aboutMe();
-				    relogin();
-				    how_many_join("2016_5_15");
-				    how_many_join("2016_5_31");
-				    how_many_join("2016_6_15");
-				    how_many_join("2016_6_30");
+			// 		aboutMe();
+			// 	    relogin();
+			// 	    how_many_join("2016_5_15");
+			// 	    how_many_join("2016_5_31");
+			// 	    how_many_join("2016_6_15");
+			// 	    how_many_join("2016_6_30");
 				
-			}
+			// }
 
 			function getName(authData) {
 			  switch(authData.provider) {
