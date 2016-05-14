@@ -1,4 +1,4 @@
-	
+var test = "qahgbjjkn";	
 	var myFirebaseRef = new Firebase("https://letusmovie.firebaseio.com/");
 	var usersRef = myFirebaseRef.child("users");
 	var activitysRef = myFirebaseRef.child("activitys")
