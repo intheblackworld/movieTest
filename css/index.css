@@ -326,6 +326,10 @@ nav.transparent.fixed.outOfSight {
 h4.uppercase {
   margin: 0px;
 }
+label span {
+  font-size: 12px;
+  color: #666;
+}
 @media all and (max-width: 767px) {
 .cover .align-bottom  {
   bottom: 20px
