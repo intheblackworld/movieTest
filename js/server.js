@@ -4,7 +4,26 @@
 	var usersRef = myFirebaseRef.child("users");
 	var activitysRef = myFirebaseRef.child("activitys")
 
+		function signUp(){
 
+			myFirebaseRef.authWithOAuthPopup("facebook", function(error, authData) {
+			  if (error) {
+			    console.log("Login Failed!", error);
+			  } else {
+			    console.log("Authenticated successfully with payload:", authData);
+			  }
+
+			  var hopperRef = usersRef.child(authData.facebook.displayName);
+			hopperRef.update({
+			            // "age": age,
+			            // "interests": interests,
+			            // "phone_number":phone_number,
+			            "full_name": authData.facebook.displayName,
+			            "photo": authData.facebook.profileImageURL
+							}); 
+			});
+
+		}
 
 		function register(){
 			variabes();
@@ -21,7 +40,7 @@
 			// var age = document.getElementById('age').value;
 			// console.log(age);
 			var hopperRef = usersRef.child(authData.facebook.displayName);
-			hopperRef.set({
+			hopperRef.update({
 			            // "age": age,
 			            // "interests": interests,
 			            "phone_number":phone_number,
@@ -114,7 +133,7 @@
 
 
 			function relogin(){
-
+			
 			myFirebaseRef.onAuth(function(authData){
 				if (authData){
 					console.log("User " + authData.uid + " is logged in with " + authData.provider);					
@@ -122,10 +141,14 @@
 				 	var age_show = "年齡";
 				 	var interests_show = "興趣";
 				    var hopperRef ="";
+				    // if (!document.getElementById("user_name")){
 					  x = document.getElementById("user_name");
-					  x2 = document.getElementById("user_name2");
-					  x.innerHTML=authData.facebook.displayName;
-					  x2.value=authData.facebook.displayName;
+					  x.text=authData.facebook.displayName;
+					// };
+					  // x2 = document.getElementById("user_name2");
+
+					  
+					  // x2.value=authData.facebook.displayName;
 					  y = document.getElementById("Pic_My");
 					  z = authData.facebook.profileImageURL;
 					  y.src = z
@@ -142,7 +165,7 @@
 					  // document.getElementById("age_show").innerHTML = age_show ; 
 
 
-					  $('.name').val(some.val().name);
+					  $('.name').val(some.val().full_name);
 					  $('.nick_name').val(some.val().nick_name);
 					 $('.phone').val(some.val().phone);
 					 $('#textarea1').val(some.val().hobby);

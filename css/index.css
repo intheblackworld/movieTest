@@ -350,6 +350,15 @@ label span {
 .module.widget-handle {
   border-left: none;
 }
+.menu li img {
+  border-radius: 999px;
+  width: 40px;
+  height: auto;  
+}
+.menu .avatar {
+  margin-right: 13px;
+}
+
 @media all and (max-width: 767px) {
 .pricing-table .lead {
   font-size: 20px;
