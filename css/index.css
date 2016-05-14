@@ -205,7 +205,10 @@
 }
 h1, h2, h3, h4, h5, p {
   font-style: normal;
-  font-family: Helvetica, Tahoma, Arial, “Microsoft YaHei”, “微軟雅黑”, SimSun, “宋體”, STXihei, “華文細黑”, Heiti, “黑體”, sans-serif;
+  font-family: Helvetica, Tahoma, Arial, “Microsoft YaHei”, “微軟正黑”, SimSun, “宋體”, STXihei, “華文細黑”, Heiti, “黑體”, sans-serif;
+}
+.profile-checkbox .ischeck {
+  color:#26a69a;
 }
 .pricing-table.boxed, .pricing-table.emphasis {
   box-shadow: 2px 2px 10px gray;
@@ -213,13 +216,15 @@ h1, h2, h3, h4, h5, p {
 section, footer {
   padding: 50px 0px;
 }
-
+.profile-nav .nav-bar  {
+  height: 55px;
+}
 nav.transparent.fixed {
-  margin-top: 55px;
+  margin-top: 65px;
   background-color: #565A5C;
 }
 .profile-nav {
-  margin-top: 55px;
+  margin-top: 65px;
   background-color: #565A5C;
 }
 .profile-nav .nav-bar {
@@ -330,9 +335,15 @@ label span {
   font-size: 12px;
   color: #666;
 }
+.module.widget-handle {
+  border-left: none;
+}
 @media all and (max-width: 767px) {
 .cover .align-bottom  {
   bottom: 20px
+}
+nav.fixed.profile-nav {
+  position: fixed;
 }
 .image-tile {
   width: 100%;
@@ -351,4 +362,25 @@ label span {
 .input-field .prefix ~ label {
   margin: 0;
 }
+.input-field .waves-light {
+  margin-left: 0;
+}
+.profile-data .material-icons {
+  left: .4em;
+}
+.profile-data.input-field .person {
+  margin-left: 3em;
+}
+.profile-checkbox {
+  text-align: left;
+  margin-left: 0;
+}
+.admin-form .row {
+  margin-left: -2em;
+}
+div.habbit.input-field label {
+  margin-left: 3em;
+}
+
+
 }

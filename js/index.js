@@ -1,13 +1,17 @@
 
 
 
-$('.profile-checkbox p').on("click",function(){
-  $(this).children('label').css({'color':'#26a69a'});
+$('.profile-checkbox p input').on("click",function(){
+  if ($(this).siblings('label').hasClass('ischeck')) {
+
+      $(this).siblings('label').removeClass('ischeck');
+  }else{$(this).siblings('label').addClass('ischeck');}
+
 })
 
 
 function phonetests(e){
-  alert(123);
-  var text =$('#phone_number').val();
-  alert(text);
+    alert(123);
+    var text =$('#phone_number').val();
+    console.log(text);
 }
