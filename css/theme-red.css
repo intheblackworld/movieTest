@@ -1511,7 +1511,9 @@ nav.transparent .nav-bar {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 nav.transparent .module.widget-handle {
-  border-left: 1px solid rgba(255, 255, 255, 0.2) !important;
+  /*border-left: 1px solid rgba(255, 255, 255, 0.2) !important;*/
+  border: none;
+  border-left: none;
 }
 nav.transparent .menu > li > a,
 nav.transparent .module.widget-handle i {
@@ -4908,9 +4910,9 @@ section + .portfolio-pullup {
   }
 }
 .iframe-modal {
-  width: 90%;
+  width: 50%;
   height: 90%;
-  max-width: 90%;
+  max-width: 50%;
   padding: 0;
 }
 .iframe-modal .close-modal {
