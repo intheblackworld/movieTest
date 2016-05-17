@@ -15,6 +15,7 @@
   <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
   <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 
 </head>
@@ -91,23 +92,13 @@
         <!--end of row-->
       </div>
       <!--end of container-->
-      <div class="modal-container">
+
         <div class="align-bottom text-center">
-          <a href="#" onclick='' class="btn-modal btn btn-lg bg-red mb0 waves-effect waves-light modal-trigger">馬上報名</a >
+          <a href="#" onclick='alert_phone()' class="alert_phone btn btn-lg bg-red mb0">馬上報名</a >
                 </div>
 
 
-                                <div class="foundry_modal text-center">
-                                    <h3 class="uppercase">電話號碼身份認證</h3>
-                                    <span>本資訊作為身份認證使用，不會公佈</span>
-    <form class="form-email" success-redirect="http://mediumra.re/thanks.html" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
-        <input type="text" class="validate-required" name="name" placeholder="Your Name">
-        <input type="text" class="validate-required validate-email" name="email" placeholder="Email Address">
-        <textarea class="validate-required" name="message" rows="4" placeholder="Message"></textarea>
-        <input type="submit" value="Send Message">
-    </form>
-                                </div>
-                </div>
+
             </section>
             <section class="image-square right">
                 <div class="col-md-6 image">
@@ -313,7 +304,7 @@
   <script src="js/countdown.min.js"></script>
   <script src="js/smooth-scroll.min.js"></script>
   <script src="js/parallax.js"></script>
-  <script src="dist/sweetalert.min.js"></script>
+  <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
   <script src="js/scripts.js"></script>
   <script src="js/index.js"></script>
   <script src="js/server.js"></script>
