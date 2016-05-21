@@ -465,6 +465,23 @@ input.check_number {
 input.check_number:hover {
   box-shadow: 2px 2px 5px #333;
 }
+
+a.btn, a.btn-large {
+  background-color: transparent;
+  color: #AF4243;
+}
+a.btn-filled {
+  background-color: #AF4243;
+  color: white;
+}
+.hide-text {
+  display: none;
+}
+.all-pay img{
+  width: 128px;
+height: 40px;
+margin-top: -25px;
+}
 @media all and (max-width: 767px) {
 .pricing-table .lead {
   font-size: 20px;

@@ -28,6 +28,17 @@ $().ready(function(){
 
   $('.default').filter(function() { return $(this).val() == ""; }).parent('.input-field').find('label').addClass('focus-input');
 
+  $('.pay-btn, .pay').click(function(result) {
+    swal({
+      title: '請選擇付款方式',
+      html: '<a class="waves-effect waves-light btn btn-filled bank">銀行轉帳</a>'+
+            '<a class="all-pay" href="https://qr.allpay.com.tw/yWn8q"><img src="https://payment.allpay.com.tw/Content/themes/WebStyle201404/images/allpay.png" /></a>'+
+            '<div class="hide-text"><input type="text" placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料"></div>',
+    })
+    $('.swal2-confirm').css({'display':'none' });
+    $('.swal2-modal').css({'top':'70%','height': '60%'});
+    $('.bank').click(function(){$('.hide-text').fadeIn(300);})
+  })
 
 
   $('.alert_phone').click(function(result){
