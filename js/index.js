@@ -34,10 +34,15 @@ $().ready(function(){
 // <input id="activation_phone_verification_code_0" type="text" pattern="[0-9]*" class="text-center input-large phone-verification__code-input" placeholder="XXXX" data-reactid=".6.0.$=1$modal.0.0.0.0.1.$=1$verifications.1.$=1$phone_verified.$phone-verification-panel.3.0.1">
       swal({
       title: '使用電話認證',
+      text: '註冊即表示同意Let`s Movie <服務條款，支付服務條款，隱私政策。',
       html:
         '<input id="swal-input1" class="swal2-input" type="tel" placeholder="電話號碼" autofocus maxlength="10">' +
         '<input id="swal-input2" class="swal2-input" type="password" placeholder="密碼" >'+
-        '<input id="swal-input2" class="swal2-input" type="text" placeholder="輸入驗證碼" maxlength="6">',
+        '<input id="swal-input2" class="swal2-input" type="text" placeholder="輸入驗證碼" maxlength="6">'+
+        '<input type="submit" class="check_number" value="發送驗證碼">'+
+        '<p>註冊即表示同意Let`s Movie <a href="#">服務條款</a>，<a href="#">支付服務條款</a>，<a href="#">隱私政策</a>。</p>'+
+        '<p class="down">已是會員？</p><a class="down" href="">登入</a>',
+        confirmButtonText: '註冊',
       preConfirm: function() {
         return new Promise(function(resolve) {
           if (result) {
@@ -53,10 +58,10 @@ $().ready(function(){
         swal({
           title: '填寫個人資料',
           html:
-            '<input id="swal-input3" class="swal2-input" type="text" placeholder="暱稱" autofocus require>'+
+            '<label>暱稱</label><input id="swal-input3" class="swal2-input" type="text" placeholder="暱稱" autofocus require>'+
             '<select> <option value="男生">男生</option> <option value="女生">女生</option> </select>'+
             '<input id="swal-input5" class="swal2-input" type="text" placeholder="年齡" autofocus require>'+
-            '<input id="swal-input6" class="swal2-input" type="text" placeholder="職業" autofocus require>'+
+            '<select> <option value="男生">男生</option> <option value="女生">女生</option> </select>'+
             '<input id="swal-input7" class="swal2-input" type="text" placeholder="興趣" autofocus require>'+
             '<input id="swal-input8" class="swal2-input" type="text" placeholder="暱稱" autofocus require>',
             preConfirm: function() {

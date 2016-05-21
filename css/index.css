@@ -41,9 +41,9 @@
 }
 
 .main-container section .align-bottom .bg-red {
-  background-color: #AF4243;
+  background-color: #b6172f;
   font-size: 24px;
-  border-color: #AF4243;
+  border-color: #b6172f;
 }
 .main-container section .align-bottom .bg-red:hover {
   border-color: white;
@@ -379,7 +379,7 @@ input:-moz-placeholder { font-size: 1.5rem;}
 #swal-input9,#swal-input10,#swal-input11 {
   border: 1px solid #d7d7d7;
   border-radius: 0px;
-  height: 43px;
+  height: 50px;
   padding: 0 12px;
 }
 .swal2-modal h2 {
@@ -419,16 +419,52 @@ select:active, select:focus, select:hover {
 
 input.swal2-input {
   margin: 0 0 10px 0;
+  height: 50px;
 }
 .swal2-modal button.styled {
-  border-left-color: rgb(48, 133, 214);
-  border-right-color: rgb(48, 133, 214);
-  background-color: rgb(48, 133, 214);
+  border-left-color: #b6172f !important;
+  border-right-color: #b6172f !important;
+  background-color: #b6172f !important;
+  border-radius: 0;
+  transition: all .3s;
+  width: 100%;
+  margin: 0;
+  font-size: 2rem;
+  height: 70px;
+}
+.swal2-modal button.styled:hover,.swal2-modal button.styled:active{
+  border-radius: 0;
+  box-shadow: 2px 2px 5px #333;
+  opacity: .9;
 }
 .swal2-content {
   margin: 20px 0 0 0 ;
+  text-align: left;
+}
+.swal2-content p {
+  font-size: 14px;
+}
+.down {
+  position: absolute;
+  bottom: 20px;
 }
 
+input.check_number {
+  width: 100px;
+    height: 30px;
+    line-height: 27px;
+    font-size: 14px;
+    margin-left: 70%;
+    position: absolute;
+    right: 10px;
+    margin-top: 10px;
+    border-color: #b6172f;
+    background-color: #b6172f;
+    transition: all .1s;
+}
+input.check_number:hover {
+  box-shadow: 2px 2px 5px #333;
+}
 @media all and (max-width: 767px) {
 .pricing-table .lead {
   font-size: 20px;
