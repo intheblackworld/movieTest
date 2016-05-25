@@ -684,7 +684,7 @@ footer.bg-dark li,
   z-index: 1;
   background: #292929;
   background-size: cover !important;
-  background-position: 50% 50% !important;
+  background-position: 50% 50%;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -703,7 +703,7 @@ footer.bg-dark li,
 .parallax > .background-image-holder,
 .parallax .slides li > .background-image-holder {
   height: 100vh;
-  top: -50vh;
+  top: -311vh;
   transition: all 0s ease !important;
   transition: opacity 0.3s ease !important;
   -webkit-transform-style: preserve-3d;

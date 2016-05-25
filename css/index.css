@@ -482,6 +482,12 @@ a.btn-filled {
 height: 40px;
 margin-top: -25px;
 }
+.slogan {
+  letter-spacing: 15px;
+}
+div.bg4 {
+  background-position: 20% 50%;
+}
 @media all and (max-width: 767px) {
 .pricing-table .lead {
   font-size: 20px;
