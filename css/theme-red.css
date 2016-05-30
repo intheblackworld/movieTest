@@ -353,7 +353,7 @@ h6,
     line-height: 40px;
   }
   h3 {
-    font-size: 24px;
+    font-size: 28px;
     line-height: 32px;
   }
   h4 {
@@ -415,20 +415,20 @@ span {
   font-weight: 400;
 }
 p.lead {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 20px;
 }
 .sub {
   font-size: 12px;
 }
 @media all and (max-width: 767px) {
   p.lead {
-    font-size: 13px;
+    font-size: 18px;
     line-height: 24px;
   }
   p {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 a,
@@ -703,7 +703,7 @@ footer.bg-dark li,
 .parallax > .background-image-holder,
 .parallax .slides li > .background-image-holder {
   height: 100vh;
-  top: -311vh;
+  top: -250vh;
   transition: all 0s ease !important;
   transition: opacity 0.3s ease !important;
   -webkit-transform-style: preserve-3d;
@@ -800,7 +800,7 @@ footer.bg-dark li,
 .image-bg .btn:hover,
 .image-bg .btn:visited:hover {
   background: #fff;
-  color: #222;
+  color: #AF4243;
 }
 .image-bg .btn.btn-filled,
 .image-bg .btn-filled:visited {
@@ -4427,7 +4427,7 @@ video {
   height: 100%;
 }
 .image-square > .content {
-  padding: 0 10%;
+  padding: 0 7%;
   top: 50%;
   transform: translate3d(0, -50%, 0);
   -webkit-transform: translate3d(0, -50%, 0);
@@ -5021,11 +5021,6 @@ footer.bg-dark a {
   color: #222;
 }
 .back-to-top {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
 }
 .back-to-top:hover {
   opacity: 1;

@@ -209,7 +209,7 @@
 }
 h1, h2, h3, h4, h5, p {
   font-style: normal;
-  font-family: Helvetica, Tahoma, Arial, “Microsoft YaHei”, “微軟正黑”, SimSun, “宋體”, STXihei, “華文細黑”, Heiti, “黑體”, sans-serif;
+  font-family:Verdana, “Microsoft YaHei”, “微軟正黑”, SimSun, “宋體”, STXihei, “華文細黑”, Heiti, “黑體”, sans-serif,Helvetica, Tahoma, Arial;
 }
 .profile-checkbox .ischeck {
   color:#26a69a;
@@ -280,9 +280,15 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 .profile-checkbox {
   margin: 5rem 0 0 3rem;
 }
-[type="checkbox"]+label {
-  font-size: 1.7rem;
+.profile-radio {
+  margin: 5rem 0 0 3rem;
+}
+[type="checkbox"]+label,[type="radio"]+label {
+  font-size: 1.7rem !important;
   color: #666;
+}
+[type="checkbox"]:checked+label {
+  color: #26a69a;
 }
 .profile-checkbox .other {
   font-size: 18px;
@@ -320,8 +326,8 @@ white-space: nowrap;
 box-shadow: 0px 2px 5px gray;
 }
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .content.admin-content {
@@ -446,7 +452,7 @@ input.swal2-input {
 }
 .down {
   position: absolute;
-  bottom: 20px;
+  bottom: -50px;
 }
 
 input.check_number {
@@ -487,6 +493,23 @@ margin-top: -25px;
 }
 div.bg4 {
   background-position: 20% 50%;
+}
+h1,h2,h3 {
+  font-weight: 700;
+  letter-spacing: 15px;
+}
+.swal2-content p.checktime {
+  display: inline-block;
+  width: 50%;
+}
+.alert strong span {
+  font-size: .7em;
+}
+.footer-1 {
+  padding: 20px 20px;
+}
+.footer-logo {
+  margin: 0px;
 }
 @media all and (max-width: 767px) {
 .pricing-table .lead {
@@ -540,6 +563,9 @@ div.habbit.input-field label {
   display: block;
   background-color: #F5F5F5;
   margin-top: 40px;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  padding: 0 30px 0 30px;
 }
 
 }
