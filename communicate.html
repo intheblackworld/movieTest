@@ -32,4 +32,26 @@ function signUp(){
                 });
                 }
 
+
+  				var auth = firebase.auth();
+                var name;
+                //以下就是自動登入並判斷是否登入
+                auth.onAuthStateChanged(function(user) {
+                  if (user) {
+
+                    var uid = user.uid;
+                    var name = user.displayName;
+                    var photoURL = user.photoURL;
+
+                    console.log("uid :"+uid+" User Login");
+                    console.log("name:"+name);
+                    console.log("photo網址":photoURL);
+                      
+                  } else {
+
+                      console.log("沒登入");
+                    // User logged out
+                  }
+                });
+
 </script>
