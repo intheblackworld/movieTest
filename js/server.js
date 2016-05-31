@@ -8,40 +8,54 @@ var config = {
  firebase.initializeApp(config);
 
 function signUp(){
-									var auth = firebase.auth();
-									var provider = new firebase.auth.FacebookAuthProvider();
-									auth.signInWithPopup(provider).then(function(result) {
-									var uid = result.user.uid;
-									var displayName = result.user.displayName;
-									var photoURL = result.user.photoURL;
+		var auth = firebase.auth();
+		var provider = new firebase.auth.FacebookAuthProvider();
+		auth.signInWithPopup(provider).then(function(result) {
+		var uid = result.user.uid;
+		var displayName = result.user.displayName;
+		var photoURL = result.user.photoURL;
 
 
-										firebase.database().ref('users/'+uid).update({
-																		 uid: uid,
-																		displayName: displayName,
-																		photoURL: photoURL
+			firebase.database().ref('users/'+uid).update({
+											 uid: uid,
+											displayName: displayName,
+											photoURL: photoURL
 
-											});
-								}).catch(function(error) {
-									// An error occurred
-								});
-								}
-							// 臉書判斷是否登入
-								var auth = firebase.auth();
-											var name;
-											auth.onAuthStateChanged(function(user) {
-												if (user) {
-													var uid = user.uid;
-													var name = user.displayName;
-													var photoURL = user.photoURL;
+				});
+	}).catch(function(error) {
+		// An error occurred
+	});
+	}
+// 臉書判斷是否登入
+var auth = firebase.auth();
+			var name;
+			auth.onAuthStateChanged(function(user) {
+				if (user) {
+					var uid = user.uid;
+					var name = user.displayName;
+					var photoURL = user.photoURL;
+					console.log("uid :"+uid+" User Login");
+					console.log("name:"+name);
+					console.log("photo網址"+photoURL);
+					//index.html
+					$('.avatar, .user_name, .check_date, .logout').show();
+					$('.fb_login').hide();
+					$('#pic_my').attr("src",photoURL);
+					$('.user_name p').text(name+ "，歡迎回來");
+					//admin_profile
+				} else {
+						$('.fb_login').show();
+						console.log("沒登入");
+					// User logged out
+				}
+			});
 
-													console.log("uid :"+uid+" User Login");
-													console.log("name:"+name);
-													console.log("photo網址"+photoURL);
+			function signOut(){
 
-												} else {
+			    	firebase.auth().signOut().then(function() {
+			   // Sign-out successful.
+			 }, function(error) {
+			   // An error happened.
+			 });
 
-														console.log("沒登入");
-													// User logged out
-												}
-											});
+	    }
