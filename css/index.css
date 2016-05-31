@@ -511,6 +511,23 @@ h1,h2,h3 {
 .footer-logo {
   margin: 0px;
 }
+button {
+  background-color: red;
+  color: white;
+  transition:
+}
+button:hover,button:focus {
+  background-color: white;
+  color: red;
+}
+a.write-data {
+  background-color: #d88519;
+  color: white;
+}
+a.write-data:hover {
+  background-color: #d88519;
+  color: white;
+}
 @media all and (max-width: 767px) {
 .pricing-table .lead {
   font-size: 20px;
