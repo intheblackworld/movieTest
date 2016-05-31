@@ -19,12 +19,13 @@ function signUp(){
                   var uid = result.user.uid;
                   var displayName = result.user.displayName;
                   var photoURL = result.user.photoURL;
-       
+       			  var email = result.user.email;
 
                     firebase.database().ref('users/'+uid).update({
                                      uid: uid,
                                     displayName: displayName,
-                                    photoURL: photoURL
+                                    photoURL: photoURL,
+                                    email:email
                                    
                       });
                 }).catch(function(error) {
