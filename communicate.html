@@ -45,7 +45,7 @@ function signUp(){
 
                     console.log("uid :"+uid+" User Login");
                     console.log("name:"+name);
-                    console.log("photo網址":photoURL);
+                    console.log("photo網址:"+photoURL);
                       
                   } else {
 
@@ -53,5 +53,15 @@ function signUp(){
                     // User logged out
                   }
                 });
+
+   function signOut(){
+
+   	firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}, function(error) {
+  // An error happened.
+});
+
+   }
 
 </script>
