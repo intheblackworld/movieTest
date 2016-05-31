@@ -528,6 +528,27 @@ a.write-data:hover {
   background-color: #d88519;
   color: white;
 }
+.avatar, .user_name, .check_date, .fb_login, .logout {
+  display: none;
+}
+.check_date a:hover, .fb_login a:hover {
+  border-bottom: 1px solid white;
+  transition: all .3s
+}
+.check_date a, .fb_login a{
+  height: 44px;
+}
+.module {
+  padding: 0 20px;
+}
+.menu li p {
+  font-size: 18px;
+  color: white;
+  font-weight: 700;
+}
+nav.transparent .menu > .logout > a {
+  color: #888;
+}
 @media all and (max-width: 767px) {
 .pricing-table .lead {
   font-size: 20px;
