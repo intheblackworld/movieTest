@@ -7,7 +7,6 @@
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
-  <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
   <link href="css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/ytplayer.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/theme-red.css" rel="stylesheet" type="text/css" media="all" />
@@ -16,7 +15,8 @@
   <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
-  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
 
 </head>
 
@@ -266,30 +266,9 @@
   <script src="js/scripts.js"></script>
   <script src="js/index.js"></script>
   <script src="js/server.js"></script>
-  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
-  <script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
 
-  function signUp(){
-                    var auth = firebase.auth();
-                    var provider = new firebase.auth.FacebookAuthProvider();
-                    auth.signInWithPopup(provider).then(function(result) {
-                    var uid = result.user.uid;
-                    var displayName = result.user.displayName;
-                    var photoURL = result.user.photoURL;
-
-
-                      firebase.database().ref('users/'+uid).update({
-                                       uid: uid,
-                                      displayName: displayName,
-                                      photoURL: photoURL
-
-                        });
-                  }).catch(function(error) {
-                    // An error occurred
-                  });
-                  }
-
-  </script>
 </body>
 
 </html>
