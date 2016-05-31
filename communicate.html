@@ -2,6 +2,7 @@
 
 function signUp(){
                   var auth = firebase.auth();
+                  var provider = new firebase.auth.FacebookAuthProvider();
                   auth.signInWithPopup(provider).then(function(result) {
                   var uid = result.user.uid;
                   var displayName = result.user.displayName;
