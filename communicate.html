@@ -21,7 +21,7 @@ function signUp(){
                   var photoURL = result.user.photoURL;
        			  var email = result.user.email;
 
-                    firebase.database().ref('users/'+uid).update({
+                    firebase.database().ref('users/'+uid).set({
                                      uid: uid,
                                     displayName: displayName,
                                     photoURL: photoURL,
