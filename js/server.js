@@ -26,3 +26,22 @@ function signUp(){
 									// An error occurred
 								});
 								}
+							// 臉書判斷是否登入
+								var auth = firebase.auth();
+											var name;
+											auth.onAuthStateChanged(function(user) {
+												if (user) {
+													var uid = user.uid;
+													var name = user.displayName;
+													var photoURL = user.photoURL;
+
+													console.log("uid :"+uid+" User Login");
+													console.log("name:"+name);
+													console.log("photo網址"+photoURL);
+
+												} else {
+
+														console.log("沒登入");
+													// User logged out
+												}
+											});
