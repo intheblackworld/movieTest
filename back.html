@@ -6,7 +6,6 @@
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
-        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
         <link href="css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/ytplayer.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/theme-red.css" rel="stylesheet" type="text/css" media="all" />
@@ -14,8 +13,8 @@
         <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
-      <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+        <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
       <style type="text/css">
 
         .content div {
@@ -23,6 +22,11 @@
         }
         .content    .active {
           display: block;
+        }
+        .show {
+        }
+        .hide{
+          display:none;
         }
       </style>
 </head>
@@ -65,8 +69,34 @@
     </nav>
 
     <div style="position:absolute;top:100px;padding: 20px" class="content">
-      <div class="1">      
-        使用者：<h5 id="allusers"></h5>
+      <div class="1">   
+        <div id="app3" class="1">
+
+          <div id="detail" class="1 hide">
+          臉蛋分數：{{faceScore}}<br>
+          <input v-model="faceScore"></input><button v-on:click="updateUser()">確定修改</button>
+          </div>
+
+          <br>
+          搜尋：<br>
+          <input v-model="query">  <br>
+            <p v-for="user in users | filterBy query">
+              <img v-bind:src="user.photoURL"><br>
+              uid:{{user.uid}}<br>
+              姓名:{{user.displayName}}<br>
+              綽號:{{user.nickname}}<br>
+              年齡:{{user.age}}<br>
+              email:{{user.email}}<br>
+              lineID:{{user.lineID}}<br>
+              電話:{{user.phone}}<br>
+              性別:{{user.gender}}<br>
+              職業:{{user.profession}}<br>
+              興趣:{{user.interests}}<br>
+              臉蛋分數:{{user.faceScore}}<br>
+              別人形容:{{user.description}}<br>
+              <button v-on:click="showDetail(user)">修改資料(faceScore)</button>
+            </p>
+        </div>
       </div>
       <div class="2">
           <h5 id="activity">test</h5>
@@ -89,11 +119,9 @@
         <script src="js/countdown.min.js"></script>
         <script src="js/smooth-scroll.min.js"></script>
         <script src="js/parallax.js"></script>
-        <script src="dist/sweetalert.min.js"></script>
         <script src="js/scripts.js"></script>
         <script src="js/index.js"></script>
         <script src="js/server_back.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
+        
 
 </body>

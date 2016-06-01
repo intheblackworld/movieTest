@@ -320,7 +320,9 @@
           var descriptionArray = [];
           usersFirebase = all.val();
           if (usersFirebase.description !== undefined){
-          descriptionArray=usersFirebase.description};
+          descriptionArray=usersFirebase.description;
+          console.log("更新description");
+        };
           var vm2 = new Vue({
             el: '#app2',
             data: {
