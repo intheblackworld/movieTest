@@ -17,20 +17,20 @@ var config = {
                    var photoURL = result.user.photoURL;
         			  var email = result.user.email;
 
-                     firebase.database().ref('users/'+uid).set({
+                     firebase.database().ref('users/'+uid).update({
                                       uid: uid,
                                      displayName: displayName,
                                      photoURL: photoURL,
                                      email:email,
-                                     lineID:' ',
- 						            phone:' ',
- 						            nickname:'',
- 						            gender:'',
- 						            age:'',
- 						            description:[],
- 						            profession:'',
- 						            interests:'',
- 						            faceScore:''
+                   //                   lineID:' ',
+ 						            // phone:' ',
+ 						            // nickname:'',
+ 						            // gender:'',
+ 						            // age:'',
+ 						            // description:[],
+ 						            // profession:'',
+ 						            // interests:'',
+ 						            // faceScore:''
 
                        });
                  }).catch(function(error) {

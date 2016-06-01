@@ -150,12 +150,12 @@
                     </div>
                     <div class="input-field col s12 m7">
                       <i class="material-icons prefix">favorite_border</i>
-                      <input disabled value="男" id="disabled" type="text" class="validate sexual">
+                      <input id="disabled" type="text" class="validate sexual" v-model="gender">
                       <label class="default" for="icon_sexual">性別</label>
                     </div>
                     <div class="input-field col s12 m7">
                       <i class="material-icons prefix">insert_emoticon</i>
-                      <input disabled value="27" id="disabled" type="text" class="validate age" v-model="age" required>
+                      <input  id="disabled" type="text" class="validate age" v-model="age" required>
                       <label class="default" for="icon_age">年齡</label>
                     </div>
                     <div class="input-field col s12 m7 profile-data">
@@ -317,7 +317,10 @@
 
 
         firebase.database().ref('users/' + uid).once("value").then(function(all) {
+          var descriptionArray = [];
           usersFirebase = all.val();
+          if (usersFirebase.description !== undefined){
+          descriptionArray=usersFirebase.description};
           var vm2 = new Vue({
             el: '#app2',
             data: {
@@ -329,22 +332,22 @@
               nickname: usersFirebase.nickname,
               gender: usersFirebase.gender,
               age: usersFirebase.age,
-              description: usersFirebase.description,
+              description: descriptionArray,
               profession: usersFirebase.profession,
               interests: usersFirebase.interests,
             },methods:{updateUser:function(){
               var userUID = firebase.auth().currentUser.uid
               firebase.database().ref('users/' + userUID).update({
-                displayName: vm2.displayName,
-                email: vm2.email,
-                lineID: vm2.lineID,
-                phone: vm2.phone,
-                nickname: vm2.nickname,
-                gender: vm2.gender,
-                age: vm2.age,
-                description: vm2.description,
-                profession: vm2.profession,
-                interests: vm2.interests,
+                displayName: this.displayName,
+                email: this.email,
+                lineID: this.lineID,
+                phone: this.phone,
+                nickname: this.nickname,
+                gender: this.gender,
+                age: this.age,
+                description: this.description,
+                profession: this.profession,
+                interests: this.interests,
               }).catch(function(error) {
                 // An error occurred
               });
