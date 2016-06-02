@@ -68,7 +68,7 @@ var auth = firebase.auth();
 						var userUID;
 
                     	new Vue({
-                          el: '#app3',
+                          el: '#app1',
                           data: {
                           	users:all.val(),
                           	query:'',
@@ -96,16 +96,78 @@ var auth = firebase.auth();
                         });
                 });
 
+// ===========================================================
 
+			 var vm = new Vue({
+                      el: '#app2',
+                      data: {
+                        activityID:'',
+                    	index:0,
+                    	name:'',
+                    	subject:'',
+                    	dateSignUp:'',
+              			dateMatch:'',
+             			dateActivity:'',
+                    	movie:[],
+                    	location:[],
+                    	users:[],
+                    	status:'',
+                    	//0:不能報名,1:可以報名,2:結束了（不會顯示）
+                      }
+   });
 
-			function signOut(){
+function signUpActivity(){
 
-			    	firebase.auth().signOut().then(function() {
-			   // Sign-out successful.
-			 }, function(error) {
-			   // An error happened.
-			 });
+var index;
+ firebase.database().ref('activities').once("value").then(function(all){
+                     index = Object.keys(all.val()).length;
+
+});
+
+                   var activityPush = firebase.database().ref('activities').push({
+
+                        activityID:'',
+                    	index:vm.index,
+                    	name:vm.name,
+                    	subject:vm.subject,
+                    	dateSignUp:vm.dateSignUp,
+              			dateMatch:vm.dateMatch,
+             			dateActivity:vm.dateActivity,
+                    	movie:vm.movie,
+                    	location:vm.location,
+                    	users:[],
+                    	status:vm.status,
+
+                      });
+                
+                     console.log(activityPush.key);
+                         var updates = {};
+                         updates["activityID"]=activityPush.key;
+                         firebase.database().ref('activities/'+activityPush.key).update(updates);
+
+      
+
+ 					var activityPush2 = firebase.database().ref('activitiesUserSignUp').push({
+                        activityID:'',
+                    	index:vm.index,
+                    	name:vm.name,
+                    	subject:vm.subject,
+                    	dateSignUp:vm.dateSignUp,
+              			dateMatch:vm.dateMatch,
+             			dateActivity:vm.dateActivity,
+                    	movie:vm.movie,
+                    	location:vm.location,
+                    	users:[],
+                    	status:vm.status,
+                      });
+                
+                     console.log(activityPush2.key);
+                         var updates2 = {}
+                         updates2["activityID"]=activityPush2.key;
+                         firebase.database().ref('activitiesUserSignUp/'+activityPush2.key).update(updates2);
+
+                }
 
 			
 
-	    }
+	    
