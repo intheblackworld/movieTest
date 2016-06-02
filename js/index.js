@@ -42,8 +42,7 @@ function participate(result) {
 
 
 $().ready(function(){
-
-
+  
   var limit = 4 ;
   $('.profile-checkbox p input').on('change', function(evt) {
    if($('.profile-checkbox p input:checked').length >= limit) {
