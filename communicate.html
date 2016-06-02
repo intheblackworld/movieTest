@@ -127,4 +127,48 @@ var vm2 = new Vue({
 
        }
 
+
+
+
+       // =========
+       <div id="app2">
+            <p v-for="activity in activities | orderBy 'index' order ">
+            movie:{{activity.movie}}
+              
+             </p>
+               <button v-on:click="showDetail(activitiesTapei)">console出來該activityID</button>
+        </div>
+
+firebase.database().ref('activities').once("value").then(function(all){
+
+                         new Vue({
+                          el: '#app2',
+                          data: {activities:all.val()},
+                          methods:{
+                              showDetail: function(x){
+                                  console.log(x.activityID);
+                              //用於報名user-activities
+                              	var updates = {};
+		                         updates["users"]=[uid];
+		                         firebase.database().ref('activitiesUserSignUp/'+activityPush.key).update(updates);
+                              }
+                          }
+                        });
+});
+
+
+ // activitiesUserSignUp:{
+ //           YYY(activityId):{
+ //                    activityID:
+ //                    index:
+ //                    name:
+ //                    subject:
+ //                    date:
+ //                    movie:
+ //                    location:
+ //                    users:[userId,userId...]
+ //                    status://0:不能報名,1:可以報名,2:結束了（不會顯示）
+ //            }
+ //    }
+
 </script>

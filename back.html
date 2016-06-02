@@ -55,10 +55,10 @@
                 <a href="#">會員資料</a>
               </li>
               <li data-index="2">
-                <a href="#">約會資料</a>
+                <a href="#">新增活動</a>
               </li>
               <li data-index="3">
-                <a href="#">更改會員權限</a>
+                <a href="#">約會管理</a>
               </li>
             </ul>
           </div>
@@ -70,7 +70,7 @@
 
     <div style="position:absolute;top:100px;padding: 20px" class="content">
       <div class="1">   
-        <div id="app3" class="1">
+        <div id="app1" class="1">
 
           <div id="detail" class="1 hide">
           臉蛋分數：{{faceScore}}<br>
@@ -98,14 +98,36 @@
             </p>
         </div>
       </div>
+
+
+
       <div class="2">
-          <h5 id="activity">test</h5>
+         <div id="app2" class="2">
+              index:<input v-model="index"><br>
+              name:<input v-model="name"><br>
+              subject:<input v-model="subject"><br>
+              dateSignUp:<input v-model="dateSignUp"><br>
+              dateMatch:<input v-model="dateMatch"><br>
+              dateActivity:<input v-model="dateActivity"><br>
+              movie:<input v-model="movie"><br>
+              location:<input v-model="location"><br>
+              status:<input v-model="status"><br>
+              <!-- 0:不能報名,1:可以報名,2:結束了（不會顯示） -->
+              <button onclick="signUpActivity()">新增活動</button>
+        </div>
       </div> 
+      
+
       <div class="3">
         root
       </div>    
 
+
+
     </div>
+
+
+
 
       <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
