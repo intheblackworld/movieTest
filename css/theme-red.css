@@ -3170,6 +3170,7 @@ img {
 .outer-title img {
   display: inline-block;
   margin-bottom: 12px;
+  margin-top: 12px;
 }
 .hover-tile {
   position: relative;

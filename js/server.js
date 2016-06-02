@@ -57,8 +57,11 @@ var auth = firebase.auth();
 
 					//admin_profile
 				} else {
-						$('.fb_login').show();
-						console.log("沒登入");
+
+					setTimeout(function() {
+//your code to be executed after 1 second
+					$('.fb_login').fadeIn();
+}, 500);
 					// User logged out
 				}
 			});
@@ -66,7 +69,6 @@ var auth = firebase.auth();
 
 
 			function signOut(){
-
 			    	firebase.auth().signOut().then(function() {
 			   // Sign-out successful.
 			 }, function(error) {

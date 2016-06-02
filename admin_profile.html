@@ -25,7 +25,8 @@
 </head>
 
 <body>
-  <div class="">
+  <div class="loading6"></div>
+  <div class="admin_page">
     <a id="top"></a>
     <nav class="admin-nav">
       <div class="nav-bar">
@@ -214,31 +215,31 @@
                       <label class="person">你的職業是？<span>單選</span></label>
                       <div class="profile-radio">
                         <p>
-                          <input type="radio" name="group2" class="with-gap" id="test11" v-model="profession" />
+                          <input type="radio" name="group2" class="with-gap" id="test11" v-model="profession" value="商業/服務業" />
                           <label for="test11"> 商業/服務業</label>
                         </p>
                         <p>
-                          <input type="radio" name="group2" class="with-gap" id="test12" v-model="profession" />
+                          <input type="radio" name="group2" class="with-gap" id="test12" v-model="profession" value="大學生/研究生" />
                           <label for="test12"> 大學生/研究生</label>
                         </p>
                         <p>
-                          <input type="radio" name="group2" class="with-gap" id="test13" v-model="profession" />
+                          <input type="radio" name="group2" class="with-gap" id="test13" v-model="profession" value="醫療相關" />
                           <label for="test13"> 醫療相關</label>
                         </p>
                         <p>
-                          <input type="radio" name="group2" class="with-gap" id="test14" v-model="profession" />
+                          <input type="radio" name="group2" class="with-gap" id="test14" v-model="profession" value="藝術設計" />
                           <label for="test14"> 藝術設計</label>
                         </p>
                         <p>
-                          <input type="radio" name="group2" class="with-gap" id="test15" v-model="profession" />
+                          <input type="radio" name="group2" class="with-gap" id="test15" v-model="profession" value="工程師" />
                           <label for="test15"> 工程師</label>
                         </p>
                         <p>
-                          <input type="radio" name="group2" class="with-gap" id="test16" v-model="profession" />
+                          <input type="radio" name="group2" class="with-gap" id="test16" v-model="profession" value="老師" />
                           <label for="test16"> 老師</label>
                         </p>
                         <p>
-                          <input type="radio" name="group2" class="with-gap" id="test17" v-model="profession" />
+                          <input type="radio" name="group2" class="with-gap" id="test17" v-model="profession" value="創業家" />
                           <label for="test17"> 創業家</label>
                         </p>
                         <p>
@@ -364,7 +365,6 @@
         //admin_profile
       } else {
         $('.fb_login').show();
-        console.log("沒登入");
         // User logged out
       }
     });

@@ -26,16 +26,16 @@ function signUp(){
                                     displayName: displayName,
                                     photoURL: photoURL,
                                     email:email,
-                                    lineID:'',
-						            phone:'',
-						            nickname:'',
-						            gender:'',
-						            age:'',
-						            description:'',
+                                    lineID:' ',
+						            phone:' ',
+						            nickname:'nil',
+						            gender:'nil',
+						            age:'nil',
+						            description:'nil',
 						            profession:'',
 						            interests:'',
 						            faceScore:''
-                                   
+
                       });
                 }).catch(function(error) {
                   // An error occurred
@@ -56,7 +56,7 @@ function signUp(){
                     console.log("uid :"+uid+" User Login");
                     console.log("name:"+name);
                     console.log("photo網址:"+photoURL);
-                      
+
                   } else {
 
                       console.log("沒登入");
@@ -78,7 +78,7 @@ function signUp(){
 
 //   html:
 <div id="app2">
-              age:<input v-model="age"><br>
+              age:<input v-model="displayName"><br>
               interests:<input v-model="interests"><br>
               <button onclick="updateUser()">update</button>
 
@@ -127,4 +127,50 @@ var vm2 = new Vue({
 
        }
 
+</script>
+
+
+<script>
+var userUID = firebase.auth().currentUser.uid
+var usersFirebase ;
+firebase.database().ref('users/'+userUID).once("value").then(function(all){
+											usersFirebase = all.val()
+										});
+
+var vm2 = new Vue({
+											el: '#app2',
+											data: {
+							displayName:usersFirebase.displayName,
+						photoURL:usersFirebase.photoURL,
+						email:usersFirebase.email,
+						lineID:usersFirebase.lineID,
+						phone:usersFirebase.phone,
+						nickname:usersFirebase.nickname,
+						gender:usersFirebase.gender,
+						age:usersFirebase.age,
+						description:usersFirebase.description,
+						profession:usersFirebase.profession,
+						interests:usersFirebase.interests,
+											}
+							 });
+
+			 function updateUser(){
+					var userUID = firebase.auth().currentUser.uid
+					 firebase.database().ref('users/'+userUID).update({
+							 displayName:vm2.displayName,
+						email:vm2.email,
+						lineID:vm2.lineID,
+						phone:vm2.phone,
+						nickname:vm2.nickname,
+						gender:vm2.gender,
+						age:vm2.age,
+						description:vm2.description,
+						profession:vm2.profession,
+						interests:vm2.interests,
+
+								}).catch(function(error) {
+									// An error occurred
+								});
+
+			 }
 </script>

@@ -5,7 +5,10 @@
 //   }else{$(this).siblings('label').addClass('ischeck');}
 //
 // })
-
+$(window).load(function(){
+  $('.main-container,.nav-container,.nav-bar,.profile-nav,.admin_page,.admin-container').fadeIn(1000);
+  $('.loading6').fadeOut(1000);
+})
 
 function phonetests(e){
     alert(123);

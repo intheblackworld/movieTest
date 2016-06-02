@@ -1,3 +1,40 @@
+.main-container,.nav-container,.nav-bar,.profile-nav,.admin_page,.admin-container  {
+  display: none;
+}
+.loading6{
+  width: 100px;
+  height: 100px;
+  background: #b6172f;
+  border-radius: 50%;
+  display: flex;
+  left: 50%;
+  position: absolute;
+  z-index: 999;
+  margin-left: -50px;
+  top: 50%;
+  margin-top: -50px;
+
+}
+.loading6:before{
+  content:'';
+  width: 0;
+  height: 0;
+  margin:auto;
+  border: 20px solid #fff;
+  border-radius: 50%;
+  animation:loading6-ani1 1s infinite;
+}
+@keyframes loading6-ani1{
+  70%{
+    width: 100px;
+    height: 100px;
+  }
+  100%{
+    width: 100px;
+    height: 100px;
+    border-width: 0;
+  }
+}
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -71,8 +108,8 @@
 
 .image-tile img {
   border-radius: 986px;
-  width: 180px;
-  height: 180px;
+  width: 80px;
+  height: 80px;
 }
 .admin-nav {
   position: fixed;
@@ -127,12 +164,12 @@
   width: 70%;
 }
 .image-tile {
-  width: 30%;
+  width: 20%;
   float: left;
 }
 
 .admin-content, .admin-tab {
-  width: 70%;
+  width: 80%;
   float: right;
 }
 
@@ -321,7 +358,7 @@ overflow-y: hidden;
 height: 48px;
 background-color: #F5F5F5;
 margin: 0 auto;
-width: 70% !important;
+width: 80% !important;
 white-space: nowrap;
 box-shadow: 0px 2px 5px gray;
 }
@@ -548,6 +585,10 @@ a.write-data:hover {
 }
 nav.transparent .menu > .logout > a {
   color: #888;
+}
+.tab-content .row .col-md-4 {
+  padding-left: 8px;
+  padding-right: 8px;
 }
 @media all and (max-width: 767px) {
 .pricing-table .lead {
