@@ -154,7 +154,7 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" href="#">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity)">馬上報名</a>
                           <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -355,13 +355,20 @@
                                 showDetail: function(x){
                                     console.log(x.activityID);
                                 //用於報名user-activities
-                                	var updates = {};
-  		                         updates["users"]=[uid];
-  		                         firebase.database().ref('activitiesUserSignUp/'+activityPush.key).update(updates);
-                                }
+                                 var updates = {
+                                userID: uid,
+                                status:0,
+                                location:'台北',
+                                gender:'男生'
+                                  };
+                              
+  		                        
+  		                         firebase.database().ref('activity-users/'+x.activityID).set(updates);
+                              
                             }
-                          });
+                          }
   });
+                         })
 
   </script>
 </body>
