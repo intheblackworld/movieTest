@@ -38,11 +38,14 @@ var config = {
                  });
                  }
 // 臉書判斷是否登入
+var url = window.location.href;
+var lasturl = url.split('/').pop()
 var auth = firebase.auth();
 			var name;
 			var uid;
 			auth.onAuthStateChanged(function(user) {
-				if (user) {
+				if (user&& lasturl=='index.html' ) {
+  				alert(lasturl);
 					uid = user.uid;
 					var name = user.displayName;
 					var photoURL = user.photoURL;
@@ -56,13 +59,16 @@ var auth = firebase.auth();
 					$('.user_name p').text(name+ "，歡迎回來");
 
 					//admin_profile
-				} else {
+				} else if (!user&& lasturl=='index.html' ){
 
 					setTimeout(function() {
 //your code to be executed after 1 second
 					$('.fb_login').fadeIn();
 }, 500);
 					// User logged out
+				}else if (!user && lasurl =='admin_join.html'| 'admin_check.html' | 'admin_profile.html') {
+					alert('你尚未登入喔');
+	        window.location = "/index.html";
 				}
 			});
 

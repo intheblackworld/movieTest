@@ -19,15 +19,15 @@ function phonetests(e){
 function participate(result) {
   swal({
     title: '請選擇有空時間',
-    html: '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_15_wed_night"  /><label for="6_15_wed_night">6/15 禮拜三 晚上 </label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_16_thu_night"  /><label for="6_16_thu_night">6/16 禮拜四 晚上</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_17_fri_night"  /><label for="6_17_fri_night">6/17 禮拜五 晚上</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_18_sat_afternoon"  /><label for="6_18_sat_afternoon">6/18 禮拜六 下午</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_18_sat_night"  /><label for="6_18_sat_night">6/18 禮拜六 晚上</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_19_sun_afternoon"  /><label for="6_19_sun_afternoon">6/19 禮拜日 下午</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_19_sun_night"  /><label for="6_19_sun_night">6/19 禮拜日 晚上</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_20_mon_night"  /><label for="6_20_mon_night">6/20 禮拜一 晚上</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_21_tue_night"  /><label for="6_21_tue_night">6/21 禮拜二 晚上</label></p>'+
+    html: '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_15_wed_night"  /><label for="6_15_wed_night">禮拜三 晚上 </label></p>'+
+          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_16_thu_night"  /><label for="6_16_thu_night">禮拜四 晚上</label></p>'+
+          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_17_fri_night"  /><label for="6_17_fri_night">禮拜五 晚上</label></p>'+
+          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_18_sat_afternoon"  /><label for="6_18_sat_afternoon">禮拜六 下午</label></p>'+
+          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_18_sat_night"  /><label for="6_18_sat_night">禮拜六 晚上</label></p>'+
+          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_19_sun_afternoon"  /><label for="6_19_sun_afternoon">禮拜日 下午</label></p>'+
+          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_19_sun_night"  /><label for="6_19_sun_night">禮拜日 晚上</label></p>'+
+          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_20_mon_night"  /><label for="6_20_mon_night">禮拜一 晚上</label></p>'+
+          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_21_tue_night"  /><label for="6_21_tue_night">禮拜二 晚上</label></p>'+
           '<h2 style="margin-bottom:24px;">感興趣電影</h2>' +
           '<p><input type="checkbox" id="1" /><label for="1">電影1</label></p>'+
           '<p><input type="checkbox" id="2" /><label for="2">電影2</label></p>'+
@@ -42,7 +42,7 @@ function participate(result) {
 
 
 $().ready(function(){
-  
+
   var limit = 4 ;
   $('.profile-checkbox p input').on('change', function(evt) {
    if($('.profile-checkbox p input:checked').length >= limit) {
