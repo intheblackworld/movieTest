@@ -64,7 +64,7 @@ var auth = firebase.auth();
 
 
 			firebase.database().ref('users').once("value").then(function(all){
-						
+
 						var userUID;
 
                     	new Vue({
@@ -92,6 +92,7 @@ var auth = firebase.auth();
 				                document.getElementById('detail').className = 'hide';
 				                window.location.reload();
                               }
+                          
                           }
                         });
                 });
