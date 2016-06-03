@@ -363,7 +363,7 @@
                                   };
                               
   		                        
-  		                         firebase.database().ref('activity-users/'+x.activityID).set(updates);
+  		                         firebase.database().ref('activity-users/'+x.activityID+'/'+uid).set(updates);
                               
                             }
                           }
