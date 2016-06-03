@@ -45,7 +45,7 @@ var auth = firebase.auth();
 			var uid;
 			auth.onAuthStateChanged(function(user) {
 				if (user&& lasturl=='index.html' ) {
-  				alert(lasturl);
+  				// alert(lasturl);
 					uid = user.uid;
 					var name = user.displayName;
 					var photoURL = user.photoURL;
@@ -66,9 +66,22 @@ var auth = firebase.auth();
 					$('.fb_login').fadeIn();
 }, 500);
 					// User logged out
-				}else if (!user && lasurl =='admin_join.html'| 'admin_check.html' | 'admin_profile.html') {
+				}else if (!user && lasturl =='admin_join.html'| lasturl =='admin_check.html' | lasturl =='admin_profile.html') {
 					alert('你尚未登入喔');
 	        window.location = "/index.html";
+				}else if (user && lasturl =='admin_join.html'| lasturl =='admin_check.html' | lasturl =='admin_profile.html') {
+					uid = user.uid;
+					var name = user.displayName;
+					var photoURL = user.photoURL;
+					console.log("uid :"+uid+" User Login");
+					console.log("name:"+name);
+					console.log("photo網址"+photoURL);
+					//index.html
+					$('.avatar, .user_name, .check_date, .logout').show();
+					$('.fb_login').hide();
+					$('#pic_my').attr("src",photoURL);
+					$('.user_name p').text(name+ "，歡迎回來");
+
 				}
 			});
 
