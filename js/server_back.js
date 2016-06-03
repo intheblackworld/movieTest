@@ -111,6 +111,7 @@ var auth = firebase.auth();
                     	movie:[],
                     	location:[],
                     	users:[],
+                    	freeTime:[],
                     	status:'',
                     	//0:不能報名,1:可以報名,2:結束了（不會顯示）
                       }
@@ -136,6 +137,7 @@ var index;
                     	movie:vm.movie,
                     	location:vm.location,
                     	users:[],
+                    	freeTime:[],
                     	status:vm.status,
 
                       });
@@ -158,6 +160,7 @@ var index;
                     	movie:vm.movie,
                     	location:vm.location,
                     	users:[],
+                    	freeTime:[],
                     	status:vm.status,
                       });
                 
