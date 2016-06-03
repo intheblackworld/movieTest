@@ -105,7 +105,7 @@
         <div class="row">
           <div class="col-sm-12" style="padding-left: 0px ; padding-right: 0px">
             <div class="image-tile outer-title text-center">
-              <img alt="Pic" src="img/test.jpg">
+              <img alt="Pic" id="pic_my">
               <div class="title mb16">
                 <h5 class="uppercase mb0">Sally Marsh</h5>
                 <span>Creative Director</span>
@@ -154,7 +154,9 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
+
                           <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity)">馬上報名</a>
+
                           <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -170,7 +172,7 @@
                             總報名人數
                           </p>
                           <p class="people-count">
-                            {{activity.user.length}}
+
                           </p>
                           </p>
                         </div>
@@ -182,7 +184,7 @@
                 <li class="">
                   <div class="tab-content">
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order ">
+                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
@@ -203,7 +205,7 @@
                             總報名人數
                           </p>
                           <p class="people-count">
-                            {{activity.user.length}}
+
                           </p>
                           </p>
                         </div>
@@ -215,7 +217,7 @@
                 <li class="">
                   <div class="tab-content">
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order ">
+                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
@@ -236,7 +238,7 @@
                             總報名人數
                           </p>
                           <p class="people-count">
-                            {{activity.user.length}}
+
                           </p>
                           </p>
                         </div>
@@ -248,7 +250,7 @@
                 <li class="">
                   <div class="tab-content">
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order ">
+                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
@@ -269,7 +271,7 @@
                             總報名人數
                           </p>
                           <p class="people-count">
-                            {{activity.user.length}}
+
                           </p>
                           </p>
                         </div>
@@ -281,7 +283,7 @@
                 <li class="">
                   <div class="tab-content">
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" v-for="3 in activities | orderBy 'index' order ">
+                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
@@ -302,7 +304,7 @@
                             總報名人數
                           </p>
                           <p class="people-count">
-                            {{activity.user.length}}
+
                           </p>
                           </p>
                         </div>
@@ -361,10 +363,15 @@
                                 location:'台北',
                                 gender:'男生'
                                   };
+
                               
   		                        
   		                         firebase.database().ref('activity-users/'+x.activityID+'/'+uid).set(updates);
                               
+
+
+
+  		                
                             }
                           }
   });
