@@ -149,7 +149,7 @@
                 <li class="active">
                   <div class="tab-content">
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
+                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy '$index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
@@ -357,21 +357,88 @@
                                 showDetail: function(x){
                                     console.log(x.activityID);
                                 //用於報名user-activities
-                                 var updates = {
-                                userID: uid,
+                                var user = firebase.auth().currentUser;
+                                var username, email, photoUrl, uid,lineID,phone,nickname,gender,age,description,profession,interests,faceScore,availabeTime;
+                                firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+                                  username = snapshot.val().displayName;
+                                  email = snapshot.val().email;
+                                  photoUrl = snapshot.val().photoURL;
+                                  uid = snapshot.val().uid;
+                                  lineID = snapshot.val().lineID;
+                                  phone = snapshot.val().phone;
+                                  nickname = snapshot.val().nickname;
+                                  gender = snapshot.val().gender;
+                                  age = snapshot.val().age;
+                                  description = snapshot.val().description;
+                                  profession = snapshot.val().profession;
+                                  interests = snapshot.val().interests;
+                                  faceScore = snapshot.val().faceScore;
+                                  availabeTime = snapshot.val().availabeTime;
+                                  // ...
+                               
+                               
+            
+                                 var updates = {                      
+                                location: '台北',
+                                uid: user.uid,
+                                username: username,
+                                photoURL: photoUrl,
+                                email:email,
+                                lineID:lineID,
+                                phone:phone,
+                                nickname:nickname,
+                                gender:gender,
+                                age:age,
+                                description:description,
+                                profession:profession,
+                                interests:interests,
+                                faceScore:faceScore,
+                                availabeTime:[],
+                                movie:[],
                                 status:0,
-                                location:'台北',
-                                gender:'男生'
+                                accountLastFive:"", 
+                                //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
                                   };
 
+<<<<<<< HEAD
 
 
   		                         firebase.database().ref('activity-users/'+x.activityID+'/'+uid).set(updates);
+=======
+                                  var updates2 = {
+                                    activityName:x.name,
+                                    activityId:x.activityID,
+                                    dateActivity:x.dateActivity,
+                                    dateMatch:x.dateMatch,
+                                    dateSignUp:x.dateSignUp,
+                                    confirmDate:"",
+                                    movie:[],
+                                    subject:x.subject,
+                                    location:'台北',
+                                    status:0,
+                                    //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
+                                    accountLastFive:"",    
+                                  };
+>>>>>>> f2ded54f64c0ef136866e2ce21639f4d5397369d
+
+                                 
+
+                                  var updates3={};
+                                  updates3[user.uid]=true;
+  		                        
+  		                         firebase.database().ref('activity-users/'+x.activityID+'/'+user.uid).update(updates);
+                              firebase.database().ref('user-activities/'+user.uid+'/'+x.activityID).update(updates2);
+                              firebase.database().ref('ActivitySignUpMember/'+x.activityID+'/taipei').update(updates3);
+                              firebase.database().ref('ActivitySignUpMember/'+x.activityID+'/all').update(updates3);
 
 
+<<<<<<< HEAD
 
 
-
+=======
+                            });
+  		                
+>>>>>>> f2ded54f64c0ef136866e2ce21639f4d5397369d
                             }
                           }
   });
