@@ -103,7 +103,6 @@ var auth = firebase.auth();
                       el: '#app2',
                       data: {
                         activityID:'',
-                    	index:0,
                     	name:'',
                     	subject:'',
                     	dateSignUp:'',
@@ -150,26 +149,7 @@ var index;
 
       
 
- 					var activityPush2 = firebase.database().ref('activitiesUserSignUp').push({
-                        activityID:'',
-                    	index:vm.index,
-                    	name:vm.name,
-                    	subject:vm.subject,
-                    	dateSignUp:vm.dateSignUp,
-              			dateMatch:vm.dateMatch,
-             			dateActivity:vm.dateActivity,
-                    	movie:vm.movie,
-                    	location:vm.location,
-                    	users:[],
-                    	freeTime:[],
-                    	status:vm.status,
-                      });
-                
-                     console.log(activityPush2.key);
-                         var updates2 = {}
-                         updates2["activityID"]=activityPush2.key;
-                         firebase.database().ref('activitiesUserSignUp/'+activityPush2.key).update(updates2);
-
+ 					
                 }
 
 			

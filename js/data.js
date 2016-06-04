@@ -14,48 +14,69 @@
             profession:
             interests:
             faceScore:
+            availabeTime:
             
         }
         ...
     }
     user-activities:{
         XXX(userId):{
-                activityId:
-                date:
-                gender:
+            YYY(activityID):{
+                activityName:x.name
+                activityId:x.activityID
+                dateActivity:x.dateActivity
+                dateMatch:x.dateMatch
+                dateSignUp:x.dateSignUp
                 confirmDate:
                 movie:
-                availabeTime:
-                location:
+                subject:x.subject
+                location:'台北'
                 status:0:按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
-                accountLastFive:          
-        },{
-
+                accountLastFive:         
         }
         ...
+    }...
     }
     activity-users:{
         YYY(activityID):{
              XXX(userID){
+            movie:,
+            status:0,
+            //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
+            location:,
             userID: XXX(userID),
-            status:0:按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
-            location:
-            gender:
+            username:,
+            photoURL:,
+            email:,
+            lineID:,
+            phone:,
+            nickname:,
+            gender:,
+            age:,
+            description:,
+            profession:,
+            interests:,
+            faceScore:,
+            availabeTime:,
         }...
     }...
 
-    activitiesUserSignUp:{
-           YYY(activityId):{
-                    activityID:
-                    index:
-                    name:
-                    subject:
-                    date:
-                    movie:
-                    location:
-                    status://0:不能報名,1:可以報名,2:結束了（不會顯示）
-            }
-    }
+    ActivitySignUpMember:{
+         ActivityID(yyy):{
+             台北：
+                   UserID(xxx):true
+                   ...
+            高雄：
+                 UserID(xxx):true
+
+            allmember:
+                 UserID(xxx):true
+
+            },
+
+
+
+    
     activities:{
           YYY(activityId):{
                     activityID:
@@ -65,7 +86,6 @@
                     date:
                     movie:
                     location:
-                    users:[userId,userId...]
                     status://0:不能報名,1:可以報名,2:結束了（不會顯示）
                 }
         ...
