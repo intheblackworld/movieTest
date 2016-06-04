@@ -155,7 +155,11 @@
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
 
+<<<<<<< HEAD
                           <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,taipei)">馬上報名</a>
+=======
+                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'taipei')">馬上報名</a>
+>>>>>>> a9b17bb2780d08cefecf61c5aa71be3b12f8d215
 
                           <ul>
                             <li>
@@ -354,8 +358,11 @@
                             el: '#app2',
                             data: {activities:all.val()},
                             methods:{
-                                showDetail: function(x){
-                                
+
+                                showDetail: function(x,location){
+                                  var location = location;
+                                  console.log(location);
+
                                     console.log(x.activityID);
                                 //用於報名user-activities
                                 var user = firebase.auth().currentUser;
@@ -376,11 +383,19 @@
                                   faceScore = snapshot.val().faceScore;
                                   availabeTime = snapshot.val().availabeTime;
                                   // ...
+<<<<<<< HEAD
 
 
 
                                  var updates = {
                                 location: '台北',
+=======
+
+
+
+                                 var updates = {
+                                location: location,
+>>>>>>> a9b17bb2780d08cefecf61c5aa71be3b12f8d215
                                 uid: user.uid,
                                 username: username,
                                 photoURL: photoUrl,
@@ -411,7 +426,7 @@
                                     confirmDate:"",
                                     movie:[],
                                     subject:x.subject,
-                                    location:'台北',
+                                    location:location,
                                     status:0,
                                     //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
                                     accountLastFive:"",
@@ -424,7 +439,7 @@
 
   		                         firebase.database().ref('activity-users/'+x.activityID+'/'+user.uid).update(updates);
                               firebase.database().ref('user-activities/'+user.uid+'/'+x.activityID).update(updates2);
-                              firebase.database().ref('ActivitySignUpMember/'+x.activityID+'/taipei').update(updates3);
+                              firebase.database().ref('ActivitySignUpMember/'+x.activityID+'/'+location).update(updates3);
                               firebase.database().ref('ActivitySignUpMember/'+x.activityID+'/all').update(updates3);
 
 
