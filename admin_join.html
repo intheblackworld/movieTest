@@ -400,11 +400,7 @@
                                 //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
                                   };
 
-<<<<<<< HEAD
 
-
-  		                         firebase.database().ref('activity-users/'+x.activityID+'/'+uid).set(updates);
-=======
                                   var updates2 = {
                                     activityName:x.name,
                                     activityId:x.activityID,
@@ -419,7 +415,6 @@
                                     //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
                                     accountLastFive:"",    
                                   };
->>>>>>> f2ded54f64c0ef136866e2ce21639f4d5397369d
 
                                  
 
@@ -432,13 +427,10 @@
                               firebase.database().ref('ActivitySignUpMember/'+x.activityID+'/all').update(updates3);
 
 
-<<<<<<< HEAD
 
 
-=======
                             });
   		                
->>>>>>> f2ded54f64c0ef136866e2ce21639f4d5397369d
                             }
                           }
   });
