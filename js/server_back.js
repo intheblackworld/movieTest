@@ -154,4 +154,44 @@ var index;
 
 			
 
+// ========================
+		
+		// var _activityID = document.getElementById('_activityID').value;
+	
+        //  firebase.database().ref('activity-users/'+_activityID).once("value").then(function(all){
+        //  	var au = all.val();
+
+        //    new Vue({
+        //     el: '#app3',
+        //     data: {activity_users:all.val()},
+        //     });
+        // })
+
+
+         firebase.database().ref('activities/').on("value",function(all){	
+         	var au = all.val();
+
+           var vm = new Vue({
+            el: '#app4',
+            data: {activities:all.val(),activity_users:{},week:"Mary"},
+            methods:{
+                showActivity:function(x){
+                    console.log(x.activityID);
+                    var activityID = x.activityID
+
+                    firebase.database().ref('activity-users/'+activityID).on("value",function(all2){
+                         var au2 = all2.val();
+                        this.activity_users=all2.val();
+                        vm.$set('activity_users',all2.val());
+                        console.log(all2.val());
+                        console.log(this.activity_users);
+                         vm.$set('week', 'kevin');
+
+                    })
+
+                }
+            }
+            });
+        })
+      
 	    

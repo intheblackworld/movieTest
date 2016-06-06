@@ -463,6 +463,7 @@
                                 movie:[],
                                 status:0,
                                 accountLastFive:"",
+                                activityName:x.name
                                 //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
                                   };
 
@@ -490,8 +491,8 @@
 
   		                         firebase.database().ref('activity-users/'+x.activityID+'/'+user.uid).update(updates);
                               firebase.database().ref('user-activities/'+user.uid+'/'+x.activityID).update(updates2);
-                              firebase.database().ref('ActivitySignUpMember/'+x.activityID+'/'+location).update(updates3);
-                              firebase.database().ref('ActivitySignUpMember/'+x.activityID+'/all').update(updates3);
+                              firebase.database().ref('activitySignUpMember/'+x.activityID+'/'+location).update(updates3);
+                              firebase.database().ref('activitySignUpMember/'+x.activityID+'/all').update(updates3);
 
 
 

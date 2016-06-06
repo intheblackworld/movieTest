@@ -148,6 +148,14 @@
           </div>
           <!--end of button tabs-->
         </div>
+        
+        <!-- 以下這段是串接資料的參考資訊 -->
+        <!-- <div id='app5'>
+            <p v-for="user_activity in user_activities">
+               {{user_activity.dateMatch}}
+            </p>
+        </div> -->
+
       </div>
       <!--end of row-->
   </div>
@@ -169,8 +177,27 @@
   <script src="js/parallax.js"></script>
   <script src="js/scripts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-  <script src="js/server.js"></script>
   <script src="js/index.js"></script>
+  <script src="js/server.js"></script>
+
+  <script>
+    var auth = firebase.auth();
+    var name;
+    var uid;
+    var usersFirebase;
+    auth.onAuthStateChanged(function(user) {
+      if (user) {
+            uid = user.uid
+             firebase.database().ref('user-activities/'+uid).once("value").then(function(all){
+               new Vue({
+                el: '#app5',
+                data: {user_activities:all.val()},
+                });
+            })
+       }
+    }) 
+
+  </script>
 </body>
 
 </html>

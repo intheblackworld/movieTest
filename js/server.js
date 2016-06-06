@@ -38,9 +38,9 @@ var config = {
                  });
                  }
 // 臉書判斷是否登入
-var url = window.location.href;
-var lasturl = url.split('/').pop()
-var auth = firebase.auth();
+			var url = window.location.href;
+			var lasturl = url.split('/').pop()
+			var auth = firebase.auth();
 			var name;
 			var uid;
 			auth.onAuthStateChanged(function(user) {
