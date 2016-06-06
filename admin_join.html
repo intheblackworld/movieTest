@@ -156,7 +156,7 @@
                           <p class="lead">{{activity.subject}}</p>
 
 
-                          <a class="btn btn-filled btn-lg" v-on:click="join(activity,'台北')">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'台北')">馬上報名</a>
 
                           <ul>
                             <li>
@@ -194,7 +194,7 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}} </span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" v-on:click="join(activity,'新竹')">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'新竹')">馬上報名</a>
                           <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -227,7 +227,7 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" v-on:click="join(activity,'台中')">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'台中')">馬上報名</a>
                           <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -260,7 +260,7 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" v-on:click="join(activity,'台南')">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'台南')">馬上報名</a>
                           <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -293,7 +293,7 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" v-on:click="join(activity,'高雄')">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'高雄')">馬上報名</a>
                           <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -391,10 +391,10 @@
                             movie:[]},
                             methods:{
 
-                              join:function(x,y){
-                                console.log(x,y);
-                              this.showDetail(x,y);
-                              },
+                              // join:function(x,y){
+                              //   console.log(x,y);
+                              // this.showDetail(x,y);
+                              // },
 
                          //      Number:function(x,y){
                          //          firebase.database().ref('ActivitySignUpMember/'+x.activityID).once("value").then(function(all){
@@ -411,7 +411,7 @@
 
                                 showDetail: function(x,location){
                                     console.log(x,location);
-                                  alert(123);
+                                  // alert(123);
                                   var location = location;
                                   console.log(location);
 
@@ -455,7 +455,7 @@
                                 interests:interests,
                                 faceScore:faceScore,
                                 availabeTime:[],
-                                movie:this.movie,
+                                // movie:this.movie,
                                 status:0,
                                 accountLastFive:"",
                                 activityName:x.name
@@ -470,7 +470,7 @@
                                     dateMatch:x.dateMatch,
                                     dateSignUp:x.dateSignUp,
                                     confirmDate:"",
-                                    movie:this.movie,
+                                    // movie:this.movie,
                                     subject:x.subject,
                                     location:location,
                                     status:0,

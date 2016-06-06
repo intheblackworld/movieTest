@@ -1,7 +1,8 @@
 .main-container,.nav-container,.nav-bar,.profile-nav,.admin_page,.admin-container  {
   display: none;
 }
-.loading6{
+
+.loading6 {
   width: 100px;
   height: 100px;
   background: #b6172f;
@@ -15,6 +16,9 @@
   margin-top: -50px;
 
 }
+/*.overlay {
+  width: 200px;
+}*/
 .loading6:before{
   content:'';
   width: 0;
@@ -155,8 +159,13 @@
 .pay-btn {
   border: 1px solid #AF4243;
   padding: 5px 40px;
+  cursor: pointer;
 }
-.pay-btn:active, .pay-btn:focus, .pay-btn:hover {
+.pay-btn-check {
+  border: 1px solid #AF4243;
+  padding: 5px 10px;
+}
+.pay-btn:active, .pay-btn:focus, .pay-btn:hover,.pay-btn-check:active, .pay-btn-check:focus, .pay-btn-check:hover {
   color: white;
   background-color: #AF4243;
 }
@@ -584,6 +593,9 @@ a.write-data:hover {
 }
 .module {
   padding: 0 20px;
+}
+.fixed .menu li p {
+  color: #292929;
 }
 .menu li p {
   font-size: 18px;

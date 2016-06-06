@@ -112,23 +112,28 @@
             </div>
             <div class="tabbed-content box-shadow admin-tab">
               <h4 class="uppercase">已報名電影約會</h4>
-              <table class="table">
+              <table class="table" id='app5'>
                 <thead class="thead-inverse">
                   <tr>
-                    <th>時間</th>
-                    <th>地點</th>
-                    <th>狀態</th>
-                    <th></th>
+                    <th class="col-md-2 col-xs-2">報名期</th>
+                    <th class="col-md-2 col-xs-2 hidden-xs">公布媒合</th>
+                    <th class="col-md-2 col-xs-2 hidden-xs">活動期</th>
+                    <th class="col-md-2 col-xs-2">地點</th>
+                    <th class="col-md-2 col-xs-2">狀態</th>
+
 
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>6/1</td>
-                    <td>台北</td>
-                    <td>配對中</td>
+                  <tr v-for="user_activity in user_activities">
+                    <td class="col-md-2 col-xs-2 hidden-xs">{{user_activity.dateSignUp}}</td>
+                    <td class="col-md-2 col-xs-2 hidden-xs">{{user_activity.dateMatch}}</td>
+                    <td class="col-md-2 col-xs-2">{{user_activity.dateActivity}}</td>
+                    <td class="col-md-2 col-xs-2">{{user_activity.location}}</td>
+                    <td class="col-md-2 col-xs-2 state">{{user_activity.status}}</td>
+                    <td v-if="user_activity.status==0"><a class="pay-btn-check pay-btn">匯款</a></td>
                   </tr>
-                  <tr>
+                  <!-- <tr>
                     <td>6/15</td>
                     <td>台北</td>
                     <td>等待匯款</td>
@@ -139,7 +144,7 @@
                     <td>台北</td>
                     <td>等待匯款</td>
                     <td><a class="pay-btn" href="#">匯款</a></td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
 
@@ -148,11 +153,13 @@
           </div>
           <!--end of button tabs-->
         </div>
-        
+
         <!-- 以下這段是串接資料的參考資訊 -->
         <!-- <div id='app5'>
             <p v-for="user_activity in user_activities">
                {{user_activity.dateMatch}}
+               {{user_activity.location}}
+               {{user_activity.status}}
             </p>
         </div> -->
 
@@ -181,6 +188,12 @@
   <script src="js/server.js"></script>
 
   <script>
+  //   $().ready(function(){
+  //   var state =  $('.state').text();
+  //   console.log(state);
+  // });
+
+
     var auth = firebase.auth();
     var name;
     var uid;
@@ -189,13 +202,27 @@
       if (user) {
             uid = user.uid
              firebase.database().ref('user-activities/'+uid).once("value").then(function(all){
-               new Vue({
+              var x = new Vue({
                 el: '#app5',
                 data: {user_activities:all.val()},
                 });
+                $('.pay-btn, .pay').on('click',function() {
+                  swal({
+                    title: '請選擇付款方式',
+                    html: '<a class="waves-effect waves-light btn btn-filled bank">銀行轉帳</a>'+
+                          '<a class="all-pay" href="https://qr.allpay.com.tw/yWn8q"><img src="https://payment.allpay.com.tw/Content/themes/WebStyle201404/images/allpay.png" /></a>'+
+                          '<div class="hide-text"><input type="text" placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料"></div>',
+                  })
+                  $('.swal2-confirm').css({'display':'none' });
+                  $('.swal2-modal').css({'top':'70%','height': '60%'});
+                  $('.bank').click(function(){$('.hide-text').fadeIn(300);})
+                })
+                $('#pic_my').attr("src", photoURL);
             })
        }
-    }) 
+    })
+
+
 
   </script>
 </body>

@@ -59,7 +59,7 @@ $().ready(function(){
 
   $('.default').filter(function() { return $(this).val() == ""; }).parent('.input-field').find('label').addClass('focus-input');
 
-  $('.pay-btn, .pay').click(function(result) {
+  $('.pay-btn, .pay').on('click',function() {
     swal({
       title: '請選擇付款方式',
       html: '<a class="waves-effect waves-light btn btn-filled bank">銀行轉帳</a>'+

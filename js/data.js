@@ -15,7 +15,7 @@
             interests:
             faceScore:
             availabeTime:
-            
+
         }
         ...
     }
@@ -32,8 +32,9 @@
                 subject:x.subject
                 location:'台北'
                 status:0:按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
-                accountLastFive:         
+                accountLastFive:
         }
+
         ...
     }...
     }
@@ -77,7 +78,7 @@
 
 
 
-    
+
     activities:{
           YYY(activityId):{
                     activityID:
