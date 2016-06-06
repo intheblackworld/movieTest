@@ -169,10 +169,12 @@
                               <strong>{{activity.dateActivity}}</strong> 活動期
                             </li>
                           </ul>
-                          <p class="people">
-                            總報名人數
+                          <p id='app3' class="people">
+                            地點：台北
                           </p>
                           <p class="people-count">
+
+
 
                           </p>
                           </p>
@@ -180,6 +182,7 @@
                         <!--end of pricing table-->
 
                       </div>
+
                     </div>
                   </div>
                 </li>
@@ -204,7 +207,7 @@
                             </li>
                           </ul>
                           <p class="people">
-                            總報名人數
+                            地點：新竹
                           </p>
                           <p class="people-count">
 
@@ -237,7 +240,7 @@
                             </li>
                           </ul>
                           <p class="people">
-                            總報名人數
+                            地點：台中
                           </p>
                           <p class="people-count">
 
@@ -270,7 +273,7 @@
                             </li>
                           </ul>
                           <p class="people">
-                            總報名人數
+                            地點：台南
                           </p>
                           <p class="people-count">
 
@@ -303,8 +306,9 @@
                             </li>
                           </ul>
                           <p class="people">
-                            總報名人數
+                            地點：高雄
                           </p>
+
                           <p class="people-count">
 
                           </p>
@@ -356,6 +360,28 @@
 
 
 
+                    // firebase.database().ref('ActivitySignUpMember').once("value").then(function(all){
+                    //             //     var Num = all.child(y).numChildren()
+                    //             //     if (all.child(y)>=0){
+                    //             //  Num = all.child(y).numChildren()-1;
+                    //             // }
+                    //             //  console.log(Num);
+                    //             //  this.number = Num;
+                    //             // all.foreach(function(childall){
+                    //             //   var key = childall.key();
+                    //             //   var childData= childall.val();
+                    //             //   console.log(key,childData);
+                    //             // })
+
+                    //             var count = 0;
+                    //             all.forEach(function(childall) {
+                    //               childall.forEach(function(){
+                    //                  count++;
+                    //               })
+                    //            });
+                    //             console.log(count);
+                    //       });
+
 
   firebase.database().ref('activities').once("value").then(function(all){
 
@@ -364,10 +390,24 @@
                             data: {activities:all.val(),
                             movie:[]},
                             methods:{
+
                               join:function(x,y){
                                 console.log(x,y);
                               this.showDetail(x,y);
                               },
+
+                         //      Number:function(x,y){
+                         //          firebase.database().ref('ActivitySignUpMember/'+x.activityID).once("value").then(function(all){
+                         //            var Num = all.child(y).numChildren()
+                         //            if (all.child(y)>=0){
+                         //         Num = all.child(y).numChildren()-1;
+                         //        }
+                         //         console.log(Num);
+                         //         this.number = Num;
+
+                         // });
+                         //      },
+
 
                                 showDetail: function(x,location){
                                     console.log(x,location);
@@ -441,6 +481,7 @@
 
                                   var updates3={};
                                   updates3[user.uid]=true;
+                                  updates3['activityID']=x.activityID;
 
   		                         firebase.database().ref('activity-users/'+x.activityID+'/'+user.uid).update(updates);
                               firebase.database().ref('user-activities/'+user.uid+'/'+x.activityID).update(updates2);
