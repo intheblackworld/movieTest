@@ -354,150 +354,108 @@
   <script src="js/server.js"></script>
   <script src="js/index.js"></script>
   <script>
-  Vue.filter( 'three' , function ( value ) {
-    return value.slice(0,3)
-})
+              
+
+          Vue.filter( 'three' , function ( value ) {
+              return value.slice(0,3)
+          });
 
 
 
-                    // firebase.database().ref('ActivitySignUpMember').once("value").then(function(all){
-                    //             //     var Num = all.child(y).numChildren()
-                    //             //     if (all.child(y)>=0){
-                    //             //  Num = all.child(y).numChildren()-1;
-                    //             // }
-                    //             //  console.log(Num);
-                    //             //  this.number = Num;
-                    //             // all.foreach(function(childall){
-                    //             //   var key = childall.key();
-                    //             //   var childData= childall.val();
-                    //             //   console.log(key,childData);
-                    //             // })
+          firebase.database().ref('activities').once("value").then(function(all){
 
-                    //             var count = 0;
-                    //             all.forEach(function(childall) {
-                    //               childall.forEach(function(){
-                    //                  count++;
-                    //               })
-                    //            });
-                    //             console.log(count);
-                    //       });
+                var vmvm = new Vue({
+                  el: '#app2',
+                  data: {activities:all.val(),
+                  movie:[]},
+                  methods:{
 
+                    join:function(x,y){
+                  
+                      vmvm.$set('movie',['天堂','神鬼遊戲']);
+                      this.showDetail(x,y);
+                      console.log(this.movie);
+                    },
 
-  firebase.database().ref('activities').once("value").then(function(all){
-
-                           new Vue({
-                            el: '#app2',
-                            data: {activities:all.val(),
-                            movie:[]},
-                            methods:{
-
-                              join:function(x,y){
-                                console.log(x,y);
-                              this.showDetail(x,y);
-                              },
-
-                         //      Number:function(x,y){
-                         //          firebase.database().ref('ActivitySignUpMember/'+x.activityID).once("value").then(function(all){
-                         //            var Num = all.child(y).numChildren()
-                         //            if (all.child(y)>=0){
-                         //         Num = all.child(y).numChildren()-1;
-                         //        }
-                         //         console.log(Num);
-                         //         this.number = Num;
-
-                         // });
-                         //      },
-
-
-                                showDetail: function(x,location){
-                                    console.log(x,location);
-                                  alert(123);
-                                  var location = location;
-                                  console.log(location);
-
-                                    console.log(x.activityID);
-                                //用於報名user-activities
-                                var user = firebase.auth().currentUser;
-                                var username, email, photoUrl, uid,lineID,phone,nickname,gender,age,description,profession,interests,faceScore,availabeTime;
-                                firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
-                                  username = snapshot.val().displayName;
-                                  email = snapshot.val().email;
-                                  photoUrl = snapshot.val().photoURL;
-                                  uid = snapshot.val().uid;
-                                  lineID = snapshot.val().lineID;
-                                  phone = snapshot.val().phone;
-                                  nickname = snapshot.val().nickname;
-                                  gender = snapshot.val().gender;
-                                  age = snapshot.val().age;
-                                  description = snapshot.val().description;
-                                  profession = snapshot.val().profession;
-                                  interests = snapshot.val().interests;
-                                  faceScore = snapshot.val().faceScore;
-                                  availabeTime = snapshot.val().availabeTime;
-                                  // ...
+                    showDetail: function(x,location){
+                       
+                       
+                        var location = location;                             
+                        var user = firebase.auth().currentUser;
+                        var username, email, photoUrl, uid,lineID,phone,nickname,gender,age,description,profession,interests,faceScore,availabeTime;
+                        firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+                          username = snapshot.val().displayName;
+                          email = snapshot.val().email;
+                          photoUrl = snapshot.val().photoURL;
+                          uid = snapshot.val().uid;
+                          lineID = snapshot.val().lineID;
+                          phone = snapshot.val().phone;
+                          nickname = snapshot.val().nickname;
+                          gender = snapshot.val().gender;
+                          age = snapshot.val().age;
+                          description = snapshot.val().description;
+                          profession = snapshot.val().profession;
+                          interests = snapshot.val().interests;
+                          faceScore = snapshot.val().faceScore;
+                          availabeTime = snapshot.val().availabeTime;
+                          
+                          var updates = {
+                              location: location,
+                              uid: user.uid,
+                              username: username,
+                              photoURL: photoUrl,
+                              email:email,
+                              lineID:lineID,
+                              phone:phone,
+                              nickname:nickname,
+                              gender:gender,
+                              age:age,
+                              description:description,
+                              profession:profession,
+                              interests:interests,
+                              faceScore:faceScore,
+                              availabeTime:[],
+                              movie:vmvm.movie,
+                              status:0,
+                              accountLastFive:"",
+                              activityName:x.name
+                              //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
+                          };
 
 
-
-
-                                 var updates = {
-                                location: location,
-                                uid: user.uid,
-                                username: username,
-                                photoURL: photoUrl,
-                                email:email,
-                                lineID:lineID,
-                                phone:phone,
-                                nickname:nickname,
-                                gender:gender,
-                                age:age,
-                                description:description,
-                                profession:profession,
-                                interests:interests,
-                                faceScore:faceScore,
-                                availabeTime:[],
-                                movie:this.movie,
-                                status:0,
-                                accountLastFive:"",
-                                activityName:x.name
-                                //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
-                                  };
-
-
-                                  var updates2 = {
-                                    activityName:x.name,
-                                    activityId:x.activityID,
-                                    dateActivity:x.dateActivity,
-                                    dateMatch:x.dateMatch,
-                                    dateSignUp:x.dateSignUp,
-                                    confirmDate:"",
-                                    movie:this.movie,
-                                    subject:x.subject,
-                                    location:location,
-                                    status:0,
-                                    //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
-                                    accountLastFive:"",
-                                  };
+                          var updates2 = {
+                            activityName:x.name,
+                            activityId:x.activityID,
+                            dateActivity:x.dateActivity,
+                            dateMatch:x.dateMatch,
+                            dateSignUp:x.dateSignUp,
+                            confirmDate:"",
+                            movie:vmvm.movie,
+                            subject:x.subject,
+                            location:location,
+                            status:0,
+                            //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
+                            accountLastFive:"",
+                          };
 
 
 
-                                  var updates3={};
-                                  updates3[user.uid]=true;
-                                  updates3['activityID']=x.activityID;
+                          var updates3={};
+                          updates3[user.uid]=true;
+                          updates3['activityID']=x.activityID;
 
-  		                         firebase.database().ref('activity-users/'+x.activityID+'/'+user.uid).update(updates);
-                              firebase.database().ref('user-activities/'+user.uid+'/'+x.activityID).update(updates2);
-                              firebase.database().ref('activitySignUpMember/'+x.activityID+'/'+location).update(updates3);
-                              firebase.database().ref('activitySignUpMember/'+x.activityID+'/all').update(updates3);
-
-
+                        firebase.database().ref('activity-users/'+x.activityID+'/'+user.uid).update(updates);
+                        firebase.database().ref('user-activities/'+user.uid+'/'+x.activityID).update(updates2);
+                        firebase.database().ref('activitySignUpMember/'+x.activityID+'/'+location).update(updates3);
+                        firebase.database().ref('activitySignUpMember/'+x.activityID+'/all').update(updates3);
 
 
-                            });
+                          });
 
-                            }
-                          }
-  });
-                         })
+                       }
+                    }
+                 });
+               })
 
   </script>
 </body>
