@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body id="app2">
   <div class="loading6"></div>
   <div class="admin_page">
     <a id="top"></a>
@@ -79,7 +79,7 @@
       </p>
       <a class="waves-effect waves-light btn btn-filled write-data" href="admin_profile.html">馬上填寫</a>
     </div>
-    <div class="alert alert-danger alert-dismissible container" role="alert">
+    <!-- <div class="alert alert-danger alert-dismissible container" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
@@ -87,8 +87,8 @@
       <p>
         6/1 台北場 Let`s Movie 一對一電影約會
       </p>
-      <a class="waves-effect waves-light btn btn-filled" onclick="participate()">馬上報名</a>
-    </div>
+      <a class="waves-effect waves-light btn btn-filled" onclick="showDetail(activity,'台北')">馬上報名</a>
+    </div> -->
     <div class="alert alert-info alert-dismissible container" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
@@ -145,19 +145,18 @@
 
                 </li>
               </ul>
-              <ul class="content admin-content" id="app2">
+              <ul class="content admin-content" >
                 <li class="active">
                   <div class="tab-content">
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy '$index' order -1 | three">
-                        <div class="pricing-table pt-1 text-center boxed">
+                      <div class="col-md-4 col-sm-6 " v-for="activity in activities | orderBy '$index' order -1 | three">
+                        <div class="pricing-table pt-1 text-center boxed ">
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
 
 
-                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'台北')">馬上報名</a>
-
+                          <a class="btn btn-filled btn-lg" v-on:click="join(activity,'台北')">馬上報名</a>
 
                           <ul>
                             <li>
@@ -175,14 +174,15 @@
                           </p>
                           <p class="people-count">
 
-                           
+
 
                           </p>
                           </p>
                         </div>
                         <!--end of pricing table-->
+
                       </div>
-                      
+
                     </div>
                   </div>
                 </li>
@@ -192,9 +192,9 @@
                       <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
-                          <span class="price">{{activity.name}}</span>
+                          <span class="price">{{activity.name}} </span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'新竹')">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" v-on:click="join(activity,'新竹')">馬上報名</a>
                           <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -227,7 +227,7 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'台中')">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" v-on:click="join(activity,'台中')">馬上報名</a>
                           <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -260,7 +260,7 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'台南')">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" v-on:click="join(activity,'台南')">馬上報名</a>
                           <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -293,7 +293,7 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" v-on:click="showDetail(activity,'高雄')">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" v-on:click="join(activity,'高雄')">馬上報名</a>
                           <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -330,6 +330,10 @@
       <!--end of row-->
   </div>
   <!--end of container-->
+
+
+
+
   </section>
   </div>
   <script src="js/jquery.min.js"></script>
@@ -355,6 +359,7 @@
 })
 
 
+
                     // firebase.database().ref('ActivitySignUpMember').once("value").then(function(all){
                     //             //     var Num = all.child(y).numChildren()
                     //             //     if (all.child(y)>=0){
@@ -377,12 +382,20 @@
                     //             console.log(count);
                     //       });
 
+
   firebase.database().ref('activities').once("value").then(function(all){
 
                            new Vue({
                             el: '#app2',
-                            data: {activities:all.val()},
+                            data: {activities:all.val(),
+                            movie:[]},
                             methods:{
+
+                              join:function(x,y){
+                                console.log(x,y);
+                              this.showDetail(x,y);
+                              },
+
                          //      Number:function(x,y){
                          //          firebase.database().ref('ActivitySignUpMember/'+x.activityID).once("value").then(function(all){
                          //            var Num = all.child(y).numChildren()
@@ -395,28 +408,10 @@
                          // });
                          //      },
 
+
                                 showDetail: function(x,location){
-                                  swal({
-                                    title: '請選擇有空時間',
-                                    html: '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_15_wed_night"  /><label for="6_15_wed_night">禮拜三 晚上 </label></p>'+
-                                          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_16_thu_night"  /><label for="6_16_thu_night">禮拜四 晚上</label></p>'+
-                                          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_17_fri_night"  /><label for="6_17_fri_night">禮拜五 晚上</label></p>'+
-                                          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_18_sat_afternoon"  /><label for="6_18_sat_afternoon">禮拜六 下午</label></p>'+
-                                          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_18_sat_night"  /><label for="6_18_sat_night">禮拜六 晚上</label></p>'+
-                                          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_19_sun_afternoon"  /><label for="6_19_sun_afternoon">禮拜日 下午</label></p>'+
-                                          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_19_sun_night"  /><label for="6_19_sun_night">禮拜日 晚上</label></p>'+
-                                          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_20_mon_night"  /><label for="6_20_mon_night">禮拜一 晚上</label></p>'+
-                                          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_21_tue_night"  /><label for="6_21_tue_night">禮拜二 晚上</label></p>'+
-                                          '<h2 style="margin-bottom:24px;">感興趣電影</h2>' +
-                                          '<p><input type="checkbox" id="1" /><label for="1">電影1</label></p>'+
-                                          '<p><input type="checkbox" id="2" /><label for="2">電影2</label></p>'+
-                                          '<p><input type="checkbox" id="3" /><label for="3">電影3</label></p>'+
-                                          '<p><input type="checkbox" id="4" /><label for="4">電影4</label></p>'+
-                                          '<p><input type="checkbox" id="5" /><label for="5">電影5</label></p>'+
-                                          '<p><input type="checkbox" id="6" /><label for="6">電影6</label></p>',
-                                  })
-
-
+                                    console.log(x,location);
+                                  alert(123);
                                   var location = location;
                                   console.log(location);
 
@@ -460,7 +455,7 @@
                                 interests:interests,
                                 faceScore:faceScore,
                                 availabeTime:[],
-                                movie:[],
+                                movie:this.movie,
                                 status:0,
                                 accountLastFive:"",
                                 activityName:x.name
@@ -475,7 +470,7 @@
                                     dateMatch:x.dateMatch,
                                     dateSignUp:x.dateSignUp,
                                     confirmDate:"",
-                                    movie:[],
+                                    movie:this.movie,
                                     subject:x.subject,
                                     location:location,
                                     status:0,

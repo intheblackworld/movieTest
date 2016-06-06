@@ -80,7 +80,7 @@
       </p>
       <a class="waves-effect waves-light btn btn-filled write-data" href="admin_profile.html">馬上填寫</a>
     </div>
-    <div class="alert alert-danger alert-dismissible container" role="alert">
+    <!-- <div class="alert alert-danger alert-dismissible container" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
@@ -89,7 +89,7 @@
         6/1 台北場 Let`s Movie 一對一電影約會
       </p>
       <a class="waves-effect waves-light btn btn-filled">馬上報名</a>
-    </div>
+    </div> -->
     <div class="alert alert-info alert-dismissible container" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
@@ -159,6 +159,54 @@
                       <input  id="disabled" type="text" class="validate age" v-model="age" required>
                       <label class="default" for="icon_age">年齡</label>
                     </div>
+                    <div class="input-field col s12 m7 profile-data">
+                      <i class="material-icons prefix">record_voice_over</i>
+                      <label class="person">你通常有空的時間</label>
+
+                      <div class="profile-time">
+                        <p>
+                          <input type="checkbox" v-model="availabeTime" value="星期一晚上" id="time1" />
+                          <label for="time1"> 星期一晚上</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" v-model="availabeTime" value="星期二晚上" id="time2" />
+                          <label for="time2"> 星期二晚上</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" v-model="availabeTime" value="星期三晚上" id="time3" />
+                          <label for="time3"> 星期三晚上</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" v-model="availabeTime" value="星期四晚上" id="time4" />
+                          <label for="time4"> 星期四晚上</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" v-model="availabeTime" value="星期五晚上" id="time5" />
+                          <label for="time5"> 星期五晚上</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" v-model="availabeTime" value="星期六下午" id="time6" />
+                          <label for="time6"> 星期六下午</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" v-model="availabeTime" value="星期六晚上" id="time7" />
+                          <label for="time7"> 星期六晚上</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" v-model="availabeTime" value="星期日下午" id="time8" />
+                          <label for="time8"> 星期日下午</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" v-model="availabeTime" value="星期日晚上" id="time9" />
+                          <label for="time9"> 星期日晚上</label>
+                        </p>
+                        <!-- <span>Checked names: {{ description | json }}</span> -->
+                        <!-- <p>
+                          <input id="icon_prefix" v-model="description"  type="text" class="validate other" >
+                        </p> -->
+                      </div>
+                    </div>
+
                     <div class="input-field col s12 m7 profile-data">
                       <i class="material-icons prefix">record_voice_over</i>
                       <label class="person">別人通常怎麼形容你？<span>至多選擇三項</span></label>
@@ -319,9 +367,14 @@
 
         firebase.database().ref('users/' + uid).once("value").then(function(all) {
           var descriptionArray = [];
+          var availabeTimeArray = [];
           usersFirebase = all.val();
           if (usersFirebase.description !== undefined){
           descriptionArray=usersFirebase.description;
+          console.log("更新description");
+        };
+          if (usersFirebase.availabeTime !== undefined){
+          availabeTimeArray=usersFirebase.availabeTime;
           console.log("更新description");
         };
           var vm2 = new Vue({
@@ -338,6 +391,7 @@
               description: descriptionArray,
               profession: usersFirebase.profession,
               interests: usersFirebase.interests,
+              availabeTime: availabeTimeArray
             },methods:{updateUser:function(){
               var userUID = firebase.auth().currentUser.uid
               firebase.database().ref('users/' + userUID).update({
@@ -351,6 +405,7 @@
                 description: this.description,
                 profession: this.profession,
                 interests: this.interests,
+                availabeTime: this.availabeTime
               }).catch(function(error) {
                 // An error occurred
               });
@@ -364,7 +419,7 @@
 
         //admin_profile
       } else {
-        
+
         // $('.fb_login').show();
         // User logged out
       }
