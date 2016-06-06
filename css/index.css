@@ -609,6 +609,24 @@ nav.transparent .menu > .logout > a {
   padding-left: 8px;
   padding-right: 8px;
 }
+.admin-select-movie {
+  border-left-color: #b6172f !important;
+  border-right-color: #b6172f !important;
+  background-color: #b6172f !important;
+  border-radius: 0;
+  transition: all .3s;
+  width: 100%;
+  margin: 0;
+  font-size: 2rem;
+  height: 70px;
+}
+.admin-select-movie:hover,.admin-select-movie:focus {
+  color: white;
+  border-radius: 0;
+    box-shadow: 2px 2px 5px #333;
+    opacity: .9;
+}
+
 @media all and (max-width: 767px) {
 .pricing-table .lead {
   font-size: 20px;
