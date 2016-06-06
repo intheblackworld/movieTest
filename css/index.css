@@ -317,6 +317,9 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 .profile-checkbox {
   margin: 5rem 0 0 3rem;
 }
+.profile-time {
+  margin: 5rem 0 0 3rem;
+}
 .profile-radio {
   margin: 5rem 0 0 3rem;
 }
@@ -328,6 +331,10 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
   color: #26a69a;
 }
 .profile-checkbox .other {
+  font-size: 18px;
+  margin: 5px 0 0 25px;
+}
+.profile-time .other {
   font-size: 18px;
   margin: 5px 0 0 25px;
 }
@@ -628,6 +635,13 @@ nav.fixed.profile-nav {
   margin-left: 3em;
 }
 .profile-checkbox {
+  text-align: left;
+  margin-left: 0;
+}
+.show {
+  display: block !important;
+}
+.profile-time {
   text-align: left;
   margin-left: 0;
 }
