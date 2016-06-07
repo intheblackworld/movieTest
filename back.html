@@ -111,7 +111,7 @@
               dateActivity:<input v-model="dateActivity"><br>
               movie:<input v-model="movie"><br>
               location:<input v-model="location"><br>
-              讓使用者勾的有空時間:<input v-model="freeTime"><br>
+              <!-- 讓使用者勾的有空時間:<input v-model="freeTime"><br> -->
               status:<input v-model="status"><br>
               <!-- 0:不能報名,1:可以報名,2:結束了（不會顯示） -->
               <button onclick="signUpActivity()">新增活動</button>
@@ -121,14 +121,59 @@
 
       <div class="3">
         <div id="app4" >
-          <div v-for="activity in activities" >
+          <div v-for="activity in activities" style="display: inline-block;" >
             {{activity.name}}
-            <button v-on:click="showActivity(activity)">此活動報名使用者</button>
-             <div v-for="activity_user in activity_users" class="3">
-            年齡：{{activity_user.age}}
-            名稱：{{activity_user.username}}
-            </div>
+            <button v-on:click="showActivity(activity)">check</button>
+            
           </div>
+          <br>
+          搜尋關鍵字(ex:男,台北...)<input v-model="query"></input><br>
+          條件二(ex:電影,顏值...)<input v-model="query2"></input>
+
+          
+          <div v-for="activity_user in activity_users| filterBy query|filterBy query2">
+            <img v-bind:src="activity_user.photoURL"><br>
+            名稱：{{activity_user.username}}<br>
+            性別：{{activity_user.gender}}<br>
+            綽號：{{activity_user.nickname}}<br>
+            興趣:{{activity_user.interests}}<br>
+            年齡：{{activity_user.age}}<br>
+            電影:{{activity_user.movie}}<br>
+            地區：{{activity_user.location}}<br>
+            顏值：{{activity_user.faceScore}}<br>
+            free時間:{{activity_user.availabeTime}}<br>
+            個性:{{activity_user.description}}<br> 
+            狀態:{{activity_user.status}}<br>
+            <button>已報名</button> 
+            <button>無匯款，取消場次</button> 
+            <button>配對中</button> 
+            <button>已錄取，接收簡訊</button>  
+            <button>無錄取，配對失敗</button>
+            <button>退款中</button>
+            <button>活動結束</button>
+
+            <br>
+           
+            
+            <!-- status:0,
+            //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
+            location:,
+            userID: XXX(userID),
+            username:,
+            photoURL:,
+            email:,
+            lineID:,
+            phone:,
+            nickname:,
+            gender:,
+            age:,
+            description:,
+            profession:,
+            interests:,
+            faceScore:,
+            availabeTime:, -->
+
+            </div>
 
 
 
