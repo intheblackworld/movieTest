@@ -11,7 +11,7 @@ $(window).load(function(){
 })
 
 function phonetests(e){
-    alert(123);
+    // alert(123);
     var text =$('#phone_number').val();
     console.log(text);
 }
