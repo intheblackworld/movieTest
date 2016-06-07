@@ -44,7 +44,7 @@ var config = {
 			var name;
 			var uid;
 			auth.onAuthStateChanged(function(user) {
-				if (user&& lasturl=='index.html' ) {
+				if (user&& lasturl !=='admin_join.html'| lasturl =='admin_check.html' | lasturl =='admin_profile.html' ) {
   				// alert(lasturl);
 					uid = user.uid;
 					var name = user.displayName;
