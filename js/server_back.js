@@ -92,7 +92,7 @@ var auth = firebase.auth();
 				                document.getElementById('detail').className = 'hide';
 				                window.location.reload();
                               }
-                          
+
                           }
                         });
                 });
@@ -128,7 +128,7 @@ var index;
                    var activityPush = firebase.database().ref('activities').push({
 
                         activityID:'',
-                    	index:vm.index,
+                    	// index:vm.index,
                     	name:vm.name,
                     	subject:vm.subject,
                     	dateSignUp:vm.dateSignUp,
@@ -141,23 +141,23 @@ var index;
                     	status:vm.status,
 
                       });
-                
+
                      console.log(activityPush.key);
                          var updates = {};
                          updates["activityID"]=activityPush.key;
                          firebase.database().ref('activities/'+activityPush.key).update(updates);
 
-      
 
- 					
+
+
                 }
 
-			
+
 
 // ========================
-		
+
 		// var _activityID = document.getElementById('_activityID').value;
-	
+
         //  firebase.database().ref('activity-users/'+_activityID).once("value").then(function(all){
         //  	var au = all.val();
 
@@ -168,7 +168,7 @@ var index;
         // })
 
 
-         firebase.database().ref('activities/').on("value",function(all){	
+         firebase.database().ref('activities/').on("value",function(all){
          	var au = all.val();
 
            var vm = new Vue({
@@ -193,5 +193,3 @@ var index;
             }
             });
         })
-      
-	    
