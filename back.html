@@ -17,7 +17,7 @@
         <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
       <style type="text/css">
 
-        .content div {
+        .content>div {
           display: none;
         }
         .content    .active {
@@ -69,10 +69,10 @@
     </nav>
 
     <div style="position:absolute;top:100px;padding: 20px" class="content">
-      <div class="1">   
+      <div class="1">
         <div id="app1" class="1">
 
-          <div id="detail" class="1 hide">
+          <div id="detail" class="hide">
           臉蛋分數：{{faceScore}}<br>
           <input v-model="faceScore"></input><button v-on:click="updateUser()">確定修改</button>
           </div>
@@ -94,7 +94,7 @@
               興趣:{{user.interests}}<br>
               臉蛋分數:{{user.faceScore}}<br>
               別人形容:{{user.description}}<br>
-              <button v-on:click="showDetail(user)">修改資料(faceScore)</button>  
+              <button v-on:click="showDetail(user)">修改資料(faceScore)</button>
             </p>
         </div>
       </div>
@@ -102,7 +102,7 @@
 
 
       <div class="2">
-         <div id="app2" class="2">
+         <div id="app2">
               <!-- index:<input v-model="index"><br> -->
               name:<input v-model="name"><br>
               subject:<input v-model="subject"><br>
@@ -114,14 +114,14 @@
               讓使用者勾的有空時間:<input v-model="freeTime"><br>
               status:<input v-model="status"><br>
               <!-- 0:不能報名,1:可以報名,2:結束了（不會顯示） -->
-              <button onclick="signUpActivity()">新增活動</button>  
+              <button onclick="signUpActivity()">新增活動</button>
         </div>
-      </div> 
-      
+      </div>
+
 
       <div class="3">
-        <div id="app4" class="3">
-          <div v-for="activity in activities" class="3">
+        <div id="app4" >
+          <div v-for="activity in activities" >
             {{activity.name}}
             <button v-on:click="showActivity(activity)">此活動報名使用者</button>
              <div v-for="activity_user in activity_users" class="3">
@@ -129,15 +129,15 @@
             名稱：{{activity_user.username}}
             </div>
           </div>
-    
-          
-    
+
+
+
         </div>
         </div>
 
 
-        
-      </div>    
+
+      </div>
 
 
 
@@ -162,6 +162,6 @@
         <script src="js/index.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
         <script src="js/server_back.js"></script>
-        
+
 
 </body>
