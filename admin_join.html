@@ -157,7 +157,7 @@
                           <a class="btn btn-filled btn-lg"  data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <h2 style="margin-bottom:24px;">感興趣電影</h2>
-                            <p v-for="x in movie"><input v-model="movie" type="checkbox" id="{{$index}}" value="{{x}}"/><label for="{{$index}}">{{x}}</label></p>
+                            <p v-for="x in movie"><input v-model="movie[x]" type="checkbox" id="{{$index}}" value="{{x}}"/><label for="{{$index}}">{{x}}</label></p>
 
                             <button class="btn btn-filled btn-lg" v-on:click="join(activity,'台北')">確認</button>
                           </div>
@@ -510,8 +510,10 @@
                    console.log(ID);
                      firebase.database().ref('activities/'+ID).once("value").then(function(all5){
                         var movie = all5.val().movie;
-                        console.log(movie);
-                        vmvm.$set('movie',movie);
+                        // console.log(movie);
+                        var moviearray = JSON.parse("["+movie+"]");
+                        console.log(moviearray);
+                        vmvm.$set('movie',moviearray);
                      })
                  });
                })
