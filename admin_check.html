@@ -88,7 +88,7 @@
       </p>
       <a class="waves-effect waves-light btn btn-filled">馬上報名</a>
     </div> -->
-    <div class="alert alert-info alert-dismissible container" role="alert">
+    <!-- <div class="alert alert-info alert-dismissible container" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
@@ -98,7 +98,7 @@
       </p>
       <a class="waves-effect waves-light btn btn-filled pay">馬上匯款</a>
       <!-- <a class="btn btn-filled" href="#">馬上匯款</a> -->
-    </div>
+    <!-- </div> -->
     <section>
       <div class="container">
         <div class="row">
@@ -115,8 +115,8 @@
               <table class="table" id='app5'>
                 <thead class="thead-inverse">
                   <tr>
-                    <th class="col-md-2 col-xs-2">報名期</th>
-                    <th class="col-md-2 col-xs-2 hidden-xs">公布媒合</th>
+                    <th class="col-md-2 col-xs-2 ">活動名稱</th>
+                    <th class="col-md-2 col-xs-2 hidden-xs">報名期</th>
                     <th class="col-md-2 col-xs-2 hidden-xs">活動期</th>
                     <th class="col-md-2 col-xs-2">地點</th>
                     <th class="col-md-2 col-xs-2">狀態</th>
@@ -126,12 +126,12 @@
                 </thead>
                 <tbody>
                   <tr v-for="user_activity in user_activities">
+                    <td class="col-md-2 col-xs-2 ">{{user_activity.activityName}}</td>
                     <td class="col-md-2 col-xs-2 hidden-xs">{{user_activity.dateSignUp}}</td>
-                    <td class="col-md-2 col-xs-2 hidden-xs">{{user_activity.dateMatch}}</td>
                     <td class="col-md-2 col-xs-2">{{user_activity.dateActivity}}</td>
                     <td class="col-md-2 col-xs-2">{{user_activity.location}}</td>
                     <td class="col-md-2 col-xs-2 state">{{user_activity.status}}</td>
-                    <td v-if="user_activity.status==0"><a class="pay-btn-check pay-btn">匯款</a></td>
+                    <td v-if="user_activity.status=='完成報名' && user_activity.gender =='男' "><a class="pay-btn-check pay-btn">匯款</a></td>
                   </tr>
                   <!-- <tr>
                     <td>6/15</td>
@@ -217,7 +217,13 @@
                   $('.swal2-modal').css({'top':'70%','height': '60%'});
                   $('.bank').click(function(){$('.hide-text').fadeIn(300);})
                 })
-                $('#pic_my').attr("src", photoURL);
+                $('#pic_my').attr("src", user.photoURL);
+            });
+            firebase.database().ref('users/' + uid).once("value").then(function(all) {
+              if (all.val().phone == "" | all.val().phone==undefined){
+                $('.alert-warning ').show();
+              };
+
             })
        }
     })

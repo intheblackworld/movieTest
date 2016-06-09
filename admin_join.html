@@ -120,7 +120,7 @@
       </p>
       <a class="waves-effect waves-light btn btn-filled" onclick="showDetail(activity,'台北')">馬上報名</a>
     </div> -->
-    <div class="alert alert-info alert-dismissible container" role="alert">
+    <!-- <div class="alert alert-info alert-dismissible container" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
@@ -130,7 +130,7 @@
       </p>
       <a class="waves-effect waves-light btn btn-filled pay">馬上匯款</a>
       <!-- <a class="btn btn-filled" href="#">馬上匯款</a> -->
-    </div>
+    <!-- </div> -->
     <section>
       <div class="container">
         <div class="row">
@@ -478,6 +478,9 @@
             var user = firebase.auth().currentUser;
             var username, email, photoUrl, uid, lineID, phone, nickname, gender, age, description, profession, interests, faceScore, availabeTime;
             firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+              if (all.val().phone == "" | all.val().phone==undefined){
+                $('.alert-warning ').show();
+              };
               username = snapshot.val().displayName;
               email = snapshot.val().email;
               photoUrl = snapshot.val().photoURL;
@@ -525,6 +528,7 @@
                 dateMatch: x.dateMatch,
                 dateSignUp: x.dateSignUp,
                 confirmDate: "",
+                gender:gender,
                 movie: vmvm.movieCheck,
                 subject: x.subject,
                 location: location,
@@ -573,9 +577,7 @@
         })
 
       });
-      if (all.val().phone == "" | all.val().phone==undefined){
 
-      }
     })
 
 
