@@ -156,7 +156,16 @@ var index;
                          updates["activityID"]=activityPush.key;
                          firebase.database().ref('activities/'+activityPush.key).update(updates);
 
+                    	vm.name='';
+                    	vm.subject='';
+                    	vm.dateSignUp='';
+              			vm.dateMatch='';
+             			vm.dateActivity='';
+                    	vm.movie='';
+                    	vm.location=[];
+                    	vm.status='';
 
+                    	alert('建立活動成功');
 
 
                 }
