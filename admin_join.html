@@ -25,28 +25,32 @@
 <style>
   .swal2-modal {
     height: 36%;
-    top: 120%;
+    /*top: 120%;*/
     padding: 40px;
-    height: 200px;
+    height: 220px;
   }
   .swal2-modal h2 {
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
-    position: absolute;
-    left: 50%;
-    margin-left: -110px;
-    top: 37%;
-    margin-top: -15px;
+    position: static;
+    margin-top: 20px;
+    /*left: 50%;*/
+    /*margin-left: -110px;*/
+    /*top: 37%;*/
+
+  }
+  .swal2-content {
+    text-align: center;
   }
   .swal2-modal button.styled {
     position: absolute;
     width: auto;
     left: 50%;
-    bottom: 40px;
     padding: 10px 32px;
     margin: 0 5px;
     margin-left: -45px;
     height: 45px;
+    margin-bottom: 20px;
   }
 </style>
 
@@ -185,12 +189,12 @@
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
-                            <p class="col-xs-4 col-md-4" v-for="x in movie " track-by="$index">
+                            <p class="col-xs-12 col-md-4" v-for="x in movie " track-by="$index">
                               <input class="inputMovie" v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}" />
                               <label for="{{$index+1}}">{{x}}</label>
                             </p>
                             <div class="clearfix"></div>
-                            <button class="btn btn-filled btn-lg" style="position: absolute;bottom: 20px;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台北')">確認</button>
+                            <button class="btn btn-filled btn-lg" style="position: absolute;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台北')">確認</button>
                           </div>
                           <ul>
                             <li>
@@ -232,12 +236,12 @@
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
-                            <p class="col-xs-4 col-md-4" v-for="x in movie " track-by="$index">
+                            <p class="col-xs-12 col-md-4" v-for="x in movie " track-by="$index">
                               <input class="inputMovie" v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}" />
                               <label for="{{$index+1}}">{{x}}</label>
                             </p>
                             <div class="clearfix"></div>
-                            <button class="btn btn-filled btn-lg " style="position: absolute;bottom: 20px;left: 50%;margin-left: -50px;" v-on:click="join(activity,'新竹')">確認</button>
+                            <button class="btn btn-filled btn-lg " style="position: absolute;left: 50%;margin-left: -50px;" v-on:click="join(activity,'新竹')">確認</button>
                           </div>                          <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -274,12 +278,12 @@
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
-                            <p class="col-xs-4 col-md-4" v-for="x in movie " track-by="$index">
+                            <p class="col-xs-12 col-md-4" v-for="x in movie " track-by="$index">
                               <input class="inputMovie" v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}" />
                               <label for="{{$index+1}}">{{x}}</label>
                             </p>
                             <div class="clearfix"></div>
-                            <button class="btn btn-filled btn-lg " style="position: absolute;bottom: 20px;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台中')">確認</button>
+                            <button class="btn btn-filled btn-lg " style="position: absolute;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台中')">確認</button>
                           </div>                          <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -316,12 +320,12 @@
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
-                            <p class="col-xs-4 col-md-4" v-for="x in movie " track-by="$index">
+                            <p class="col-xs-12 col-md-4" v-for="x in movie " track-by="$index">
                               <input class="inputMovie" v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}" />
                               <label for="{{$index+1}}">{{x}}</label>
                             </p>
                             <div class="clearfix"></div>
-                            <button class="btn btn-filled btn-lg " style="position: absolute;bottom: 20px;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台南')">確認</button>
+                            <button class="btn btn-filled btn-lg " style="position: absolute;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台南')">確認</button>
                           </div>                          <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -363,12 +367,12 @@
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
-                            <p class="col-xs-4 col-md-4" v-for="x in movie " track-by="$index">
+                            <p class="col-xs-12 col-md-4" v-for="x in movie " track-by="$index">
                               <input class="inputMovie" v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}" />
                               <label for="{{$index+1}}">{{x}}</label>
                             </p>
                             <div class="clearfix"></div>
-                            <button class="btn btn-filled btn-lg " style="position: absolute;bottom: 20px;left: 50%;margin-left: -50px;" v-on:click="join(activity,'高雄')">確認</button>
+                            <button class="btn btn-filled btn-lg " style="position: absolute;left: 50%;margin-left: -50px;" v-on:click="join(activity,'高雄')">確認</button>
                           </div>                          <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
@@ -453,7 +457,7 @@
             this.showDetail(x, y);
             console.log(this.movie);
             $('.modal-backdrop, .modal').hide();
-            swal({title:'報名成功'})
+            swal({title:'報名成功',text:'請至檢視約會頁面查看您的約會'})
           },
 
           showDetail: function(x, location) {

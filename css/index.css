@@ -564,24 +564,7 @@ h1,h2,h3 {
 .footer-logo {
   margin: 0px;
 }
-button {
-  background-color: #b6172f;
-color: white;
-transition: ;
-border: none;
-box-shadow: 2px 2px 5px gray;
-padding: 10px 20px;
-margin: 10px 0px;
-transition: all .3s;
-}
-button:hover,button:active {
-  outline: none;
-  background-color: white;
-}
-button:hover,button:focus {
-  background-color: white;
-  color: #b6172f;
-}
+
 .admin-back-content {
   padding-top: 40px;
 }
