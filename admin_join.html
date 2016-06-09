@@ -563,7 +563,25 @@
 
       });
     })
+
+
+      function checkUser(){
+        var user = firebase.auth().currentUser;
+        console.log("xxxx"+user);
+        firebase.database().ref('users/'+user.uid).once("value").then(function(all) {
+            if (all.val().phone == ""|all.val().phone==undefined){
+                console.log("目前無法報名活動，使用者資料不完整");
+            }
+            else{
+                console.log("使用者資料已經完整")
+            }
+        });
+      }
+
+
+     
   </script>
+  <button onclick="checkUser()">joidfsjoisdf</button>
 </body>
 
 </html>

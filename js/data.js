@@ -1,7 +1,7 @@
 {
     users:{
         XXX(userId):{
-            userId:(uid)
+            uid:(uid)
             username:
             photoURL:
             email:
