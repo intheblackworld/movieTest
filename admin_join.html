@@ -157,7 +157,7 @@
                           <a class="btn btn-filled btn-lg"  data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <h2 style="margin-bottom:24px;">感興趣電影</h2>
-                            <p v-for="x in movie"><input v-model="movie[x]" type="checkbox" id="{{$index}}" value="{{x}}"/><label for="{{$index}}">{{x}}</label></p>
+                            <p v-for="x in movie" track-by="$index" ><input v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}"/><label for="{{$index+1}}">{{x}}</label></p>
 
                             <button class="btn btn-filled btn-lg" v-on:click="join(activity,'台北')">確認</button>
                           </div>
@@ -416,7 +416,7 @@
                 var vmvm = new Vue({
                   el: '#app2',
                   data: {activities:all.val(),
-                  movie:[]},
+                  movie:[],movieCheck:[]},
                   methods:{
 
                     join:function(x,y){
@@ -464,7 +464,7 @@
                               interests:interests,
                               faceScore:faceScore,
                               availabeTime:[],
-                              movie:vmvm.movie,
+                              movie:vmvm.movieCheck,
                               status:0,
                               accountLastFive:"",
                               activityName:x.name
@@ -479,7 +479,7 @@
                             dateMatch:x.dateMatch,
                             dateSignUp:x.dateSignUp,
                             confirmDate:"",
-                            movie:vmvm.movie,
+                            movie:vmvm.movieCheck,
                             subject:x.subject,
                             location:location,
                             status:0,
@@ -507,13 +507,14 @@
                  $('.pricing-table>a').on('click',function(){
                    var  e = $(this).attr("data-target");
                    var ID = e.substring(1, e.length)
-                   console.log(ID);
+                  //  console.log(ID);
                      firebase.database().ref('activities/'+ID).once("value").then(function(all5){
                         var movie = all5.val().movie;
+                        console.log(movie)
                         // console.log(movie);
-                        var moviearray = JSON.parse("["+movie+"]");
-                        console.log(moviearray);
-                        vmvm.$set('movie',moviearray);
+
+                        vmvm.$set('movie',movie);
+
                      })
                  });
                })
