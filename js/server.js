@@ -59,7 +59,7 @@ var config = {
 					$('.user_name p').text(name+ "，歡迎回來");
 
 					//admin_profile
-				} else if (!user&& lasturl=='index.html' ){
+				} else if (!user && lasturl !=='admin_join.html'| lasturl !=='admin_check.html' | lasturl !=='admin_profile.html' ){
 
 					setTimeout(function() {
 //your code to be executed after 1 second
