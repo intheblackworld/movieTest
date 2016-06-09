@@ -69,15 +69,13 @@
     </nav>
 
     <div style="position:absolute;top:100px;padding: 20px" class="content">
-      <div class="1">
+      <div class="1 active admin-back-content">
         <div id="app1" class="1">
 
           <div id="detail" class="hide">
           臉蛋分數：{{faceScore}}<br>
           <input v-model="faceScore"></input><button v-on:click="updateUser()">確定修改</button>
           </div>
-
-          <br>
           搜尋：<br>
           <input v-model="query">  <br>
             <p v-for="user in users | filterBy query">
@@ -109,7 +107,7 @@
 
 
 
-      <div class="2">
+      <div class="2 admin-back-content">
          <div id="app2">
               <!-- index:<input v-model="index"><br> -->
               name:<input v-model="name"><br>
@@ -127,18 +125,18 @@
       </div>
 
 
-      <div class="3">
+      <div class="3 admin-back-content">
         <div id="app4" >
           <div v-for="activity in activities" style="display: inline-block;" >
             {{activity.name}}
             <button v-on:click="showActivity(activity)">check</button>
-            
+
           </div>
           <br>
           搜尋關鍵字(ex:男,台北...)<input v-model="query"></input><br>
           條件二(ex:電影,顏值...)<input v-model="query2"></input>
 
-          
+
           <div v-for="activity_user in activity_users| filterBy query|filterBy query2">
             <img v-bind:src="activity_user.photoURL"><br>
             名稱：{{activity_user.username}}<br>
@@ -150,19 +148,19 @@
             地區：{{activity_user.location}}<br>
             顏值：{{activity_user.faceScore}}<br>
             free時間:{{activity_user.availabeTime}}<br>
-            個性:{{activity_user.description}}<br> 
+            個性:{{activity_user.description}}<br>
             狀態:{{activity_user.status}}<br>
-            <button v-on:click="status0(activity_user)">已報名</button> 
-            <button v-on:click="status1(activity_user)">無匯款，取消場次</button> 
-            <button v-on:click="status2(activity_user)">配對中</button> 
-            <button v-on:click="status3(activity_user)">已錄取，接收簡訊</button>  
+            <button v-on:click="status0(activity_user)">已報名</button>
+            <button v-on:click="status1(activity_user)">無匯款，取消場次</button>
+            <button v-on:click="status2(activity_user)">配對中</button>
+            <button v-on:click="status3(activity_user)">已錄取，接收簡訊</button>
             <button v-on:click="status4(activity_user)">無錄取，配對失敗</button>
             <button v-on:click="status5(activity_user)">退款中</button>
             <button v-on:click="status6(activity_user)">活動結束</button>
 
             <br>
-           
-            
+
+
             <!-- status:0,
             //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
             location:,
