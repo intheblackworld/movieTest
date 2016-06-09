@@ -58,6 +58,7 @@ var config = {
 					$('#pic_my').attr("src",photoURL);
 					$('.user_name p').text(name+ "，歡迎回來");
 
+
 					//admin_profile
 				} else if (!user && lasturl !=='admin_join.html'| lasturl !=='admin_check.html' | lasturl !=='admin_profile.html' ){
 
@@ -81,6 +82,7 @@ var config = {
 					$('.fb_login').hide();
 					$('#pic_my').attr("src",photoURL);
 					$('.user_name p').text(name+ "，歡迎回來");
+          $('.title h5').text(name);
 
 				}
 			});

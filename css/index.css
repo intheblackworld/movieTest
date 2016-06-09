@@ -621,7 +621,9 @@ nav.transparent .menu > .logout > a {
     box-shadow: 2px 2px 5px #333;
     opacity: .9;
 }
-
+.modal .col-xs-12 {
+  text-align: left;
+}
 @media all and (max-width: 767px) {
 .pricing-table .lead {
   font-size: 20px;
