@@ -63,7 +63,7 @@ var auth = firebase.auth();
 			});
 
 
-			firebase.database().ref('users').once("value").then(function(all){
+			firebase.database().ref('users').on("value",function(all){
 
 						var userUID;
 
@@ -75,23 +75,23 @@ var auth = firebase.auth();
                           	faceScore:''
                           	},
                           methods:{
-                              showDetail: function(x){
+                              showDetail: function(x,score){
                                   userUID = x.uid;
-                                  document.getElementById('detail').className = 'show';
+                                  // document.getElementById('detail').className = 'show';
                                   // document.getElementById('detail').innerHTML = x.displayName;
-                                  this.faceScore = x.faceScore;
+                                  this.faceScore = score;
                                   console.log(userUID)
+                                  firebase.database().ref('users/'+userUID).update({
+                                  faceScore: this.faceScore
+                                 });
                               },
-                              updateUser: function(){
-                              	console.log(userUID);
-                              	firebase.database().ref('users/'+userUID).update({
-									faceScore: this.faceScore
-								}).catch(function(error) {
-				                  // An error occurred
-				                });
-				                document.getElementById('detail').className = 'hide';
-				                window.location.reload();
-                              }
+                        //       updateUser: function(){
+                        //       	console.log(userUID);
+                        //       	firebase.database().ref('users/'+userUID).update({
+                								// 	faceScore: this.faceScore
+                								// });
+				               
+                        //       }
 
                           // computed:{
                           // 	users.uid.genderX:function(){
@@ -201,13 +201,62 @@ var index;
                          var au2 = all2.val();
                         this.activity_users=all2.val();
                         vm.$set('activity_users',all2.val());
-                        console.log(all2.val());
                         console.log(this.activity_users);
-                         vm.$set('week', 'kevin');
 
                     })
-
-                }
+                },
+                status0:function(activity_user){
+                  console.log(activity_user.activityId);
+                  console.log(activity_user.userID);
+                    firebase.database().ref('activity-users/'+activity_user.activityId+'/'+activity_user.userID).update({status:'報名完成'});
+                    firebase.database().ref('user-activities/'+activity_user.userID+'/'+activity_user.activityId).update({status:'報名完成'});
+                },
+                status1:function(activity_user){
+                  console.log(activity_user.activityId);
+                  console.log(activity_user.userID);
+                    firebase.database().ref('activity-users/'+activity_user.activityId+'/'+activity_user.userID).update({status:'無匯款，取消場次'});
+                    firebase.database().ref('user-activities/'+activity_user.userID+'/'+activity_user.activityId).update({status:'無匯款，取消場次'});
+                },
+                status2:function(activity_user){
+                  console.log(activity_user.activityId);
+                  console.log(activity_user.userID);
+                    firebase.database().ref('activity-users/'+activity_user.activityId+'/'+activity_user.userID).update({status:'配對中'});
+                    firebase.database().ref('user-activities/'+activity_user.userID+'/'+activity_user.activityId).update({status:'配對中'});
+                },
+                status3:function(activity_user){
+                  console.log(activity_user.activityId);
+                  console.log(activity_user.userID);
+                    firebase.database().ref('activity-users/'+activity_user.activityId+'/'+activity_user.userID).update({status:'已錄取，接收簡訊'});
+                    firebase.database().ref('user-activities/'+activity_user.userID+'/'+activity_user.activityId).update({status:'已錄取，接收簡訊'});
+                },
+                status4:function(activity_user){
+                  console.log(activity_user.activityId);
+                  console.log(activity_user.userID);
+                    firebase.database().ref('activity-users/'+activity_user.activityId+'/'+activity_user.userID).update({status:'無錄取，配對失敗'});
+                    firebase.database().ref('user-activities/'+activity_user.userID+'/'+activity_user.activityId).update({status:'無錄取，配對失敗'});
+                },
+                status5:function(activity_user){
+                  console.log(activity_user.activityId);
+                  console.log(activity_user.userID);
+                    firebase.database().ref('activity-users/'+activity_user.activityId+'/'+activity_user.userID).update({status:'退款中'});
+                    firebase.database().ref('user-activities/'+activity_user.userID+'/'+activity_user.activityId).update({status:'退款中'});
+                },
+                status6:function(activity_user){
+                  console.log(activity_user.activityId);
+                  console.log(activity_user.userID);
+                    firebase.database().ref('activity-users/'+activity_user.activityId+'/'+activity_user.userID).update({status:'活動結束'});
+                    firebase.database().ref('user-activities/'+activity_user.userID+'/'+activity_user.activityId).update({status:'活動結束'});
+                },
             }
             });
         })
+
+        // function status0(activity_user.activityId,activity_user.uid){
+        //   firebase.database().ref('activity_users/'+activity_user.activityId).update('報名完成');
+        //   firebase.database().ref('user_activities/'+activity_user.uid).update('報名完成');
+        // }
+
+        // function status3(activity_user.activityId,activity_user.uid){
+        //   firebase.database().ref('activity_users/'+activity_user.activityId).update('已錄取，接收簡訊');
+        //   firebase.database().ref('user_activities/'+activity_user.uid).update('已錄取，接收簡訊');
+        // }

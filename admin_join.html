@@ -449,8 +449,9 @@
                           availabeTime = snapshot.val().availabeTime;
 
                           var updates = {
+                              activityId:x.activityID,
                               location: location,
-                              uid: user.uid,
+                              userID: user.uid,
                               username: username,
                               photoURL: photoUrl,
                               email:email,
@@ -473,6 +474,7 @@
 
 
                           var updates2 = {
+                            userID:user.uid,
                             activityName:x.name,
                             activityId:x.activityID,
                             dateActivity:x.dateActivity,

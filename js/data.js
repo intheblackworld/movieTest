@@ -31,8 +31,9 @@
                 movie:
                 subject:x.subject
                 location:'台北'
-                status:0:按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
-                accountLastFive:
+                status:0:報名完成,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
+                accountLastFive:,
+                userID:
         }
 
         ...
@@ -44,7 +45,7 @@
             activityName:
             movie:,
             status:0,
-            //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
+            //0:報名完成,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
             location:,
             userID: XXX(userID),
             username:,
@@ -60,21 +61,22 @@
             interests:,
             faceScore:,
             availabeTime:,
+            activityId:,
         }...
     }...
 
-    activitySignUpMember:{
-         ActivityID(yyy):{
-             台北：
-                   UserID(xxx):true
-                   ...
-            高雄：
-                 UserID(xxx):true
+    // activitySignUpMember:{
+    //      ActivityID(yyy):{
+    //          台北：
+    //                UserID(xxx):true
+    //                ...
+    //         高雄：
+    //              UserID(xxx):true
 
-            allmember:
-                 UserID(xxx):true
+    //         allmember:
+    //              UserID(xxx):true
 
-            },
+    //         },
 
 
 

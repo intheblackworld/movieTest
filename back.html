@@ -94,7 +94,15 @@
               興趣:{{user.interests}}<br>
               臉蛋分數:{{user.faceScore}}<br>
               別人形容:{{user.description}}<br>
-              <button v-on:click="showDetail(user)">修改資料(faceScore)</button>
+              <button v-on:click="showDetail(user,'5')"> 5分 </button>
+              <button v-on:click="showDetail(user,'5.5')">5.5分</button>
+              <button v-on:click="showDetail(user,'6')">6分</button>
+              <button v-on:click="showDetail(user,'6.5')">6.5分</button>
+              <button v-on:click="showDetail(user,'7')">7分</button>
+              <button v-on:click="showDetail(user,'7.5')">7.5分</button>
+              <button v-on:click="showDetail(user,'8')">8分</button>
+              <button v-on:click="showDetail(user,'8.5')">8.5分</button>
+              <button v-on:click="showDetail(user,'9')">9分</button>
             </p>
         </div>
       </div>
@@ -144,13 +152,13 @@
             free時間:{{activity_user.availabeTime}}<br>
             個性:{{activity_user.description}}<br> 
             狀態:{{activity_user.status}}<br>
-            <button>已報名</button> 
-            <button>無匯款，取消場次</button> 
-            <button>配對中</button> 
-            <button>已錄取，接收簡訊</button>  
-            <button>無錄取，配對失敗</button>
-            <button>退款中</button>
-            <button>活動結束</button>
+            <button v-on:click="status0(activity_user)">已報名</button> 
+            <button v-on:click="status1(activity_user)">無匯款，取消場次</button> 
+            <button v-on:click="status2(activity_user)">配對中</button> 
+            <button v-on:click="status3(activity_user)">已錄取，接收簡訊</button>  
+            <button v-on:click="status4(activity_user)">無錄取，配對失敗</button>
+            <button v-on:click="status5(activity_user)">退款中</button>
+            <button v-on:click="status6(activity_user)">活動結束</button>
 
             <br>
            
