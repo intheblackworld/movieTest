@@ -22,6 +22,33 @@
   <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
 
 </head>
+<style>
+  .swal2-modal {
+    height: 36%;
+    top: 120%;
+    padding: 40px;
+    height: 200px;
+  }
+  .swal2-modal h2 {
+    font-size: 4rem;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    margin-left: -110px;
+    top: 37%;
+    margin-top: -15px;
+  }
+  .swal2-modal button.styled {
+    position: absolute;
+    width: auto;
+    left: 50%;
+    bottom: 40px;
+    padding: 10px 32px;
+    margin: 0 5px;
+    margin-left: -45px;
+    height: 45px;
+  }
+</style>
 
 <body id="app2">
   <div class="loading6"></div>
@@ -38,7 +65,7 @@
         <!--end of module group-->
       </div>
     </nav>
-<nav class="absolute fixed scrolled profile-nav">
+    <nav class="absolute fixed scrolled profile-nav">
       <div class="nav-bar">
 
         <div class="module widget-handle mobile-toggle right visible-sm visible-xs" style="border: none;">
@@ -145,7 +172,7 @@
 
                 </li>
               </ul>
-              <ul class="content admin-content" >
+              <ul class="content admin-content">
                 <li class="active">
                   <div class="tab-content">
                     <div class="row">
@@ -154,12 +181,16 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg"  data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <h2 style="margin-bottom:24px;">感興趣電影</h2>
-                            <p v-for="x in movie" track-by="$index" ><input v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}"/><label for="{{$index+1}}">{{x}}</label></p>
-
-                            <button class="btn btn-filled btn-lg" v-on:click="join(activity,'台北')">確認</button>
+                            <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
+                            <p>多選幾場，讓你更容易跟對方配對喔!</p>
+                            <p class="col-xs-4 col-md-4" v-for="x in movie " track-by="$index">
+                              <input class="inputMovie" v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}" />
+                              <label for="{{$index+1}}">{{x}}</label>
+                            </p>
+                            <div class="clearfix"></div>
+                            <button class="btn btn-filled btn-lg" style="position: absolute;bottom: 20px;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台北')">確認</button>
                           </div>
                           <ul>
                             <li>
@@ -197,18 +228,17 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}} </span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg"  data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <h2 style="margin-bottom:24px;">感興趣電影</h2>
-                            <p><input type="checkbox" id="1" /><label for="1">電影1</label></p>
-                            <p><input type="checkbox" id="2" /><label for="2">電影2</label></p>
-                            <p><input type="checkbox" id="3" /><label for="3">電影3</label></p>
-                            <p><input type="checkbox" id="4" /><label for="4">電影4</label></p>
-                            <p><input type="checkbox" id="5" /><label for="5">電影5</label></p>
-                            <p><input type="checkbox" id="6" /><label for="6">電影6</label></p>
-                            <button v-on:click="join(activity,'新竹')">確認</button>
-                          </div>
-                          <ul>
+                            <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
+                            <p>多選幾場，讓你更容易跟對方配對喔!</p>
+                            <p class="col-xs-4 col-md-4" v-for="x in movie " track-by="$index">
+                              <input class="inputMovie" v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}" />
+                              <label for="{{$index+1}}">{{x}}</label>
+                            </p>
+                            <div class="clearfix"></div>
+                            <button class="btn btn-filled btn-lg " style="position: absolute;bottom: 20px;left: 50%;margin-left: -50px;" v-on:click="join(activity,'新竹')">確認</button>
+                          </div>                          <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
                             </li>
@@ -240,18 +270,17 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg"  data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <h2 style="margin-bottom:24px;">感興趣電影</h2>
-                            <p><input type="checkbox" id="1" /><label for="1">電影1</label></p>
-                            <p><input type="checkbox" id="2" /><label for="2">電影2</label></p>
-                            <p><input type="checkbox" id="3" /><label for="3">電影3</label></p>
-                            <p><input type="checkbox" id="4" /><label for="4">電影4</label></p>
-                            <p><input type="checkbox" id="5" /><label for="5">電影5</label></p>
-                            <p><input type="checkbox" id="6" /><label for="6">電影6</label></p>
-                            <button class="btn btn-filled btn-lg" v-on:click="join(activity,'台中')">確認</button>
-                          </div>
-                          <ul>
+                            <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
+                            <p>多選幾場，讓你更容易跟對方配對喔!</p>
+                            <p class="col-xs-4 col-md-4" v-for="x in movie " track-by="$index">
+                              <input class="inputMovie" v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}" />
+                              <label for="{{$index+1}}">{{x}}</label>
+                            </p>
+                            <div class="clearfix"></div>
+                            <button class="btn btn-filled btn-lg " style="position: absolute;bottom: 20px;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台中')">確認</button>
+                          </div>                          <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
                             </li>
@@ -283,18 +312,17 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg"  data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <h2 style="margin-bottom:24px;">感興趣電影</h2>
-                            <p><input type="checkbox" id="1" /><label for="1">電影1</label></p>
-                            <p><input type="checkbox" id="2" /><label for="2">電影2</label></p>
-                            <p><input type="checkbox" id="3" /><label for="3">電影3</label></p>
-                            <p><input type="checkbox" id="4" /><label for="4">電影4</label></p>
-                            <p><input type="checkbox" id="5" /><label for="5">電影5</label></p>
-                            <p><input type="checkbox" id="6" /><label for="6">電影6</label></p>
-                            <button class="btn btn-filled btn-lg" v-on:click="join(activity,'台南')">確認</button>
-                          </div>
-                          <ul>
+                            <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
+                            <p>多選幾場，讓你更容易跟對方配對喔!</p>
+                            <p class="col-xs-4 col-md-4" v-for="x in movie " track-by="$index">
+                              <input class="inputMovie" v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}" />
+                              <label for="{{$index+1}}">{{x}}</label>
+                            </p>
+                            <div class="clearfix"></div>
+                            <button class="btn btn-filled btn-lg " style="position: absolute;bottom: 20px;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台南')">確認</button>
+                          </div>                          <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
                             </li>
@@ -331,18 +359,17 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price">{{activity.name}}</span>
                           <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg"  data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <h2 style="margin-bottom:24px;">感興趣電影</h2>
-                            <p><input type="checkbox" id="1" /><label for="1">電影1</label></p>
-                            <p><input type="checkbox" id="2" /><label for="2">電影2</label></p>
-                            <p><input type="checkbox" id="3" /><label for="3">電影3</label></p>
-                            <p><input type="checkbox" id="4" /><label for="4">電影4</label></p>
-                            <p><input type="checkbox" id="5" /><label for="5">電影5</label></p>
-                            <p><input type="checkbox" id="6" /><label for="6">電影6</label></p>
-                            <button class="btn btn-filled btn-lg" v-on:click="join(activity,'高雄')">確認</button>
-                          </div>
-                          <ul>
+                            <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
+                            <p>多選幾場，讓你更容易跟對方配對喔!</p>
+                            <p class="col-xs-4 col-md-4" v-for="x in movie " track-by="$index">
+                              <input class="inputMovie" v-model="movieCheck" type="checkbox" id="{{$index+1}}" value="{{x}}" />
+                              <label for="{{$index+1}}">{{x}}</label>
+                            </p>
+                            <div class="clearfix"></div>
+                            <button class="btn btn-filled btn-lg " style="position: absolute;bottom: 20px;left: 50%;margin-left: -50px;" v-on:click="join(activity,'高雄')">確認</button>
+                          </div>                          <ul>
                             <li>
                               <strong>{{activity.dateSignUp}}</strong> 報名期
                             </li>
@@ -402,127 +429,134 @@
   <script src="js/server.js"></script>
   <script src="js/index.js"></script>
   <script>
+    Vue.filter('three', function(value) {
+      return value.slice(0, 3)
+    });
 
 
 
-          Vue.filter( 'three' , function ( value ) {
-              return value.slice(0,3)
-          });
+    firebase.database().ref('activities').once("value").then(function(all) {
+
+      var vmvm = new Vue({
+        el: '#app2',
+        data: {
+          activities: all.val(),
+          movie: [],
+          movieCheck: []
+        },
+        methods: {
+
+          join: function(x, y) {
+            // console.log(vmvm.movie);
+            // vmvm.$set('movie',av);
+            this.showDetail(x, y);
+            console.log(this.movie);
+            $('.modal-backdrop, .modal').hide();
+            swal({title:'報名成功'})
+          },
+
+          showDetail: function(x, location) {
+
+
+            var location = location;
+            var user = firebase.auth().currentUser;
+            var username, email, photoUrl, uid, lineID, phone, nickname, gender, age, description, profession, interests, faceScore, availabeTime;
+            firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+              username = snapshot.val().displayName;
+              email = snapshot.val().email;
+              photoUrl = snapshot.val().photoURL;
+              uid = snapshot.val().uid;
+              lineID = snapshot.val().lineID;
+              phone = snapshot.val().phone;
+              nickname = snapshot.val().nickname;
+              gender = snapshot.val().gender;
+              age = snapshot.val().age;
+              description = snapshot.val().description;
+              profession = snapshot.val().profession;
+              interests = snapshot.val().interests;
+              faceScore = snapshot.val().faceScore;
+              availabeTime = snapshot.val().availabeTime;
+
+              var updates = {
+                location: location,
+                uid: user.uid,
+                username: username,
+                photoURL: photoUrl,
+                email: email,
+                lineID: lineID,
+                phone: phone,
+                nickname: nickname,
+                gender: gender,
+                age: age,
+                description: description,
+                profession: profession,
+                interests: interests,
+                faceScore: faceScore,
+                availabeTime: [],
+                movie: vmvm.movieCheck,
+                status: 0,
+                accountLastFive: "",
+                activityName: x.name
+                  //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
+              };
+
+
+              var updates2 = {
+                activityName: x.name,
+                activityId: x.activityID,
+                dateActivity: x.dateActivity,
+                dateMatch: x.dateMatch,
+                dateSignUp: x.dateSignUp,
+                confirmDate: "",
+                movie: vmvm.movieCheck,
+                subject: x.subject,
+                location: location,
+                status: 0,
+                //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
+                accountLastFive: "",
+              };
 
 
 
-          firebase.database().ref('activities').once("value").then(function(all){
+              var updates3 = {};
+              updates3[user.uid] = true;
+              updates3['activityID'] = x.activityID;
 
-                var vmvm = new Vue({
-                  el: '#app2',
-                  data: {activities:all.val(),
-                  movie:[],movieCheck:[]},
-                  methods:{
-
-                    join:function(x,y){
-                  // console.log(vmvm.movie);
-                      // vmvm.$set('movie',av);
-                      this.showDetail(x,y);
-                      console.log(this.movie);
-                    },
-
-                    showDetail: function(x,location){
+              firebase.database().ref('activity-users/' + x.activityID + '/' + user.uid).update(updates);
+              firebase.database().ref('user-activities/' + user.uid + '/' + x.activityID).update(updates2);
+              firebase.database().ref('activitySignUpMember/' + x.activityID + '/' + location).update(updates3);
+              firebase.database().ref('activitySignUpMember/' + x.activityID + '/all').update(updates3);
 
 
-                        var location = location;
-                        var user = firebase.auth().currentUser;
-                        var username, email, photoUrl, uid,lineID,phone,nickname,gender,age,description,profession,interests,faceScore,availabeTime;
-                        firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
-                          username = snapshot.val().displayName;
-                          email = snapshot.val().email;
-                          photoUrl = snapshot.val().photoURL;
-                          uid = snapshot.val().uid;
-                          lineID = snapshot.val().lineID;
-                          phone = snapshot.val().phone;
-                          nickname = snapshot.val().nickname;
-                          gender = snapshot.val().gender;
-                          age = snapshot.val().age;
-                          description = snapshot.val().description;
-                          profession = snapshot.val().profession;
-                          interests = snapshot.val().interests;
-                          faceScore = snapshot.val().faceScore;
-                          availabeTime = snapshot.val().availabeTime;
+            });
 
-                          var updates = {
-                              location: location,
-                              uid: user.uid,
-                              username: username,
-                              photoURL: photoUrl,
-                              email:email,
-                              lineID:lineID,
-                              phone:phone,
-                              nickname:nickname,
-                              gender:gender,
-                              age:age,
-                              description:description,
-                              profession:profession,
-                              interests:interests,
-                              faceScore:faceScore,
-                              availabeTime:[],
-                              movie:vmvm.movieCheck,
-                              status:0,
-                              accountLastFive:"",
-                              activityName:x.name
-                              //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
-                          };
+          }
+        }
+      });
 
+      $('.pricing-table>a').on('click', function() {
+        var e = $(this).attr("data-target");
+        var ID = e.substring(1, e.length)
+          //  console.log(ID);
+        firebase.database().ref('activities/' + ID).once("value").then(function(all5) {
+          var movieBefore = all5.val().movie;
+          // console.log("b "+ movieBefore)
+          var movie = [];
+          for (i = 0; i < movieBefore.length; i++) {
+            if (movieBefore[i] !== "") {
+              movie.push(movieBefore[i]);
+              // console.log("m "+movie);
+            }
+            vmvm.$set('movie', movie);
+            // setInterval(function(){ $('.inputMovie').hide(); }, 3000);
 
-                          var updates2 = {
-                            activityName:x.name,
-                            activityId:x.activityID,
-                            dateActivity:x.dateActivity,
-                            dateMatch:x.dateMatch,
-                            dateSignUp:x.dateSignUp,
-                            confirmDate:"",
-                            movie:vmvm.movieCheck,
-                            subject:x.subject,
-                            location:location,
-                            status:0,
-                            //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束
-                            accountLastFive:"",
-                          };
+          }
 
+          // $('body').find('label').filter(function() { return $(this).text() == ""; }).hide();
+        })
 
-
-                          var updates3={};
-                          updates3[user.uid]=true;
-                          updates3['activityID']=x.activityID;
-
-                        firebase.database().ref('activity-users/'+x.activityID+'/'+user.uid).update(updates);
-                        firebase.database().ref('user-activities/'+user.uid+'/'+x.activityID).update(updates2);
-                        firebase.database().ref('activitySignUpMember/'+x.activityID+'/'+location).update(updates3);
-                        firebase.database().ref('activitySignUpMember/'+x.activityID+'/all').update(updates3);
-
-
-                          });
-
-                       }
-                    }
-                 });
-                 $('.pricing-table>a').on('click',function(){
-                   var  e = $(this).attr("data-target");
-                   var ID = e.substring(1, e.length)
-                  //  console.log(ID);
-                     firebase.database().ref('activities/'+ID).once("value").then(function(all5){
-                        var movie = all5.val().movie;
-                        console.log(movie)
-                        // console.log(movie);
-
-                        vmvm.$set('movie',movie);
-
-                     })
-                 });
-               })
-
-
-
-
-
+      });
+    })
   </script>
 </body>
 

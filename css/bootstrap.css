@@ -5911,7 +5911,7 @@ button.close {
   border: 0;
 }
 .modal-open {
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 .modal {
   position: fixed;
@@ -5924,6 +5924,7 @@ button.close {
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
   outline: 0;
+  padding: 40px;
 }
 .modal.fade .modal-dialog {
   -webkit-transition: -webkit-transform .3s ease-out;
