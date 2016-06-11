@@ -627,6 +627,9 @@ nav.transparent .menu > .logout > a {
 .alert-warning{
   display: none;
 }
+.modal {
+  height: 400px;
+}
 @media all and (max-width: 767px) {
 .pricing-table .lead {
   font-size: 20px;

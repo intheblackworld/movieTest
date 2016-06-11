@@ -49,9 +49,9 @@ var config = {
 					uid = user.uid;
 					var name = user.displayName;
 					var photoURL = user.photoURL;
-					console.log("uid :"+uid+" User Login");
-					console.log("name:"+name);
-					console.log("photo網址"+photoURL);
+					// console.log("uid :"+uid+" User Login");
+					// console.log("name:"+name);
+					// console.log("photo網址"+photoURL);
 					//index.html
 					$('.avatar, .user_name, .check_date, .logout').show();
 					$('.fb_login').hide();

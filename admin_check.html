@@ -131,7 +131,17 @@
                     <td class="col-md-2 col-xs-2">{{user_activity.dateActivity}}</td>
                     <td class="col-md-2 col-xs-2">{{user_activity.location}}</td>
                     <td class="col-md-2 col-xs-2 state">{{user_activity.status}}</td>
-                    <td v-if="user_activity.status=='完成報名' && user_activity.gender =='男' "><a v-on:click="payMoney(user_activity)" class="pay-btn-check pay-btn">匯款</a></td>
+                    <td v-if="user_activity.status=='完成報名' && user_activity.gender =='男' ">
+                      <a data-toggle="modal" data-target="#{{$index+1}}" v-on:click="payMoney(user_activity)" class="pay-btn-check pay-btn">匯款</a>
+                      <div class="modal fade" id="{{$index+1}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <h4 style="margin-bottom:20px;">這次活動想跟對方看的電影</h4>
+                        <a class="waves-effect waves-light btn btn-filled bank">銀行轉帳</a>
+                        <a class="all-pay" href="https://qr.allpay.com.tw/yWn8q"><img src="https://payment.allpay.com.tw/Content/themes/WebStyle201404/images/allpay.png" /></a>
+                        <div class="hide-text"><input type="text" id= "paypay" placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料" v-on:click="payBank()"></div>
+                      </div>
+                    </td>
+
+
                   </tr>
                   <!-- <tr>
                     <td>6/15</td>
@@ -212,24 +222,13 @@
                   },
                   payBank:function(){
                        var updates4 = {};
+                       alert(123);
                        updates4[accountLastFive] = document.getElementById('paypay').value;
                        firebase.database().ref('activity-users/' + payActivity + '/' + uid).update(updates4);
                        firebase.database().ref('user-activities/' + uid + '/' + payActivity).update(updates4);
                   }
                 }
                 });
-                $('.pay-btn, .pay').on('click',function() {
-                  swal({
-                    title: '請選擇付款方式',
-                    html: '<a class="waves-effect waves-light btn btn-filled bank">銀行轉帳</a>'+
-                          '<a class="all-pay" href="https://qr.allpay.com.tw/yWn8q"><img src="https://payment.allpay.com.tw/Content/themes/WebStyle201404/images/allpay.png" /></a>'+
-                          '<div class="hide-text"><input type="text" id= "paypay" placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料" v-on:click="payBank()"></div>',
-
-                  })
-                  $('.swal2-confirm').css({'display':'none' });
-                  $('.swal2-modal').css({'top':'70%','height': '60%'});
-                  $('.bank').click(function(){$('.hide-text').fadeIn(300);})
-                })
                 $('#pic_my').attr("src", user.photoURL);
             });
             firebase.database().ref('users/' + uid).once("value").then(function(all) {
