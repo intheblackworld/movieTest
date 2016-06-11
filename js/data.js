@@ -43,6 +43,7 @@
     activity-users:{
         YYY(activityID):{
             XXX(userID){
+            activityId: x.activityID,
             activityName:
             movie:,
             status:0,
