@@ -24,6 +24,7 @@
             YYY(activityID):{
                 activityName:x.name
                 activityId:x.activityID
+                gender: gender
                 dateActivity:x.dateActivity
                 dateMatch:x.dateMatch
                 dateSignUp:x.dateSignUp

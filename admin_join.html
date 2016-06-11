@@ -540,14 +540,16 @@
 
 
 
-              var updates3 = {};
-              updates3[user.uid] = true;
-              updates3['activityID'] = x.activityID;
+
+
+              // var updates3 = {};
+              // updates3[user.uid] = true;
+              // updates3['activityID'] = x.activityID;
 
               firebase.database().ref('activity-users/' + x.activityID + '/' + user.uid).update(updates);
               firebase.database().ref('user-activities/' + user.uid + '/' + x.activityID).update(updates2);
-              firebase.database().ref('activitySignUpMember/' + x.activityID + '/' + location).update(updates3);
-              firebase.database().ref('activitySignUpMember/' + x.activityID + '/all').update(updates3);
+              // firebase.database().ref('activitySignUpMember/' + x.activityID + '/' + location).update(updates3);
+              // firebase.database().ref('activitySignUpMember/' + x.activityID + '/all').update(updates3);
 
 
             });
