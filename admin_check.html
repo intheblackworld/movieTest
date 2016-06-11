@@ -22,7 +22,7 @@
   <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
 </head>
 
-<body>
+<body id='app5'>
   <div class="loading6"></div>
   <div class="admin_page">
     <a id="top"></a>
@@ -112,7 +112,7 @@
             </div>
             <div class="tabbed-content box-shadow admin-tab">
               <h4 class="uppercase">已報名電影約會</h4>
-              <table class="table" id='app5'>
+              <table class="table">
                 <thead class="thead-inverse">
                   <tr>
                     <th class="col-md-2 col-xs-2 ">活動名稱</th>
@@ -211,7 +211,7 @@
                     title: '請選擇付款方式',
                     html: '<a class="waves-effect waves-light btn btn-filled bank">銀行轉帳</a>'+
                           '<a class="all-pay" href="https://qr.allpay.com.tw/yWn8q"><img src="https://payment.allpay.com.tw/Content/themes/WebStyle201404/images/allpay.png" /></a>'+
-                          '<div class="hide-text"><input type="text" placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料"></div>',
+                          '<div class="hide-text"><input type="text" v-model="accountLastFive" placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料" v-on:click="updateUser()"></div>',
                   })
                   $('.swal2-confirm').css({'display':'none' });
                   $('.swal2-modal').css({'top':'70%','height': '60%'});
