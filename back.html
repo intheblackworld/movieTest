@@ -81,6 +81,9 @@
               <li data-index="4">
                 <a href="#">配對管理</a>
               </li>
+              <li data-index="5">
+                <a href="#">配對演算法測試</a>
+              </li>
             </ul>
           </div>
           <!--end of menu module-->
@@ -113,15 +116,15 @@
               興趣:{{user.interests}}<br>
               臉蛋分數:{{user.faceScore}}<br>
               別人形容:{{user.description}}<br>
-              <button v-on:click="showDetail(user,'5')"> 5分 </button>
-              <button v-on:click="showDetail(user,'5.5')">5.5分</button>
-              <button v-on:click="showDetail(user,'6')">6分</button>
-              <button v-on:click="showDetail(user,'6.5')">6.5分</button>
-              <button v-on:click="showDetail(user,'7')">7分</button>
-              <button v-on:click="showDetail(user,'7.5')">7.5分</button>
-              <button v-on:click="showDetail(user,'8')">8分</button>
-              <button v-on:click="showDetail(user,'8.5')">8.5分</button>
-              <button v-on:click="showDetail(user,'9')">9分</button>
+              <button v-on:click="showDetail(user,'Face5')"> 5分 </button>
+              <button v-on:click="showDetail(user,'Face5.5')">5.5分</button>
+              <button v-on:click="showDetail(user,'Face6')">6分</button>
+              <button v-on:click="showDetail(user,'Face6.5')">6.5分</button>
+              <button v-on:click="showDetail(user,'Face7')">7分</button>
+              <button v-on:click="showDetail(user,'Face7.5')">7.5分</button>
+              <button v-on:click="showDetail(user,'Face8')">8分</button>
+              <button v-on:click="showDetail(user,'Face8.5')">8.5分</button>
+              <button v-on:click="showDetail(user,'Face9')">9分</button>
             </p>
         </div>
       </div>
@@ -181,38 +184,97 @@
 
             <br>
 
-
-            <!-- status:0,
-            //按下報名,1:無匯款，取消場次,2:配對中,3:已錄取，接收簡訊,4:無錄取，配對失敗,5:退款中,6:活動結束,
-            location:,
-            userID: XXX(userID),
-            username:,
-            photoURL:,
-            email:,
-            lineID:,
-            phone:,
-            nickname:,
-            gender:,
-            age:,
-            description:,
-            profession:,
-            interests:,
-            faceScore:,
-            availabeTime:, -->
-
             </div>
-
-
-
         </div>
-        </div>
-
-
-
       </div>
 
 
 
+      <div class="4 admin-back-content">
+        <div id="app5" >
+          <div v-for="activity in activities" style="display: inline-block;" >
+            {{activity.name}}
+            <button v-on:click="showActivity(activity)">check</button>
+          </div>
+          <br>
+
+
+          <div style="float:left;">
+            <h3>男生</h3>
+            搜尋關鍵字(ex:台北...)<input v-model="query"></input><br>
+            條件二(ex:電影,顏值...)<input v-model="query2"></input>
+            <div v-for="activity_user in activity_users|filterBy '男' in 'gender'| filterBy query|filterBy query2">
+              <img v-bind:src="activity_user.photoURL"><br>
+              名稱：{{activity_user.username}}<br>
+              性別：{{activity_user.gender}}<br>
+              綽號：{{activity_user.nickname}}<br>
+              興趣:{{activity_user.interests}}<br>
+              年齡：{{activity_user.age}}<br>
+              電影:{{activity_user.movie}}<br>
+              地區：{{activity_user.location}}<br>
+              顏值：{{activity_user.faceScore}}<br>
+              free時間:{{activity_user.availabeTime}}<br>
+              個性:{{activity_user.description}}<br>
+              狀態:{{activity_user.status}}<br>
+              <button v-on:click="showUserID(activity_user)">觀看id</button>
+              <br>
+            </div>
+          </div>
+
+
+
+          <div style="float:right;">
+            <h3>女生</h3>
+            搜尋關鍵字(ex:台北...)<input v-model="query3"></input><br>
+            條件二(ex:電影,顏值...)<input v-model="query4"></input>
+            <div v-for="activity_user in activity_users|filterBy '女' in 'gender'| filterBy query3|filterBy query4">
+              <img v-bind:src="activity_user.photoURL"><br>
+              名稱：{{activity_user.username}}<br>
+              性別：{{activity_user.gender}}<br>
+              綽號：{{activity_user.nickname}}<br>
+              興趣:{{activity_user.interests}}<br>
+              年齡：{{activity_user.age}}<br>
+              電影:{{activity_user.movie}}<br>
+              地區：{{activity_user.location}}<br>
+              顏值：{{activity_user.faceScore}}<br>
+              free時間:{{activity_user.availabeTime}}<br>
+              個性:{{activity_user.description}}<br>
+              狀態:{{activity_user.status}}<br>
+              <button v-on:click="showUserID(activity_user)">觀看id</button>
+              <br>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+              <div class="5 admin-back-content">
+                <div id="apptest">
+                    
+
+                    <button v-on:click="firstTest">步驟1:資料匯入</button>
+                    <button v-on:click="secondTest">步驟2:初步配對</button>
+                    <br>
+                        Boy<div v-for="value in grouptestBoy">
+                            {{ $key }}:
+                            {{value.faceScore}}
+                            {{value.girl}}
+                        </div>
+                        Girl<div v-for="value in grouptestGirl">
+                            {{ $key }}:
+                            {{value.faceScore}}
+                        </div>
+
+
+                </div>
+              </div>
+
+
+      </div>
     </div>
 
 

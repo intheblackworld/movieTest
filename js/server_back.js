@@ -260,3 +260,106 @@ var index;
         //   firebase.database().ref('activity_users/'+activity_user.activityId).update('已錄取，接收簡訊');
         //   firebase.database().ref('user_activities/'+activity_user.uid).update('已錄取，接收簡訊');
         // }
+
+        // ==============
+
+        firebase.database().ref('activities/').on("value",function(all){
+          var au = all.val();
+
+           var vm = new Vue({
+            el: '#app5',
+            data: {activities:all.val(),activity_users:{},week:"Mary",query:"",query2:"",query3:"",query4:""},
+            methods:{
+                showActivity:function(x){
+                    var activityID = x.activityID
+
+                    firebase.database().ref('activity-users/'+activityID).on("value",function(all2){
+                         var au2 = all2.val();
+                        this.activity_users=all2.val();
+                        vm.$set('activity_users',all2.val());
+
+                        for (i=0;i<all2.numChildren();i++){
+                          var key = Object.keys(all2.val())[i];
+                          var val = all2.val()[key];
+                          firebase.database().ref('users/'+val.userID).on("value",function(all3){
+                            var updates3={};
+                            updates3['faceScore']=all3.val().faceScore;
+                            firebase.database().ref('activity-users/'+activityID+'/'+val.userID).update(updates3);
+                          });
+                        }
+
+                    });
+
+
+
+                    // firebase.databese().ref('users/'+x.userID+'/faceScore').on("value",function(all3){
+                    //       all3.val();
+
+                    // });
+
+                },
+                showUserID:function(){
+                  firebase.database().ref('activity-users/'+activity_user.activityId+'/'+activity_user.userID).update({status:'活動結束'});
+                }
+                }
+            });
+        })
+
+
+
+// ==============
+       var grouptestBoyT,grouptestGirlT;
+
+       firebase.database().ref('grouptest/boy').on("value",function(all){
+           grouptestBoyT = all.val();
+           // console.log(grouptestBoyT);
+        });
+       firebase.database().ref('grouptest/girl').on("value",function(all){
+           grouptestGirlT = all.val();
+        });
+
+       console.log(grouptestBoyT);
+
+           var group = new Vue({
+            el: '#apptest',
+            data: {grouptestBoy:grouptestBoyT,grouptestGirl:grouptestGirlT},
+            methods:{
+              firstTest:function(){
+                group.$set('grouptestBoy',grouptestBoyT);
+                group.$set('grouptestGirl',grouptestGirlT);
+                console.log(this.grouptestBoy,this.grouptestGirl);
+              },
+              secondTest:function(){
+                var sizeB = Object.keys(this.grouptestBoy).length;
+                var sizeG = Object.keys(this.grouptestGirl).length;
+              for (i=0;i<sizeB;i++){
+                var key = Object.keys(this.grouptestBoy)[i];
+                var val = this.grouptestBoy[key];
+                if (val.faceScore=="Face6"){
+                    console.log(6)
+                     for (k=0;k<sizeG;k++){
+                      console.log(k);
+                      console.log(Object.keys(group.grouptestGril)[k])
+                         var key2 = Object.keys(group.grouptestGril)[k];
+                         var val2 = group.grouptestGirl[key];
+                         if (val2.faceScore=="Face6"){
+                            // group.$set('grouptestBoy/girl',val2);
+
+                         }
+                     }
+                }
+                else{
+                  console.log("no6")
+                }
+
+
+              }  
+              }
+            }
+            });
+
+
+         
+
+
+
