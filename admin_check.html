@@ -8,16 +8,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
+
+
   <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
   <link href="css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="css/ytplayer.css" rel="stylesheet" type="text/css" media="all" />
+
   <link href="css/theme-red.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/font-georgia.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+
   <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="img/favicon.ico">
   <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
   <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
 </head>
@@ -131,13 +132,13 @@
                     <td class="col-md-2 col-xs-2">{{user_activity.dateActivity}}</td>
                     <td class="col-md-2 col-xs-2">{{user_activity.location}}</td>
                     <td class="col-md-2 col-xs-2 state">{{user_activity.status}}</td>
-                    <td v-if="user_activity.status=='完成報名' && user_activity.gender =='男' ">
+                    <td v-if="user_activity.status== '完成報名' || '報名完成' && user_activity.gender =='男' ">
                       <a data-toggle="modal" data-target="#{{$index+1}}" v-on:click="payMoney(user_activity)" class="pay-btn-check pay-btn">匯款</a>
-                      <div class="modal fade" id="{{$index+1}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal pay-modal fade" id="{{$index+1}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <h4 style="margin-bottom:20px;">這次活動想跟對方看的電影</h4>
                         <a class="waves-effect waves-light btn btn-filled bank">銀行轉帳</a>
                         <a class="all-pay" href="https://qr.allpay.com.tw/yWn8q"><img src="https://payment.allpay.com.tw/Content/themes/WebStyle201404/images/allpay.png" /></a>
-                        <div class="hide-text"><input type="text" id= "paypay" placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料" v-on:click="payBank()"></div>
+                        <div class=""><input type="text" id= "paypay"   v-model='accountLastFive' placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料" v-on:click="payBank()"></div>
                       </div>
                     </td>
 
@@ -212,18 +213,19 @@
       if (user) {
             uid = user.uid
              firebase.database().ref('user-activities/'+uid).once("value").then(function(all){
-              var x = new Vue({
+              var xyz = new Vue({
                 el: '#app5',
-                data: {user_activities:all.val()},
+                data: {user_activities:all.val(),accountLastFive:""},
                 methods: {
                   payMoney:function(x){
-                     payActivity = x.activityId
+                     payActivity = x.activityId;
+                      xyz.$set('accountLastFive',x.accountLastFive);
 
                   },
                   payBank:function(){
                        var updates4 = {};
-                       alert(123);
-                       updates4[accountLastFive] = document.getElementById('paypay').value;
+                       console.log(document.getElementById('paypay').value);
+                       updates4['accountLastFive'] = document.getElementById('paypay').value;
                        firebase.database().ref('activity-users/' + payActivity + '/' + uid).update(updates4);
                        firebase.database().ref('user-activities/' + uid + '/' + payActivity).update(updates4);
                   }
@@ -231,6 +233,7 @@
                 });
                 $('#pic_my').attr("src", user.photoURL);
             });
+
             firebase.database().ref('users/' + uid).once("value").then(function(all) {
               if (all.val().phone == "" | all.val().phone==undefined){
                 $('.alert-warning ').show();
@@ -239,6 +242,7 @@
 
             })
        }
+
     })
 
 
