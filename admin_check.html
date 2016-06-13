@@ -135,10 +135,11 @@
                     <td v-if="user_activity.status== '完成報名' || '報名完成' && user_activity.gender =='男' ">
                       <a data-toggle="modal" data-target="#{{$index+1}}" v-on:click="payMoney(user_activity)" class="pay-btn-check pay-btn">匯款</a>
                       <div class="modal pay-modal fade" id="{{$index+1}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <h4 style="margin-bottom:20px;">這次活動想跟對方看的電影</h4>
+                         <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
+                        <h4 style="margin-bottom:20px;">請選擇付款方式</h4>
                         <a class="waves-effect waves-light btn btn-filled bank">銀行轉帳</a>
                         <a class="all-pay" href="https://qr.allpay.com.tw/yWn8q"><img src="https://payment.allpay.com.tw/Content/themes/WebStyle201404/images/allpay.png" /></a>
-                        <div class=""><input type="text" id= "paypay"   v-model='accountLastFive' placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料" v-on:click="payBank()"></div>
+                        <div class="hide-text bank-content"><input type="text" id= "paypay"   v-model='accountLastFive' placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料" v-on:click="payBank()"></div>
                       </div>
                     </td>
 
@@ -232,6 +233,8 @@
                 }
                 });
                 $('#pic_my').attr("src", user.photoURL);
+                $('.bank').click(function(){
+                  $('.hide-text').fadeIn(300);})
             });
 
             firebase.database().ref('users/' + uid).once("value").then(function(all) {

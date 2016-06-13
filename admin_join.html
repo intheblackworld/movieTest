@@ -188,6 +188,7 @@
                           <p class="lead">{{activity.subject}}</p>
                           <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
                             <p class="col-xs-12 col-md-4" v-for="x in movie " track-by="$index">
@@ -235,6 +236,7 @@
                           <p class="lead">{{activity.subject}}</p>
                           <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
                             <p class="col-xs-12 col-md-4" v-for="x in movie " track-by="$index">
@@ -277,6 +279,7 @@
                           <p class="lead">{{activity.subject}}</p>
                           <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
                             <p class="col-xs-12 col-md-4" v-for="x in movie " track-by="$index">
@@ -319,6 +322,7 @@
                           <p class="lead">{{activity.subject}}</p>
                           <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
                             <p class="col-xs-12 col-md-4" v-for="x in movie " track-by="$index">
@@ -366,6 +370,7 @@
                           <p class="lead">{{activity.subject}}</p>
                           <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
                             <p class="col-xs-12 col-md-4" v-for="x in movie " track-by="$index">
@@ -559,7 +564,6 @@
           }
         }
       });
-
       $('.pricing-table>a').on('click', function() {
         var e = $(this).attr("data-target");
         var ID = e.substring(1, e.length)

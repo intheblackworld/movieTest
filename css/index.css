@@ -88,7 +88,7 @@
 }
 .main-container section .align-bottom .bg-red:hover {
   border-color: white;
-  color: #AF4243;
+  color: #b6172f;
 }
 
 .main-container section .align-bottom .bg-red:focus {
@@ -157,17 +157,17 @@
   opacity: .9;
 }
 .pay-btn {
-  border: 1px solid #AF4243;
+  border: 1px solid #b6172f;
   padding: 5px 40px;
   cursor: pointer;
 }
 .pay-btn-check {
-  border: 1px solid #AF4243;
+  border: 1px solid #b6172f;
   padding: 5px 10px;
 }
 .pay-btn:active, .pay-btn:focus, .pay-btn:hover,.pay-btn-check:active, .pay-btn-check:focus, .pay-btn-check:hover {
   color: white;
-  background-color: #AF4243;
+  background-color: #b6172f;
 }
 .button-tabs.vertical > .content {
   width: 70%;
@@ -208,7 +208,7 @@
 }
 .alert a {
   display: inline-block;
-  color: #AF4243;
+  color: #b6172f;
   float: right;
   margin-top: 10px;
 }
@@ -389,7 +389,7 @@ box-shadow: 0px 2px 5px gray;
 }
 .btn.btn-white {
   background-color: white;
-  color: #AF4243;
+  color: #b6172f;
 }
 form p {
   display: inline-block;
@@ -424,7 +424,7 @@ label span {
 .swal2-modal {
   position: absolute;
   top: 53%;
-  height: 90%;
+  height: 65%;
   border-radius: 0px;
   max-height: 90%;
 }
@@ -505,9 +505,12 @@ input.swal2-input {
 }
 .down {
   position: absolute;
-  bottom: -50px;
+  bottom: 0px;
 }
-
+.down70 {
+  position: absolute;
+  bottom: -70px;
+}
 input.check_number {
   width: 100px;
     height: 30px;
@@ -527,14 +530,19 @@ input.check_number:hover {
 
 a.btn, a.btn-large {
   background-color: transparent;
-  color: #AF4243;
+  color: #b6172f;
 }
 a.btn-filled {
-  background-color: #AF4243;
+  background-color: #b6172f;
   color: white;
 }
 .hide-text {
   display: none;
+}
+.bank-content {
+  width: 90%;
+    margin: 0 auto;
+    margin-top: 40px;
 }
 .all-pay img{
   width: 128px;
@@ -627,8 +635,69 @@ nav.transparent .menu > .logout > a {
 .alert-warning{
   display: none;
 }
-
+.fb-login {
+  transition: all .3s;
+  display: block;
+  font-size: 2.4rem;
+  letter-spacing: 2px;
+  color: white;
+  outline: none;
+  border: none;
+  background-color: #b6172f !important;
+  padding: 20px 40px;
+  text-align: center;
+  border-radius: 999px;
+  width: 150px;
+  height: 150px;
+  padding: 60px 0px;
+  text-align: center;
+  margin: 0 auto;
+}
+.fb-login:hover,.fb-login:active {
+  opacity: .8;
+  box-shadow: 2px 2px 5px black;
+  color: white !important;
+}
+.login-container {
+  width: 100%;
+    height: 70%;
+    padding-top: 10%;
+}
+.swal2-modal .swal2-close:hover {
+  color: #b6172f;
+}
+.close-x {
+  font-size: 50px;
+}
+.close-btn {
+  position: absolute;
+    top: 0px;
+    right: 20px;
+    transition: all .3s
+}
+.close-btn:active,.close-btn:focus {
+  outline: none;
+}
 @media all and (max-width: 767px) {
+  .parallax > .background-image-holder,
+  .parallax .slides li > .background-image-holder{
+    height: 100vh;
+  }
+  .cover.fullscreen .slides > li {
+    height: 100vh;
+  }
+  .slides {
+    margin-bottom: 0px;
+  }
+  .cover.fullscreen {
+    height: 80vh;
+  }
+  .cover {
+    margin: -2px;
+  }
+  .lead {
+    font-size: 18px;
+  }
 .pricing-table .lead {
   font-size: 20px;
 }

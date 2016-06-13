@@ -10,36 +10,6 @@ $(window).load(function(){
   $('.loading6').fadeOut(1000);
 })
 
-function phonetests(e){
-    // alert(123);
-    var text =$('#phone_number').val();
-    console.log(text);
-}
-
-function participate(result) {
-  swal({
-    title: '請選擇有空時間',
-    html: '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_15_wed_night"  /><label for="6_15_wed_night">禮拜三 晚上 </label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_16_thu_night"  /><label for="6_16_thu_night">禮拜四 晚上</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_17_fri_night"  /><label for="6_17_fri_night">禮拜五 晚上</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_18_sat_afternoon"  /><label for="6_18_sat_afternoon">禮拜六 下午</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_18_sat_night"  /><label for="6_18_sat_night">禮拜六 晚上</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_19_sun_afternoon"  /><label for="6_19_sun_afternoon">禮拜日 下午</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_19_sun_night"  /><label for="6_19_sun_night">禮拜日 晚上</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_20_mon_night"  /><label for="6_20_mon_night">禮拜一 晚上</label></p>'+
-          '<p class="checktime"><input class="filled-in" name="group1" type="checkbox" id="6_21_tue_night"  /><label for="6_21_tue_night">禮拜二 晚上</label></p>'+
-          '<h2 style="margin-bottom:24px;">感興趣電影</h2>' +
-          '<p><input type="checkbox" id="1" /><label for="1">電影1</label></p>'+
-          '<p><input type="checkbox" id="2" /><label for="2">電影2</label></p>'+
-          '<p><input type="checkbox" id="3" /><label for="3">電影3</label></p>'+
-          '<p><input type="checkbox" id="4" /><label for="4">電影4</label></p>'+
-          '<p><input type="checkbox" id="5" /><label for="5">電影5</label></p>'+
-          '<p><input type="checkbox" id="6" /><label for="6">電影6</label></p>',
-  })
-  $('.swal2-modal').css({'top':'48%','height': '100%','max-height': '100%'});
-}
-
-
 
 $().ready(function(){
 
@@ -59,17 +29,6 @@ $().ready(function(){
 
   $('.default').filter(function() { return $(this).val() == ""; }).parent('.input-field').find('label').addClass('focus-input');
 
-  $('.pay-btn, .pay').on('click',function() {
-    swal({
-      title: '請選擇付款方式',
-      html: '<a class="waves-effect waves-light btn btn-filled bank">銀行轉帳</a>'+
-            '<a class="all-pay" href="https://qr.allpay.com.tw/yWn8q"><img src="https://payment.allpay.com.tw/Content/themes/WebStyle201404/images/allpay.png" /></a>'+
-            '<div class="hide-text"><input type="text" placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料"></div>',
-    })
-    $('.swal2-confirm').css({'display':'none' });
-    $('.swal2-modal').css({'top':'70%','height': '60%'});
-    $('.bank').click(function(){$('.hide-text').fadeIn(300);})
-  })
 
 
 
@@ -126,12 +85,17 @@ $().ready(function(){
   //   })
 
     swal({
-      title: '臉書註冊',
+      title: '',
       html:
-      '<button>臉書登入</button>'+
-      '<p>註冊即表示同意Let`s Movie <a href="#">服務條款</a>，<a href="#">支付服務條款</a>，<a href="#">隱私政策</a>。</p>'+
-      '<p class="down">已是會員？</p><a class="down" href="">登入</a>',
-      confirmButtonText: '註冊',
+      '<div class="login-container">'+
+      '<a class="fb-login" onclick="signUp()">臉書登入</a>'+
+      '<div class="fb-like" data-colorscheme="dark" data-href="https://www.facebook.com/Lets-Movie-%E9%9B%BB%E5%BD%B1%E7%B4%84%E6%9C%83-737844822982371/?ref=bookmarks" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>'+
+      '</div>'+
+      '<hr>'+
+      '<p class="down70">註冊即表示同意Let`s Movie <a href="#">服務條款</a>，<a href="#">支付服務條款</a>，<a href="#">隱私政策</a>。</p>'+
+      '<p class="down">已是會員？</p><a class="down" onclick="signUp()" style="cursor:pointer">登入</a>',
+      showConfirmButton: false,
+      showCloseButton: true,
     })
    });
 
