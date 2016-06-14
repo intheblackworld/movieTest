@@ -9,19 +9,21 @@
   <meta property="og:title" content="Let`s Movie | 一起看電影" />
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
   <Meta http-equiv="Expires" Content="0">
-
   <link href="css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
-
+  <link href="css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/theme-red.css" rel="stylesheet" type="text/css" media="all" />
   <link href="css/font-georgia.css" rel="stylesheet" type="text/css" media="all" />
   <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
-
   <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="img/favicon.ico">
   <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
   <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
-
+  <script>
+  var salesmachine=salesmachine||[];salesmachine.Settings=function(e,a){var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="//my.salesmachine.io/javascripts/salesmachine.min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(n,t);for(var s=function(e){return function(){salesmachine.push([e].concat(Array.prototype.slice.call(arguments,0)))}},c=["init","salesmachine","pageview","account","contact","track"],i=0;i&lt;c.length;i++)salesmachine[c[i]]=s(c[i]);salesmachine.init(e,a)};
+  salesmachine.Settings("C-KQmSb930Epy5ygTwCEnA", {});
+  </script>
+  <script src="//load.sumome.com/" data-sumo-site-id="1c732c74e27ee927358a6a123fae24e7600672aff60ff2b2d778cfcd7114d3fd" async="async"></script>
 </head>
 
 <body>
@@ -270,7 +272,35 @@
   ga('send', 'pageview');
 
 </script>
-
+<script type='text/javascript'>
+// TODO contact: Change the current logged in contact's unique ID and the defined attributes.
+salesmachine.contact('53fca6dd646f6c1c5f820000', {
+name: 'John Doe',
+email: 'john.doe@acme.com',
+// TODO: If you want to attach an account aka a company to the contact, set the account_uid attribute.
+account_uid: '55ad2aa64c75631150000007'
+});
+</script>
+<script type='text/javascript'>
+// TODO account: If you have an account defined for the contact, replace 'account_uid' with account unique ID.
+salesmachine.account('55ad2aa64c75631150000007', {
+name: 'Acme',
+employee_count: 10,
+});
+</script>
+<script type='text/javascript'>
+// TODO pageview: Change the contact_uid and also pass an account_uid if you want to link the account to the pageview.
+salesmachine.pageview('53fca6dd646f6c1c5f820000', {
+account_uid: '55ad2aa64c75631150000007'
+});
+</script>
+<script type='text/javascript'>
+// TODO track event: Change the contact_uid and also pass an account_uid if you want to link the account to the event.
+salesmachine.track('53fca6dd646f6c1c5f820000', 'sign_up', params: {
+account_uid: '55ad2aa64c75631150000007',
+display_name: 'Sign up'
+});
+</script>
 </body>
 
 </html>

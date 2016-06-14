@@ -625,6 +625,7 @@ footer.bg-dark li,
   color: #fefefe;
 }
 @media all and (max-width: 767px) {
+
   section {
     padding: 80px 0;
   }

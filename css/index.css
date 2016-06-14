@@ -679,6 +679,13 @@ nav.transparent .menu > .logout > a {
   outline: none;
 }
 @media all and (max-width: 767px) {
+  .menu li img {
+    width: 43px;
+  }
+  .profile-radio {
+    text-align: left;
+    margin: 5rem 0 0 -.5rem
+  }
   .parallax > .background-image-holder,
   .parallax .slides li > .background-image-holder{
     height: 100vh;
