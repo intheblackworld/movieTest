@@ -44,8 +44,7 @@ var config = {
 			var name;
 			var uid;
 			auth.onAuthStateChanged(function(user) {
-
-				if (user&& lasturl !=='admin_join.html'| lasturl =='admin_check.html' | lasturl =='admin_profile.html' ) {
+				if (user&& ((lasturl !=='admin_join.html')||(lasturl !=='admin_check.html')||(lasturl !=='admin_profile.html'))) {
   				// alert(lasturl);
 					uid = user.uid;
 					var name = user.displayName;
@@ -61,17 +60,57 @@ var config = {
 
 
 					//admin_profile
-				} else if (!user && lasturl !=='admin_join.html'| lasturl !=='admin_check.html' | lasturl !=='admin_profile.html' ){
+				} else if (!user&& ((lasturl !=='admin_join.html')||(lasturl !=='admin_check.html')||(lasturl !=='admin_profile.html'))){
 
 					setTimeout(function() {
 //your code to be executed after 1 second
 					$('.fb_login').fadeIn();
 }, 500);
 					// User logged out
-				}else if (!user && lasturl =='admin_join.html'| lasturl =='admin_check.html' | lasturl =='admin_profile.html') {
+				}
+         if (!user&& lasturl =='admin_join.html') {
 					alert('你尚未登入喔');
 	        window.location = "/index.html";
-				}else if (user && lasturl =='admin_join.html'| lasturl =='admin_check.html' | lasturl =='admin_profile.html') {
+				}
+        if (!user&& lasturl =='admin_check.html') {
+         alert('你尚未登入喔');
+         window.location = "/index.html";
+       }
+       if (!user&& lasturl =='admin_profile.html') {
+        alert('你尚未登入喔');
+        window.location = "/index.html";
+      }
+        if (user && lasturl =='admin_join.html') {
+					uid = user.uid;
+					var name = user.displayName;
+					var photoURL = user.photoURL;
+					console.log("uid :"+uid+" User Login");
+					console.log("name:"+name);
+					console.log("photo網址"+photoURL);
+					//index.html
+					$('.avatar, .user_name, .check_date, .logout').show();
+					$('.fb_login').hide();
+					$('#pic_my').attr("src",photoURL);
+					$('.user_name p').text(name+ "，歡迎回來");
+          $('.title h5').text(name);
+
+				}
+        if (user && lasturl =='admin_check.html') {
+					uid = user.uid;
+					var name = user.displayName;
+					var photoURL = user.photoURL;
+					console.log("uid :"+uid+" User Login");
+					console.log("name:"+name);
+					console.log("photo網址"+photoURL);
+					//index.html
+					$('.avatar, .user_name, .check_date, .logout').show();
+					$('.fb_login').hide();
+					$('#pic_my').attr("src",photoURL);
+					$('.user_name p').text(name+ "，歡迎回來");
+          $('.title h5').text(name);
+
+				}
+        if (user && lasturl =='admin_profile.html') {
 					uid = user.uid;
 					var name = user.displayName;
 					var photoURL = user.photoURL;
