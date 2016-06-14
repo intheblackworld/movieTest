@@ -184,8 +184,8 @@
                       <div class="col-md-4 col-sm-6 " v-for="activity in activities | orderBy '$index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed ">
                           <h5 class="uppercase">場次</h5>
-                          <span class="price">{{activity.name}}</span>
-                          <p class="lead">{{activity.subject}}</p>
+                          <span class="price" v-text="activity.name"></span>
+                          <p class="lead" v-text="activity.subject"></p>
                           <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
@@ -200,13 +200,13 @@
                           </div>
                           <ul>
                             <li>
-                              <strong>{{activity.dateSignUp}}</strong> 報名期
+                              <strong v-text="activity.dateSignUp"></strong> 報名期
                             </li>
                             <li>
-                              <strong>{{activity.dateMatch}}</strong> 公佈媒合
+                              <strong v-text="activity.dateMatch"></strong> 公佈媒合
                             </li>
                             <li>
-                              <strong>{{activity.dateActivity}}</strong> 活動期
+                              <strong v-text="activity.dateActivity"></strong> 活動期
                             </li>
                           </ul>
                           <p id='app3' class="people">
@@ -232,10 +232,10 @@
                       <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
-                          <span class="price">{{activity.name}} </span>
-                          <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
-                          <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <span class="price" v-text="activity.name"></span>
+                          <p class="lead" v-text="activity.subject"></p>
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}1">馬上報名</a>
+                          <div class="modal fade" id="{{activity.activityID}}1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
@@ -247,13 +247,13 @@
                             <button class="btn btn-filled btn-lg " style="position: absolute;left: 50%;margin-left: -50px;" v-on:click="join(activity,'新竹')">確認</button>
                           </div>                          <ul>
                             <li>
-                              <strong>{{activity.dateSignUp}}</strong> 報名期
+                              <strong v-text="activity.dateSignUp"></strong> 報名期
                             </li>
                             <li>
-                              <strong>{{activity.dateMatch}}</strong> 公佈媒合
+                              <strong v-text="activity.dateMatch"></strong> 公佈媒合
                             </li>
                             <li>
-                              <strong>{{activity.dateActivity}}</strong> 活動期
+                              <strong v-text="activity.dateActivity"></strong> 活動期
                             </li>
                           </ul>
                           <p class="people">
@@ -275,10 +275,10 @@
                       <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
-                          <span class="price">{{activity.name}}</span>
-                          <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
-                          <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <span class="price" v-text="activity.name"></span>
+                          <p class="lead" v-text="activity.subject"></p>
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}2">馬上報名</a>
+                          <div class="modal fade" id="{{activity.activityID}}2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
@@ -290,13 +290,13 @@
                             <button class="btn btn-filled btn-lg " style="position: absolute;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台中')">確認</button>
                           </div>                          <ul>
                             <li>
-                              <strong>{{activity.dateSignUp}}</strong> 報名期
+                              <strong v-text="activity.dateSignUp"></strong> 報名期
                             </li>
                             <li>
-                              <strong>{{activity.dateMatch}}</strong> 公佈媒合
+                              <strong v-text="activity.dateMatch"></strong> 公佈媒合
                             </li>
                             <li>
-                              <strong>{{activity.dateActivity}}</strong> 活動期
+                              <strong v-text="activity.dateActivity"></strong> 活動期
                             </li>
                           </ul>
                           <p class="people">
@@ -318,10 +318,10 @@
                       <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
-                          <span class="price">{{activity.name}}</span>
-                          <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
-                          <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <span class="price" v-text="activity.name"></span>
+                          <p class="lead" v-text="activity.subject"></p>
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}3">馬上報名</a>
+                          <div class="modal fade" id="{{activity.activityID}}3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
@@ -333,13 +333,13 @@
                             <button class="btn btn-filled btn-lg " style="position: absolute;left: 50%;margin-left: -50px;" v-on:click="join(activity,'台南')">確認</button>
                           </div>                          <ul>
                             <li>
-                              <strong>{{activity.dateSignUp}}</strong> 報名期
+                              <strong v-text="activity.dateSignUp"></strong> 報名期
                             </li>
                             <li>
-                              <strong>{{activity.dateMatch}}</strong> 公佈媒合
+                              <strong v-text="activity.dateMatch"></strong> 公佈媒合
                             </li>
                             <li>
-                              <strong>{{activity.dateActivity}}</strong> 活動期
+                              <strong v-text="activity.dateActivity"></strong> 活動期
                             </li>
                           </ul>
                           <p class="people">
@@ -366,10 +366,10 @@
                       <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
-                          <span class="price">{{activity.name}}</span>
-                          <p class="lead">{{activity.subject}}</p>
-                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
-                          <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <span class="price" v-text="activity.name"></span>
+                          <p class="lead" v-text="activity.subject"></p>
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}4">馬上報名</a>
+                          <div class="modal fade" id="{{activity.activityID}}4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
@@ -381,13 +381,13 @@
                             <button class="btn btn-filled btn-lg " style="position: absolute;left: 50%;margin-left: -50px;" v-on:click="join(activity,'高雄')">確認</button>
                           </div>                          <ul>
                             <li>
-                              <strong>{{activity.dateSignUp}}</strong> 報名期
+                              <strong v-text="activity.dateSignUp"></strong> 報名期
                             </li>
                             <li>
-                              <strong>{{activity.dateMatch}}</strong> 公佈媒合
+                              <strong v-text="activity.dateMatch"></strong> 公佈媒合
                             </li>
                             <li>
-                              <strong>{{activity.dateActivity}}</strong> 活動期
+                              <strong v-text="activity.dateActivity"></strong> 活動期
                             </li>
                           </ul>
                           <p class="people">

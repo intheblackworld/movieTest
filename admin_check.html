@@ -127,11 +127,11 @@
                 </thead>
                 <tbody>
                   <tr v-for="user_activity in user_activities">
-                    <td class="col-md-2 col-xs-2 ">{{user_activity.activityName}}</td>
-                    <td class="col-md-2 col-xs-2 hidden-xs">{{user_activity.dateSignUp}}</td>
-                    <td class="col-md-2 col-xs-2">{{user_activity.dateActivity}}</td>
-                    <td class="col-md-2 col-xs-2">{{user_activity.location}}</td>
-                    <td class="col-md-2 col-xs-2 state">{{user_activity.status}}</td>
+                    <td class="col-md-2 col-xs-2 " v-text="user_activity.activityName"></td>
+                    <td class="col-md-2 col-xs-2 hidden-xs"  v-text="user_activity.dateSignUp"></td>
+                    <td class="col-md-2 col-xs-2" v-text="user_activity.dateActivity"></td>
+                    <td class="col-md-2 col-xs-2" v-text="user_activity.location"></td>
+                    <td class="col-md-2 col-xs-2 state" v-text="user_activity.status"></td>
                     <td v-if="user_activity.status== '完成報名' || '報名完成' && user_activity.gender =='男' ">
                       <a data-toggle="modal" data-target="#{{$index+1}}" v-on:click="payMoney(user_activity)" class="pay-btn-check pay-btn">匯款</a>
                       <div class="modal pay-modal fade" id="{{$index+1}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -196,8 +196,8 @@
   <script src="js/parallax.js"></script>
   <script src="js/scripts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-  <script src="js/index.js"></script>
   <script src="js/server.js"></script>
+  <script src="js/index.js"></script>
 
   <script>
   //   $().ready(function(){
@@ -211,7 +211,9 @@
     var uid;
     var usersFirebase;
     auth.onAuthStateChanged(function(user) {
+      
       if (user) {
+
             uid = user.uid
              firebase.database().ref('user-activities/'+uid).once("value").then(function(all){
               var xyz = new Vue({
@@ -235,6 +237,8 @@
                 $('#pic_my').attr("src", user.photoURL);
                 $('.bank').click(function(){
                   $('.hide-text').fadeIn(300);})
+
+
             });
 
             firebase.database().ref('users/' + uid).once("value").then(function(all) {
