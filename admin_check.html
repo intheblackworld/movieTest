@@ -23,6 +23,22 @@
   <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
 </head>
 
+<style>
+.swal2-modal {
+  padding: 40px !important;
+}
+.swal2-modal h2 {
+  font-size: 3rem;
+}
+.swal2-modal button.styled {
+  position: absolute;
+  width: 80%;
+  right: 0;
+  left: 10%;
+  bottom: 40px;
+}
+</style>
+
 <body id='app5'>
   <div class="loading6"></div>
   <div class="admin_page">
@@ -139,7 +155,8 @@
                         <h4 style="margin-bottom:20px;">請選擇付款方式</h4>
                         <a class="waves-effect waves-light btn btn-filled bank">銀行轉帳</a>
                         <a class="all-pay" href="https://qr.allpay.com.tw/yWn8q"><img src="https://payment.allpay.com.tw/Content/themes/WebStyle201404/images/allpay.png" /></a>
-                        <div class="hide-text bank-content"><input type="text" id= "paypay"   v-model='accountLastFive' placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p><input type="submit" value="送出資料" v-on:click="payBank()"></div>
+                        <div class="hide-text bank-content"><input type="text" id= "paypay"   v-model='accountLastFive' placeholder="帳號末五碼"><p>匯款帳號：(808)1067979112384 </p>
+                          <input data-dismiss="modal" class="paymoney" type="submit" value="送出資料" v-on:click="payBank()"></div>
                       </div>
                     </td>
 
@@ -211,7 +228,7 @@
     var uid;
     var usersFirebase;
     auth.onAuthStateChanged(function(user) {
-      
+
       if (user) {
 
             uid = user.uid
@@ -231,13 +248,16 @@
                        updates4['accountLastFive'] = document.getElementById('paypay').value;
                        firebase.database().ref('activity-users/' + payActivity + '/' + uid).update(updates4);
                        firebase.database().ref('user-activities/' + uid + '/' + payActivity).update(updates4);
+
                   }
                 }
                 });
                 $('#pic_my').attr("src", user.photoURL);
                 $('.bank').click(function(){
                   $('.hide-text').fadeIn(300);})
-
+                $('.paymoney').on('click',function(){
+                  swal('已收到您的資料，請儘速匯款');
+                })
 
             });
 
