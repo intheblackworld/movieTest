@@ -499,7 +499,9 @@
               description = snapshot.val().description;
               profession = snapshot.val().profession;
               interests = snapshot.val().interests;
-              faceScore = snapshot.val().faceScore;
+            //   if (snapshot.val().faceScore!==undefined){
+            //   faceScore = snapshot.val().faceScore;
+            // };
               availabeTime = snapshot.val().availabeTime;
 
               var updates = {
@@ -516,7 +518,7 @@
                 description: description,
                 profession: profession,
                 interests: interests,
-                faceScore: faceScore,
+                // faceScore: faceScore,
                 availabeTime: [],
                 movie: vmvm.movieCheck,
                 status: '完成報名',
