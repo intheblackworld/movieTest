@@ -287,6 +287,10 @@
                           <label for="test16"> 老師</label>
                         </p>
                         <p>
+                          <input type="radio" name="group2" class="with-gap" id="test18" v-model="profession" value="商業/服務業" />
+                          <label for="test18"> 軍公教</label>
+                        </p>
+                        <p>
                           <input type="radio" name="group2" class="with-gap" id="test17" v-model="profession" value="創業家" />
                           <label for="test17"> 創業家</label>
                         </p>
@@ -365,7 +369,9 @@
 
 
         firebase.database().ref('users/' + uid).once("value").then(function(all) {
-
+          if (all.val().phone == "" | all.val().phone==undefined){
+            $('.alert-warning ').show();
+          };
           var descriptionArray = [];
           var availabeTimeArray = [];
           usersFirebase = all.val();

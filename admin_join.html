@@ -561,9 +561,18 @@
 
             });
 
+
+
           }
         }
       });
+      firebase.database().ref('users/' + uid).once("value").then(function(all) {
+        if (all.val().phone == "" | all.val().phone==undefined){
+          $('.alert-warning ').show();
+        };
+
+
+      })
       $('.pricing-table>a').on('click', function() {
         var e = $(this).attr("data-target");
         var ID = e.substring(1, e.length)
