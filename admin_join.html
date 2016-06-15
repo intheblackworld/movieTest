@@ -186,8 +186,8 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price" v-text="activity.name"></span>
                           <p class="lead" v-text="activity.subject"></p>
-                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
-                          <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}0">馬上報名</a>
+                          <div class="modal fade" id="{{activity.activityID}}0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
@@ -226,6 +226,7 @@
                     </div>
                   </div>
                 </li>
+
                 <li class="">
                   <div class="tab-content">
                     <div class="row">
@@ -577,7 +578,7 @@
       })
       $('.pricing-table>a').on('click', function() {
         var e = $(this).attr("data-target");
-        var ID = e.substring(1, e.length)
+        var ID = e.substring(1, e.length-1)
           //  console.log(ID);
         firebase.database().ref('activities/' + ID).once("value").then(function(all5) {
           var movieBefore = all5.val().movie;
