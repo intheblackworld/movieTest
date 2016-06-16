@@ -92,7 +92,7 @@ $().ready(function(){
       '<div class="fb-like" data-colorscheme="dark" data-href="https://www.facebook.com/Lets-Movie-%E9%9B%BB%E5%BD%B1%E7%B4%84%E6%9C%83-737844822982371/?ref=bookmarks" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>'+
       '</div>'+
       '<hr>'+
-      '<p class="down70">註冊即表示同意Let`s Movie <a href="#">服務條款</a>，<a href="#">支付服務條款</a>，<a href="#">隱私政策</a>。</p>'+
+      '<p class="down70">註冊即表示同意Let`s Movie <a href="service.html">服務條款</a>，<a href="reponsibility.html">免責聲明</a>，<a href="private.html">隱私政策</a>。</p>'+
       '<p class="down">已是會員？</p><a class="down" onclick="signUp()" style="cursor:pointer">登入</a>',
       showConfirmButton: false,
       showCloseButton: true,
