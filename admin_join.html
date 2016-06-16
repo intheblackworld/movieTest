@@ -464,7 +464,7 @@
             var user = firebase.auth().currentUser;
             console.log("xxxx"+user);
             firebase.database().ref('users/'+user.uid).once("value").then(function(all) {
-                if (all.val().phone == "" | all.val().phone==undefined){
+                if (all.val().phone == "" ){
                   $('.modal-backdrop, .modal').hide();
                     swal({title:'報名失敗',text:'資料填寫不完整，請至個人資料頁面填寫'})
                 }
@@ -485,9 +485,6 @@
             var user = firebase.auth().currentUser;
             var username, email, photoUrl, uid, lineID, phone, nickname, gender, age, description, profession, interests, faceScore, availabeTime;
             firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
-              if (all.val().phone == "" | all.val().phone==undefined){
-                $('.alert-warning ').show();
-              };
               username = snapshot.val().displayName;
               email = snapshot.val().email;
               photoUrl = snapshot.val().photoURL;
@@ -587,14 +584,11 @@
           for (i = 0; i < movieBefore.length; i++) {
             if (movieBefore[i] !== "") {
               movie.push(movieBefore[i]);
-              // console.log("m "+movie);
+
             }
             vmvm.$set('movie', movie);
-            // setInterval(function(){ $('.inputMovie').hide(); }, 3000);
 
           }
-
-          // $('body').find('label').filter(function() { return $(this).text() == ""; }).hide();
         })
 
       });
@@ -602,23 +596,11 @@
     })
 
 
-      // function checkUser(){
-      //   var user = firebase.auth().currentUser;
-      //   console.log("xxxx"+user);
-      //   firebase.database().ref('users/'+user.uid).once("value").then(function(all) {
-      //       if (all.val().phone == ""|all.val().phone==undefined){
-      //           console.log("目前無法報名活動，使用者資料不完整");
-      //       }
-      //       else{
-      //           console.log("使用者資料已經完整")
-      //       }
-      //   });
-      // }
 
 
 
   </script>
-  <!-- <button onclick="checkUser()">joidfsjoisdf</button> -->
+
 </body>
 
 </html>
