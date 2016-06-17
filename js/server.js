@@ -22,15 +22,7 @@ var config = {
                                      displayName: displayName,
                                      photoURL: photoURL,
                                      email:email,
-                   //                   lineID:' ',
- 						            // phone:' ',
- 						            // nickname:'',
- 						            // gender:'',
- 						            // age:'',
- 						            // description:[],
- 						            // profession:'',
- 						            // interests:'',
- 						            // faceScore:''
+
 
                        });
                  }).catch(function(error) {
