@@ -174,6 +174,7 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
             顏值：{{activity_user.faceScore}}<br>
             free時間:{{activity_user.availabeTime}}<br>
             個性:{{activity_user.description}}<br>
+            匯款末五碼：{{activity_user.accountLastFive}}<br>
             狀態:{{activity_user.status}}<br>
             <button v-on:click="status0(activity_user)">已報名</button>
             <button v-on:click="status1(activity_user)">無匯款，取消場次</button>
