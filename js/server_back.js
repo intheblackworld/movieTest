@@ -90,7 +90,7 @@ var auth = firebase.auth();
                         //       	firebase.database().ref('users/'+userUID).update({
                 								// 	faceScore: this.faceScore
                 								// });
-				               
+
                         //       }
 
                           // computed:{
@@ -353,13 +353,7 @@ var index;
                 }
 
 
-              }  
+              }
               }
             }
             });
-
-
-         
-
-
-

@@ -186,8 +186,8 @@
                           <h5 class="uppercase">場次</h5>
                           <span class="price" v-text="activity.name"></span>
                           <p class="lead" v-text="activity.subject"></p>
-                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}">馬上報名</a>
-                          <div class="modal fade" id="{{activity.activityID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <a class="btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}0">馬上報名</a>
+                          <div class="modal fade" id="{{activity.activityID}}0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
                             <p>多選幾場，讓你更容易跟對方配對喔!</p>
@@ -226,6 +226,7 @@
                     </div>
                   </div>
                 </li>
+
                 <li class="">
                   <div class="tab-content">
                     <div class="row">
@@ -463,7 +464,7 @@
             var user = firebase.auth().currentUser;
             console.log("xxxx"+user);
             firebase.database().ref('users/'+user.uid).once("value").then(function(all) {
-                if (all.val().phone == "" | all.val().phone==undefined){
+                if (all.val().phone == "" ){
                   $('.modal-backdrop, .modal').hide();
                     swal({title:'報名失敗',text:'資料填寫不完整，請至個人資料頁面填寫'})
                 }
@@ -484,9 +485,6 @@
             var user = firebase.auth().currentUser;
             var username, email, photoUrl, uid, lineID, phone, nickname, gender, age, description, profession, interests, faceScore, availabeTime;
             firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
-              if (all.val().phone == "" | all.val().phone==undefined){
-                $('.alert-warning ').show();
-              };
               username = snapshot.val().displayName;
               email = snapshot.val().email;
               photoUrl = snapshot.val().photoURL;
@@ -577,7 +575,7 @@
       })
       $('.pricing-table>a').on('click', function() {
         var e = $(this).attr("data-target");
-        var ID = e.substring(1, e.length)
+        var ID = e.substring(1, e.length-1)
           //  console.log(ID);
         firebase.database().ref('activities/' + ID).once("value").then(function(all5) {
           var movieBefore = all5.val().movie;
@@ -586,14 +584,11 @@
           for (i = 0; i < movieBefore.length; i++) {
             if (movieBefore[i] !== "") {
               movie.push(movieBefore[i]);
-              // console.log("m "+movie);
+
             }
             vmvm.$set('movie', movie);
-            // setInterval(function(){ $('.inputMovie').hide(); }, 3000);
 
           }
-
-          // $('body').find('label').filter(function() { return $(this).text() == ""; }).hide();
         })
 
       });
@@ -601,23 +596,11 @@
     })
 
 
-      // function checkUser(){
-      //   var user = firebase.auth().currentUser;
-      //   console.log("xxxx"+user);
-      //   firebase.database().ref('users/'+user.uid).once("value").then(function(all) {
-      //       if (all.val().phone == ""|all.val().phone==undefined){
-      //           console.log("目前無法報名活動，使用者資料不完整");
-      //       }
-      //       else{
-      //           console.log("使用者資料已經完整")
-      //       }
-      //   });
-      // }
 
 
 
   </script>
-  <!-- <button onclick="checkUser()">joidfsjoisdf</button> -->
+
 </body>
 
 </html>

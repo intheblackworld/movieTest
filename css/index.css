@@ -678,6 +678,9 @@ nav.transparent .menu > .logout > a {
 .close-btn:active,.close-btn:focus {
   outline: none;
 }
+.padding40 {
+  padding: 40px;
+}
 @media all and (max-width: 767px) {
   .menu li img {
     width: 43px;

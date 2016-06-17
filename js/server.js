@@ -22,12 +22,11 @@ var config = {
                                      displayName: displayName,
                                      photoURL: photoURL,
                                      email:email,
-
-
                        });
                  }).catch(function(error) {
                    // An error occurred
                  });
+                //  window.location = "/admin_profile.html";
                  }
 // 臉書判斷是否登入
 			var url = window.location.href;
@@ -68,7 +67,7 @@ var config = {
          alert('你尚未登入喔');
          window.location = "/index.html";
        }
-       if (!user&& lasturl =='admin_profile.html') {
+       if (!user&& lasturl =='admin_pro.html') {
         alert('你尚未登入喔');
         window.location = "/index.html";
       }
