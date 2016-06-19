@@ -159,8 +159,11 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
           </div>
           <br>
           搜尋關鍵字(ex:男,台北...)<input v-model="query"></input><br>
-          條件二(ex:電影,顏值...)<input v-model="query2"></input>
+          條件二(ex:電影,顏值...)<input v-model="query2"></input><br>
 
+ 人數：<p id="countPeople"></p>
+<div v-for="activity_user in activity_users| filterBy query|filterBy query2| three">
+</div>
 
           <div v-for="activity_user in activity_users| filterBy query|filterBy query2">
             <img v-bind:src="activity_user.photoURL"><br>
