@@ -342,10 +342,14 @@ h6,
   font-weight: 700;
 }
 @media all and (max-width: 767px) {
+  div.slogan-topic {
+    padding-left: 0;
+    padding-right: 0;
+  }
   h1,
   h1.large,
   .h1 {
-    font-size: 32px;
+    font-size: 28px;
     line-height: 40px;
     font-weight: 300;
   }
