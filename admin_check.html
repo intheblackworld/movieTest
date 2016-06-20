@@ -239,7 +239,7 @@
                 data: {user_activities:all.val(),accountLastFive:""},
                 methods: {
                   payMoney:function(x){
-                     payActivity = x.activity;
+                     payActivity = x.activityId;
                       xyz.$set('accountLastFive',x.accountLastFive);
 
                   },
@@ -247,6 +247,8 @@
                        var updates4 = {};
                        console.log(document.getElementById('paypay').value);
                        updates4['accountLastFive'] = document.getElementById('paypay').value;
+                       console.log('updates4:'+updates4.accountLastFive);
+                       console.log('activity-users/' + payActivity + '/' + uid)
                        firebase.database().ref('activity-users/' + payActivity + '/' + uid).update(updates4);
                        firebase.database().ref('user-activities/' + uid + '/' + payActivity).update(updates4);
 
@@ -257,7 +259,7 @@
                 $('.bank').click(function(){
                   $('.hide-text').fadeIn(300);})
                 $('.paymoney').on('click',function(){
-                  swal('已收到您的資料，請儘速匯款');
+                  swal('已收到您的資料，將會在活動期結束確認');
                 })
 
             });

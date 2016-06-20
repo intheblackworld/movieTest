@@ -90,7 +90,7 @@ var auth = firebase.auth();
                         //       	firebase.database().ref('users/'+userUID).update({
                 								// 	faceScore: this.faceScore
                 								// });
-
+				               
                         //       }
 
                           // computed:{
@@ -184,10 +184,15 @@ var index;
         //     data: {activity_users:all.val()},
         //     });
         // })
-
+Vue.filter( 'three' , function ( value ) {
+    document.getElementById('countPeople').innerHTML = value.length;
+  
+  })
 
          firebase.database().ref('activities/').on("value",function(all){
          	var au = all.val();
+
+
 
            var vm = new Vue({
             el: '#app4',
@@ -338,8 +343,6 @@ var index;
                 if (val.faceScore=="Face6"){
                     console.log(6)
                      for (k=0;k<sizeG;k++){
-                      console.log(k);
-                      console.log(Object.keys(group.grouptestGril)[k])
                          var key2 = Object.keys(group.grouptestGril)[k];
                          var val2 = group.grouptestGirl[key];
                          if (val2.faceScore=="Face6"){
@@ -353,7 +356,13 @@ var index;
                 }
 
 
-              }
+              }  
               }
             }
             });
+
+
+         
+
+
+
