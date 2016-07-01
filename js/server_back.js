@@ -323,11 +323,13 @@ Vue.filter( 'three' , function ( value ) {
            grouptestGirlT = all.val();
         });
 
+
+
        console.log(grouptestBoyT);
 
            var group = new Vue({
             el: '#apptest',
-            data: {grouptestBoy:grouptestBoyT,grouptestGirl:grouptestGirlT},
+            data: {grouptestBoy:grouptestBoyT,grouptestGirl:grouptestGirlT,},
             methods:{
               firstTest:function(){
                 group.$set('grouptestBoy',grouptestBoyT);
@@ -357,12 +359,113 @@ Vue.filter( 'three' , function ( value ) {
 
 
               }  
+              },
+              fix:function(){
+                  
+                     firebase.database().ref('activity-users/-KKOKelFhIZ8D97hhEIT').on("value",function(all2){
+                         var au2 = all2.val();
+                        this.activity_users=all2.val();
+                        vm.$set('activity_users',all2.val());
+                        console.log(this.activity_users);
+
+                        for (i=0;i<all2.numChildren();i++){
+                          var key = Object.keys(all2.val())[i];
+                          var val = all2.val()[key];
+                          console.log(val.userID);
+                          firebase.database().ref('users/'+val.userID).on("value",function(all3){
+                            console.log(all3.val().availabeTime);
+                            var updates3={};
+                            updates3['availabeTime']=all3.val().availabeTime;
+                            console.log(updates3);
+                            firebase.database().ref('activity-users/-KKOKelFhIZ8D97hhEIT/'+val.userID).update(updates3);
+                          });
+                        }
+
+                    });
+
+
+
               }
             }
             });
 
 
-         
+         // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+    function postMatch(){
+          firebase.database().ref('activity-users/-KKOKelFhIZ8D97hhEIT').on("value",function(all2){
+               var inputBoyName = document.getElementById('inputBoyName').value;
+              var inputGirlName = document.getElementById('inputGirlName').value;
+              var regionNumber = document.getElementById('regionNumber').value;
 
 
+                for (i=0;i<all2.numChildren();i++){
+                          var key = Object.keys(all2.val())[i];
+                          var val = all2.val()[key];
+                          if (inputBoyName==val.username){
+                              var updates3={};
+                              updates3['username']=val.username;
+                              updates3['regionNumber']=regionNumber;
+                              updates3['location']=val.location;
+                              updates3['userID']=val.userID;
+                              updates3['photoURL']=val.photoURL;
+                              updates3['email']=val.email;
+                              updates3['lineID']=val.lineID;
+                              updates3['phone']=val.phone;
+                              updates3['nickname']=val.nickname;
+                              updates3['gender']=val.gender;
+                              updates3['age']=val.age;
+                              updates3['description']=val.description;
+                              updates3['profession']=val.profession;
+                              updates3['interests']=val.interests;
+                              updates3['availabeTime']=val.availabeTime;
+                              updates3['movie']=val.movie;
+                              updates3['status']=val.status;
+                              updates3['activityName']=val.activityName;
+                              firebase.database().ref('match/-KKOKelFhIZ8D97hhEIT/'+val.userID).update(updates3);
+                              console.log("男生存入")  
+                          }else{
+                          };
+                          if (inputGirlName==val.username){
+                              var updates3={};
+                              updates3['username']=val.username;
+                              updates3['regionNumber']=regionNumber;
+                              updates3['location']=val.location;
+                              updates3['userID']=val.userID;
+                              updates3['photoURL']=val.photoURL;
+                              updates3['email']=val.email;
+                              updates3['lineID']=val.lineID;
+                              updates3['phone']=val.phone;
+                              updates3['nickname']=val.nickname;
+                              updates3['gender']=val.gender;
+                              updates3['age']=val.age;
+                              updates3['description']=val.description;
+                              updates3['profession']=val.profession;
+                              updates3['interests']=val.interests;
+                              updates3['availabeTime']=val.availabeTime;
+                              updates3['movie']=val.movie;
+                              updates3['status']=val.status;
+                              updates3['activityName']=val.activityName;
+                              firebase.database().ref('match/-KKOKelFhIZ8D97hhEIT/'+val.userID).update(updates3);  
+                             console.log("女生存入")  
+
+                          }else{
+                          }
+
+                }
+
+          });        
+      };
+
+ firebase.database().ref('match/-KKOKelFhIZ8D97hhEIT').on("value",function(all2){
+      var matchVue = new Vue({
+          el: '#app7',
+          data: {match:all2.val()},
+          methods:{
+            
+
+            }
+      })
+
+  });
 

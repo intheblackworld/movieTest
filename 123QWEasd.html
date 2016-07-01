@@ -85,6 +85,9 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
               <li data-index="5">
                 <a href="#">配對演算法測試</a>
               </li>
+              <li data-index="6">
+                <a href="#">配對結果</a>
+              </li>
             </ul>
           </div>
           <!--end of menu module-->
@@ -176,8 +179,9 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
             地區：{{activity_user.location}}<br>
             顏值：{{activity_user.faceScore}}<br>
             free時間:{{activity_user.availabeTime}}<br>
-            個性:{{activity_user.description}}<br>
+            個性:{{activity_user.description}}<br>  
             匯款末五碼：{{activity_user.accountLastFive}}<br>
+            電話：{{activity_user.phone}}<br>
             狀態:{{activity_user.status}}<br>
             <button v-on:click="status0(activity_user)">已報名</button>
             <button v-on:click="status1(activity_user)">無匯款，取消場次</button>
@@ -215,10 +219,10 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
               綽號：{{activity_user.nickname}}<br>
               興趣:{{activity_user.interests}}<br>
               年齡：{{activity_user.age}}<br>
-              電影:{{activity_user.movie}}<br>
+              <span style="font-size:5px;">電影:{{activity_user.movie}}</span><br>
               地區：{{activity_user.location}}<br>
               顏值：{{activity_user.faceScore}}<br>
-              free時間:{{activity_user.availabeTime}}<br>
+              <span style="font-size:1px;">free時間:{{activity_user.availabeTime}}</span><br>
               個性:{{activity_user.description}}<br>
               狀態:{{activity_user.status}}<br>
               <button v-on:click="showUserID(activity_user)">觀看id</button>
@@ -260,7 +264,7 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
               <div class="5 admin-back-content">
                 <div id="apptest">
 
-
+                    <button v-on:click="fix">轉存（將users的availabeTime存到activity-users）</button>
                     <button v-on:click="firstTest">步驟1:資料匯入</button>
                     <button v-on:click="secondTest">步驟2:初步配對</button>
                     <br>
@@ -277,6 +281,37 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
 
                 </div>
               </div>
+
+
+          <div class="6 admin-back-content">
+
+            男生姓名：<input id="inputBoyName"></input>
+            女生姓名：<input id="inputGirlName"></input>
+            輸入配對地區群組編號：<input id="regionNumber"></input>
+            <button onclick="postMatch()">新增配對</button>
+            <br>
+            <p>本次錄取名單：</p>
+            <div id="app7">
+                搜尋：<input id="searchMatch" v-model="query"></input>
+                <div v-for="activity_user in match|filterBy query">
+                <img v-bind:src="activity_user.photoURL"><br>
+            群組編號:{{activity_user.regionNumber}}<br>
+                名稱：{{activity_user.username}}<br>
+                綽號：{{activity_user.nickname}}<br>
+                free時間:{{activity_user.availabeTime}}<br>
+                電影:{{activity_user.movie}}<br>
+                性別：{{activity_user.gender}}<br>
+                興趣:{{activity_user.interests}}<br>
+                年齡：{{activity_user.age}}<br>
+                地區：{{activity_user.location}}<br>
+                個性:{{activity_user.description}}<br>
+                電話：{{activity_user.phone}}<br>
+                lineID: {{activity_user.lineID}}<br>
+                <br>
+              </div>
+            </div>
+
+          </div>
 
 
       </div>
