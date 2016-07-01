@@ -259,7 +259,9 @@
                 $('.bank').click(function(){
                   $('.hide-text').fadeIn(300);})
                 $('.paymoney').on('click',function(){
-                  swal('已收到您的資料，將會在活動期結束確認');
+                  swal({
+                    html:'<h2 style="margin-bottom:15px;letter-spacing:10px;">已收到您的資料</h2><p style="font-size:1.6rem;margin-left:3px;">我們將會在報名期結束確認<br />如果沒有配對成功會再退款給您</p>'
+                  });
                 })
 
             });
