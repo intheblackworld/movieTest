@@ -177,16 +177,16 @@
 
                 </li>
               </ul>
-              <ul class="content admin-content">
+              <ul class="content admin-content" >
                 <li class="active">
-                  <div class="tab-content">
+                  <div class="tab-content" >
                     <div class="row">
-                      <div class="col-md-4 col-sm-6 " v-for="activity in activities | orderBy '$index' order -1 | three">
+                      <div class="col-md-4 col-sm-6 actstate" data-state="{{activity.status}}" v-for="activity in activities | orderBy '$index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed ">
                           <h5 class="uppercase">場次</h5>
                           <span class="price" v-text="activity.name"></span>
                           <p class="lead" v-text="activity.subject"></p>
-                          <a class="disabled btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}0">報名結束</a>
+                          <a class="btn btn-filled btn-lg actstate" data-toggle="modal" data-target="#{{activity.activityID}}0" data-state="{{activity.status}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
@@ -230,12 +230,12 @@
                 <li class="">
                   <div class="tab-content">
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
+                      <div class="col-md-4 col-sm-6 actstate" data-state="{{activity.status}}" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
                           <span class="price" v-text="activity.name"></span>
                           <p class="lead" v-text="activity.subject"></p>
-                          <a class="disabled btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}1">報名結束</a>
+                          <a class="btn btn-filled btn-lg actstate" data-toggle="modal" data-target="#{{activity.activityID}}1" data-state="{{activity.status}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
@@ -273,12 +273,12 @@
                 <li class="">
                   <div class="tab-content">
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
+                      <div class="col-md-4 col-sm-6 actstate" data-state="{{activity.status}}" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
                           <span class="price" v-text="activity.name"></span>
                           <p class="lead" v-text="activity.subject"></p>
-                          <a class="disabled btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}2">報名結束</a>
+                          <a class="btn btn-filled btn-lg actstate" data-toggle="modal" data-target="#{{activity.activityID}}2" data-state="{{activity.status}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
@@ -316,12 +316,12 @@
                 <li class="">
                   <div class="tab-content">
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
+                      <div class="col-md-4 col-sm-6 actstate" data-state="{{activity.status}}" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
                           <span class="price" v-text="activity.name"></span>
                           <p class="lead" v-text="activity.subject"></p>
-                          <a class="disabled btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}3">報名結束</a>
+                          <a class="btn btn-filled btn-lg actstate" data-toggle="modal" data-target="#{{activity.activityID}}3" data-state="{{activity.status}}">馬上報名</a>
                           <div class="modal fade" id="{{activity.activityID}}3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
@@ -364,12 +364,12 @@
                 <li class="">
                   <div class="tab-content">
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" v-for="activity in activities | orderBy 'index' order -1 | three">
+                      <div class="col-md-4 col-sm-6 actstate" data-state="{{activity.status}}" v-for="activity in activities | orderBy 'index' order -1 | three">
                         <div class="pricing-table pt-1 text-center boxed">
                           <h5 class="uppercase">場次</h5>
                           <span class="price" v-text="activity.name"></span>
                           <p class="lead" v-text="activity.subject"></p>
-                          <a class="disabled btn btn-filled btn-lg" data-toggle="modal" data-target="#{{activity.activityID}}4">報名結束</a>
+                          <a class="btn btn-filled btn-lg actstate" data-toggle="modal" data-target="#{{activity.activityID}}4" data-state="{{activity.status}}">報名結束</a>
                           <div class="modal fade" id="{{activity.activityID}}4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="close-x" aria-hidden="true">&times;</span></button>
                             <h4 style="margin-bottom:0px;">這次活動想跟對方看的電影</h4>
@@ -592,6 +592,17 @@
         })
 
       });
+
+$("a[data-state='0']").addClass('disabled');
+$("div[data-state='2']").fadeOut();
+      // if($(".actstate").data("state") == 0 ) {
+      //   alert(123);
+      //   $(this).addClass('disabled');}
+      // // }else if ($(".actstate").data("state") == 1){
+      // //     alert(123);
+      // // }else {
+      // //   // $(".actstate").fadeOut();
+      // // }
 
     })
 

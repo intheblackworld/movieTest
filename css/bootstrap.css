@@ -3051,6 +3051,7 @@ fieldset[disabled] .btn {
   -webkit-box-shadow: none;
           box-shadow: none;
   opacity: .65;
+  border: none;
 }
 a.btn.disabled,
 fieldset[disabled] a.btn {
